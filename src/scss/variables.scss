@@ -4,16 +4,12 @@ $screen-xs:                   480px;
 $screen-sm:                   768px;
 $screen-md:                   992px;
 $screen-lg:                   1200px;
-$screen-xl:                   1920px;
+$screen-xl:                   1800px;
 
 // Colors
 
 $blue :                       #00b0ff;
-$lightBlue :                  #00d2ff;
-$gray :                       #787878;
-$lightGray :                  #a0a0a0;
-$yellow :                     #f2d800;
-$indigo :                     #0022ff;
+
 
 @function rem($px) {
     @return $px / 16px + 0rem;

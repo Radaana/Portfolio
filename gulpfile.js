@@ -28,9 +28,10 @@ const spritesmith = require('gulp.spritesmith');  //Convert a set of images into
 const buffer = require('vinyl-buffer'); // An alternative to gulp-streamify that you can pipe to, instead of being required to wrap your streams.
 const merge = require('merge-stream'); //Merge (interleave) a bunch of streams.
 
-const webpack = require('gulp-webpack');
-// const webpack = require("webpack");
-// const webpackConfig = require("./webpack.config.js"); gulp
+const webpack = require('gulp-webpack'); //Webback 
+
+const pug = require('gulp-pug'); // PUG
+
 
 
 // Пути 
@@ -87,6 +88,19 @@ function htmls() { //HTML
     .pipe(replace(/\n\s*<!--DEV[\s\S]+?-->/gm, ''))
     .pipe(gulp.dest(paths.build));
 }
+
+
+ function pugs() {  // Компиляция pug
+  return gulp.src([
+    paths.src + '*.pug' 
+    // '!' + dirs.source + '/mixins.pug',
+    ])
+    .pipe(plumber())
+    .pipe(pug())
+    // .pipe(htmlbeautify())
+    .pipe(gulp.dest(paths.build));
+};
+
 
 function copyImg() { //IMG
   if(images.length) {
@@ -183,6 +197,7 @@ function watch() {
   gulp.watch(paths.src + 'scss/**/*.scss', styles);
   gulp.watch(paths.src + 'js/**/*.js', scripts);
   gulp.watch(paths.src + '*.html', htmls);
+  gulp.watch(paths.src + '*.pug', pugs);
   gulp.watch(paths.src + 'icons/*.svg', svgSpriteBuild);
   gulp.watch(paths.src + 'png-sprite/*.png', pngSpriteBuild);
   gulp.watch(paths.src + 'img/*.{gif,png,jpg,jpeg,svg,ico}', copyImg);
@@ -203,6 +218,7 @@ function serve() {
 exports.styles = styles;
 exports.scripts = scripts;
 exports.htmls = htmls;
+exports.pugs = pugs;
 exports.clean = clean;
 exports.watch = watch;
 exports.copyImg = copyImg;
@@ -216,6 +232,7 @@ gulp.task('build', gulp.series(
   styles,
   scripts,
   htmls,
+  pugs,
   svgSpriteBuild,
   pngSpriteBuild,
   copyImg
@@ -225,7 +242,7 @@ gulp.task('build', gulp.series(
 gulp.task('default', gulp.series(
   clean,
   gulp.parallel(svgSpriteBuild, pngSpriteBuild),
-  gulp.parallel(styles, scripts, htmls),
+  gulp.parallel(styles, scripts, htmls, pugs),
   gulp.parallel(copyImg, copyFonts),
   gulp.parallel(watch, serve)
 ));
