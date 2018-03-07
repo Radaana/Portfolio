@@ -9,7 +9,9 @@
     width: 100%;
 }
 
-.section-title {
+.section__title {
+    @include sansus;
+    color: #fff;
     padding: 0;
     margin: 0;
 }

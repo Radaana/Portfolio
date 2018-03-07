@@ -28,7 +28,8 @@ const spritesmith = require('gulp.spritesmith');  //Convert a set of images into
 const buffer = require('vinyl-buffer'); // An alternative to gulp-streamify that you can pipe to, instead of being required to wrap your streams.
 const merge = require('merge-stream'); //Merge (interleave) a bunch of streams.
 
-const webpack = require('gulp-webpack'); //Webback 
+const gulpWebpack = require('gulp-webpack'); //Webback 
+const webpack = require('webpack');
 
 const pug = require('gulp-pug'); // PUG
 
@@ -73,7 +74,7 @@ function styles() { // CSS
 function scripts() { //JS
   return gulp.src(paths.src + 'js/**/*.js')
     .pipe(plumber())
-    .pipe(webpack(require('./webpack.config.js')))
+    .pipe(gulpWebpack(require('./webpack.config.js', webpack)))
     .pipe(babel({
       presets: ['env']
     }))
@@ -90,13 +91,15 @@ function htmls() { //HTML
 }
 
 
- function pugs() {  // Компиляция pug
+ function pugs() {  // PUG
   return gulp.src([
     paths.src + '*.pug' 
     // '!' + dirs.source + '/mixins.pug',
     ])
     .pipe(plumber())
-    .pipe(pug())
+    .pipe(pug({
+      pretty: true
+    }))
     // .pipe(htmlbeautify())
     .pipe(gulp.dest(paths.build));
 };
@@ -105,6 +108,7 @@ function htmls() { //HTML
 function copyImg() { //IMG
   if(images.length) {
     return gulp.src(images)
+      .pipe(plumber())
       .pipe(imagemin()) //minify images
       // .pipe(newer(dirs.build + '/img')) // потенциально опасно, к сожалению
       // .pipe(rename({dirname: ''}))
@@ -130,6 +134,7 @@ function copyFonts() { //FONTS
 function svgSpriteBuild() { //SVG Sprite
   return gulp.src(paths.src + 'icons/*.svg')
   // minify svg
+    .pipe(plumber())
     .pipe(svgmin({
       js2svg: {
         pretty: true
@@ -198,6 +203,7 @@ function watch() {
   gulp.watch(paths.src + 'js/**/*.js', scripts);
   gulp.watch(paths.src + '*.html', htmls);
   gulp.watch(paths.src + '*.pug', pugs);
+  gulp.watch(paths.src + 'pug/*.pug', pugs);
   gulp.watch(paths.src + 'icons/*.svg', svgSpriteBuild);
   gulp.watch(paths.src + 'png-sprite/*.png', pngSpriteBuild);
   gulp.watch(paths.src + 'img/*.{gif,png,jpg,jpeg,svg,ico}', copyImg);

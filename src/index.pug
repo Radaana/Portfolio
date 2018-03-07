@@ -3,7 +3,17 @@ extends pug/base
 block head
     title index page
 block content
-    h1 Привет
-    div
-        p Lorem ipsum dolor sit amet consectetur, adipisicing elit. At modi in quisquam perferendis laborum omnis sed rerum fugit facere eius. Aliquam, voluptas natus possimus labore reiciendis iusto beatae quis temporibus?
+    .maincontent
+        section.section.welcome
+            a.button.welcome__button Авторизоваться
+            .welcome__inner
+                .profile
+                    .profile__img
+                        img.profile__jpg(src='img/me.jpg')
+                    h1.profile__title Леонидова Екатерина
+                    p.profile__text Веб-разработчик
+                    include pug/socials.pug
+
+                include pug/nav.pug
+            .copyright © Екатерина Леонидова | создано с любовью в LoftSchool | 2016
 
