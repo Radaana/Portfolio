@@ -1,19 +1,32 @@
 extends pug/base
 
 block head
-    title index page
+    title Блог
 block content
     .maincontent
         section.section
-            h1.section__title Блог
-            ul
-                li
-                    h2 Заголовок статьи
-                    p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.
-                li
-                    h2 Ещё статья
-                    p Далеко-далеко за словесными горами в стране.
-                li
-                    h2 Последняя статья
-                    p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
-        include pug/nav.pug
+            header.header
+                .header__socials
+                    include pug/socials.pug
+                .photo
+                    img.photo__jpg(src='img/me.jpg')
+                h1.section__title Блог
+                p.header__text Статьи, которые я написала
+            .contents
+                aside.names
+                    ul.names__list
+                        li.names__item Заголовок статьи
+                        li.names__item Заголовок статьи
+                        li.names__item Заголовок статьи
+                .contents__inner
+                    ul
+                        li
+                            h2 Заголовок статьи
+                            p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.
+                        li
+                            h2 Ещё статья
+                            p Далеко-далеко за словесными горами в стране.
+                        li
+                            h2 Последняя статья
+                            p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
+            include pug/nav.pug

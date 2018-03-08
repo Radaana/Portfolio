@@ -1,0 +1,21 @@
+.header {
+    height: 430px;
+    background: url('../img/welcome-bg.jpg') center center no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}    
+
+.header__socials {
+    position: absolute;
+    top: 35px;
+    left: 30px;
+    .socials__link {
+        opacity: 1;
+    }
+}
+

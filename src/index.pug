@@ -1,15 +1,15 @@
 extends pug/base
 
 block head
-    title index page
+    title Сайт-портфолио
 block content
     .maincontent
         section.section.welcome
             a.button.welcome__button Авторизоваться
             .welcome__inner
                 .profile
-                    .profile__img
-                        img.profile__jpg(src='img/me.jpg')
+                    .photo
+                        img.photo__jpg(src='img/me.jpg')
                     h1.profile__title Леонидова Екатерина
                     p.profile__text Веб-разработчик
                     include pug/socials.pug
