@@ -1,4 +1,5 @@
 Сайт портфолио
+
 https://radaana.github.io/Portfolio/build/index.html 
 ----------------------------
 
@@ -7,6 +8,11 @@ https://radaana.github.io/Portfolio/build/index.html
 Продвинутый курс по веб-разработке 
 
 ----------------------------
+
+Для работы сборки у вас должны быть установлены
+
+    gulp-cli
+    node.js
 
 Сборка проекта 
 
