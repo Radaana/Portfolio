@@ -18,9 +18,10 @@ https://radaana.github.io/Portfolio/build/index.html
 
     SCSS : компиляция, минификация, автопрефиксы, группировка медиа-запросов
     JS : Webpack, минификация, Babel)
-    HTML :Изъятие DEV-комментариев
+    PUG : Компиляция
     IMG : Минификация
     SVG-спрайт
     PNG-спрайт
+    Слежение за файлами 
     
     

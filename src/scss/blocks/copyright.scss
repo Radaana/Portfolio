@@ -1,6 +1,18 @@
 .copyright {
-    position: absolute;
-    bottom: 45px;
-    color: #fff;
     
+    color: #fff;
+    display: block;
+    text-align: center;
+
+    &--index {
+        position: absolute;
+        bottom: 45px;
+    }
+
+    &--footer {
+        background-color: $lightGreen;
+        font-family: 'robotolight', sans-serif;
+        height: 35px;
+        line-height: 35px;
+    }
 }

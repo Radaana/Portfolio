@@ -4,29 +4,45 @@ block head
     title Блог
 block content
     .maincontent
-        section.section
+        section.section.blog    
             header.header
                 .header__socials
                     include pug/socials.pug
+                .header__menu 
+                    include icons/hamburger.svg
                 .photo
                     img.photo__jpg(src='img/me.jpg')
                 h1.section__title Блог
-                p.header__text Статьи, которые я написала
-            .contents
+                p.header__text Статьи, которые я написала         
+            .contents.container
                 aside.names
                     ul.names__list
                         li.names__item Заголовок статьи
-                        li.names__item Заголовок статьи
+                        li.names__item Очень длинный заголовок невероятно интересной статьи
                         li.names__item Заголовок статьи
                 .contents__inner
-                    ul
-                        li
-                            h2 Заголовок статьи
-                            p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.
-                        li
-                            h2 Ещё статья
-                            p Далеко-далеко за словесными горами в стране.
-                        li
-                            h2 Последняя статья
-                            p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
-            include pug/nav.pug
+                    article.article
+                        h2.article__title Заголовок статьи
+                        time.article__date 20 февраля 2018
+                        p.article__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempore assumenda voluptatem eveniet omnis nisi facilis ipsum tempora corrupti esse asperiores, fuga rem est quisquam amet qui magni, obcaecati eum recusandae aspernatur eligendi nam accusamus non! Repellat rerum hic, ipsa delectus illo corporis, aliquam totam, sequi quisquam velit quos eligendi.
+                    article.article
+                        h2.article__title  Ещё статья
+                        time.article__date 20 февраля 2018
+                        p.article__text Далеко-далеко за словесными горами в стране.
+                    article.article
+                        h2.article__title  Последняя статья
+                        time.article__date 20 февраля 2018
+                        p.article__text Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
+            footer.footer
+                .footer__column 
+                    p.footer__text Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. 
+                .footer__column 
+                    .footer__nav
+                        +nav(1)
+                    .footer__socials
+                        include pug/socials.pug
+                .footer__column.quote
+                    blockquote.quote__text Есть два способа создания дизайна программы. Один из них, это сделать его настолько простым, что в нем, очевидно, не будет недостатков. Другой способ — сделать его настолько запутанным, что в нем не будет очевидных недостатков.
+                    cite.quote__author — C.A. R. Hoare
+            .copyright.copyright--footer © Екатерина Леонидова | создано с любовью в LoftSchool | 2016
+                    

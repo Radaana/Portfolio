@@ -1,10 +1,13 @@
-.nav
-    ul.nav__list
-        li.nav__item
-             a.nav__link(href='works.html') Мои работы
-        li.nav__item
-             a.nav__link(href='about.html') Обо мне
-        li.nav__item
-             a.nav__link(href='blog.html') Блог
-
+mixin nav(long) 
+    .nav
+        ul.nav__list
+            li.nav__item
+                a.nav__link(href='works.html') Мои работы
+            li.nav__item
+                a.nav__link(href='about.html') Обо мне
+            li.nav__item
+                a.nav__link(href='blog.html') Блог
+            if long == 1 
+                li.nav__item
+                    a.nav__link(href='index.html') Авторизация
                 //- each item in ['Мои работы', 'Обо мне', 'Блог']

@@ -2,24 +2,39 @@
     height: 100%;
     min-height: 650px;
     width: 100%;
+    
 }
 
+
 .section {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
-}
+    background-color: #faf8f0;
+}    
 
 .section__title {
     @include sansus;
+    font-size: 63px;
     color: #fff;
-    padding: 0;
+    padding: 30px 0 ;
     margin: 0;
     text-transform: uppercase;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        background-color: #fff;
+        width: 80%;
+        height: 3px;    
+    }   
 }
 
 .container {
     width: 100%;
-    max-width: 1100px;
-    height: 100%;
+    max-width: 1400px;
+    // height: 100%;
     margin: 0 auto;
 }

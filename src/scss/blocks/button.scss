@@ -4,4 +4,9 @@
     border: 1px solid #fff;
     border-radius: 30px;
     color: #fff;
+
+    &:hover {
+        background-color: $green;
+        border: 1px solid transparent;
+    }
 }

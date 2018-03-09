@@ -1,3 +1,9 @@
 .contents {
     display: flex;
+    flex-grow: 1;
+    
+}
+
+.contents__inner {
+    display: block;
 }
