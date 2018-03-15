@@ -1,5 +1,5 @@
 .header {
-    height: 430px;
+    height: 600px;
     background: url('../img/welcome-bg.jpg') center center no-repeat;
     background-size: cover;
     position: relative;
@@ -24,4 +24,11 @@
     top: 30px;
     right: 30px;
     
+}
+
+.header__arrow {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    margin-left: -13px;
 }

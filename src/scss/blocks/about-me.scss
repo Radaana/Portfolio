@@ -1,0 +1,25 @@
+.about-me__content  {
+    display: flex;
+}
+
+.about-me__left {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 50%;
+    padding: 20px 20px;
+    background-color: #ebefe2;
+}
+
+.about-me__right {
+    width: 50%;
+    background-color: #f4f5f0;
+    padding: 20px 35px;
+}
+
+.about-me__title {
+    flex-grow: 1;
+    display: block;
+    text-align: center;
+    width: 50%;
+}
