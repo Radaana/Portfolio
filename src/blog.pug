@@ -14,23 +14,28 @@ block content
                     img.photo__jpg(src='img/me.jpg')
                 h1.section__title Блог
                 p.header__text Статьи, которые я написала         
-            .contents.container
-                aside.names
-                    ul.names__list
-                        li.names__item Заголовок статьи
-                        li.names__item Очень длинный заголовок невероятно интересной статьи
-                        li.names__item Заголовок статьи
-                main.contents__inner
-                    article.article
-                        h2.article__title Заголовок статьи
-                        time.article__date 20 февраля 2018
-                        p.article__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempore assumenda voluptatem eveniet omnis nisi facilis ipsum tempora corrupti esse asperiores, fuga rem est quisquam amet qui magni, obcaecati eum recusandae aspernatur eligendi nam accusamus non! Repellat rerum hic, ipsa delectus illo corporis, aliquam totam, sequi quisquam velit quos eligendi.
-                    article.article
-                        h2.article__title  Ещё статья
-                        time.article__date 20 февраля 2018
-                        p.article__text Далеко-далеко за словесными горами в стране.
-                    article.article
-                        h2.article__title  Последняя статья
-                        time.article__date 20 февраля 2018
-                        p.article__text Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
+            .blog__main
+                .triangles.triangles--blog
+                    svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="traingle")
+                        polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
+                        polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5") 
+                .contents.container
+                    aside.names
+                        ul.names__list
+                            li.names__item Заголовок статьи
+                            li.names__item Очень длинный заголовок невероятно интересной статьи
+                            li.names__item Заголовок статьи
+                    main.contents__inner
+                        article.article
+                            h2.article__title Заголовок статьи
+                            time.article__date 20 февраля 2018
+                            p.article__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempore assumenda voluptatem eveniet omnis nisi facilis ipsum tempora corrupti esse asperiores, fuga rem est quisquam amet qui magni, obcaecati eum recusandae aspernatur eligendi nam accusamus non! Repellat rerum hic, ipsa delectus illo corporis, aliquam totam, sequi quisquam velit quos eligendi.
+                        article.article
+                            h2.article__title  Ещё статья
+                            time.article__date 20 февраля 2018
+                            p.article__text Далеко-далеко за словесными горами в стране.
+                        article.article
+                            h2.article__title  Последняя статья
+                            time.article__date 20 февраля 2018
+                            p.article__text Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
             include pug/footer.pug

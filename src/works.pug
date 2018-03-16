@@ -4,8 +4,62 @@ block head
     title Мои работы
 block content
     .maincontent
-        section.section
-            h1.section__title Мои работы
-            div
-                p Lorem ipsum dolor sit amet consectetur, adipisicing elit. At modi in quisquam perferendis laborum omnis sed rerum fugit facere eius. Aliquam, voluptas natus possimus labore reiciendis iusto beatae quis temporibus?
-
+        section.section.works  
+            header.header
+                .header__socials
+                    include pug/socials.pug
+                a.header__menu(href="#") 
+                    include icons/hamburger.svg
+                .profile
+                    .photo
+                        img.photo__jpg(src='img/me.jpg')
+                    h1.profile__title Леонидова Екатерина
+                    p.profile__text Веб-разработчик   
+                a.arrow.header__arrow(href="#")
+                    include icons/arrow_down.svg
+            .works__main    
+                .triangles
+                    svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="traingle")
+                        polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
+                        polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5")  
+                .works__content
+                    h1.section__title.section__title--dark.about-me__title  Обо мне 
+                    .about-me__left                            
+                        .user
+                            .user__pic
+                                img.user__img(src='img/me.jpg')
+                            h3.section__subtitle Кто я
+                            .user__text.text
+                                p Я веб разработчик из Москвы. Мне 30 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты, изучать новые подходы и фреймворки, постоянно учиться.
+                                p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool на продвинутом курсе по веб-разработке. 
+                    .about-me__right
+                        h3.section__subtitle Чем я могу быть вам полезна
+                        .text Больше всего меня привлекает Frontend разработка, но я могу решать несложные задачи на Backend. Ниже список моих навыков: 
+                        ul.skills__list.about-me__skills
+                            - var skillSet = [{ category: 'Frontend', skills: [ {name : 'HTML', level: 90}, {name: 'CSS', level: 80}, {name: 'JavaScript & jQuery', level: 50}]}, { category: 'Backend', skills: [{ name: 'PHP', level: 15}, { name: 'mySQL', level: 15}, { name: 'Node.js & npm', level: 15}, { name: 'MongoDB', level: 15}]}, { category: 'Workflow', skills: [{name: 'Git', level: 50}, {name: 'Gulp', level: 40}, {name: 'Bower', level: 35}]}]
+                            each item in skillSet 
+                                li.skills__item
+                                    .skills__title #{item.category}
+                                    ul.skills__row
+                                        each skill in item.skills
+                                            li.skills__skill.skill 
+                                                svg.skill__circle.circle(viewBox="0 0 110 110")
+                                                    circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                                    circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class=`circle__second circle__second--${skill.level}`)
+                                                .skill__title #{skill.name}
+            .works__map
+                .contacts
+                    .contacts__title
+                        h3.section__subtitle Контакты
+                        ul.contacts__list
+                        - var contacts = [ ['skype', 'iscazia'], ['envelope', 'leonidovaes@gmail.com'], ['phone', '+7 916 --- -- --'], ['map_marker', 'Москва, м. Проспект Вернадского'] ]
+                        each contact in contacts
+                            li.contacts__row
+                                .contacts__icon
+                                    svg.contacts__svg
+                                        use(xlink:href=`img/sprite.svg#${contact[0]}`)
+                                .contacts__text #{contact[1]}    
+                .works__footer
+                    include pug/footer.pug
+ 
+    

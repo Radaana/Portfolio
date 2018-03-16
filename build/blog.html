@@ -84,31 +84,39 @@
           <h1 class="section__title">Блог</h1>
           <p class="header__text">Статьи, которые я написала         </p>
         </header>
-        <div class="contents container">
-          <aside class="names">
-            <ul class="names__list">
-              <li class="names__item">Заголовок статьи</li>
-              <li class="names__item">Очень длинный заголовок невероятно интересной статьи</li>
-              <li class="names__item">Заголовок статьи</li>
-            </ul>
-          </aside>
-          <main class="contents__inner">
-            <article class="article">
-              <h2 class="article__title">Заголовок статьи</h2>
-              <time class="article__date">20 февраля 2018</time>
-              <p class="article__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempore assumenda voluptatem eveniet omnis nisi facilis ipsum tempora corrupti esse asperiores, fuga rem est quisquam amet qui magni, obcaecati eum recusandae aspernatur eligendi nam accusamus non! Repellat rerum hic, ipsa delectus illo corporis, aliquam totam, sequi quisquam velit quos eligendi.</p>
-            </article>
-            <article class="article">
-              <h2 class="article__title"> Ещё статья</h2>
-              <time class="article__date">20 февраля 2018</time>
-              <p class="article__text">Далеко-далеко за словесными горами в стране.</p>
-            </article>
-            <article class="article">
-              <h2 class="article__title"> Последняя статья</h2>
-              <time class="article__date">20 февраля 2018</time>
-              <p class="article__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.</p>
-            </article>
-          </main>
+        <div class="blog__main">
+          <div class="triangles triangles--blog">
+            <svg class="traingle" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none">
+              <polygon class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
+              <polygon class="triangle__right" points="1000,0   1000,86   500,86   500,75.5"> </polygon>
+            </svg>
+          </div>
+          <div class="contents container">
+            <aside class="names">
+              <ul class="names__list">
+                <li class="names__item">Заголовок статьи</li>
+                <li class="names__item">Очень длинный заголовок невероятно интересной статьи</li>
+                <li class="names__item">Заголовок статьи</li>
+              </ul>
+            </aside>
+            <main class="contents__inner">
+              <article class="article">
+                <h2 class="article__title">Заголовок статьи</h2>
+                <time class="article__date">20 февраля 2018</time>
+                <p class="article__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempore assumenda voluptatem eveniet omnis nisi facilis ipsum tempora corrupti esse asperiores, fuga rem est quisquam amet qui magni, obcaecati eum recusandae aspernatur eligendi nam accusamus non! Repellat rerum hic, ipsa delectus illo corporis, aliquam totam, sequi quisquam velit quos eligendi.</p>
+              </article>
+              <article class="article">
+                <h2 class="article__title"> Ещё статья</h2>
+                <time class="article__date">20 февраля 2018</time>
+                <p class="article__text">Далеко-далеко за словесными горами в стране.</p>
+              </article>
+              <article class="article">
+                <h2 class="article__title"> Последняя статья</h2>
+                <time class="article__date">20 февраля 2018</time>
+                <p class="article__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.</p>
+              </article>
+            </main>
+          </div>
         </div>
         <footer class="footer">
           <div class="footer__column"> 
@@ -189,6 +197,6 @@
         <div class="copyright copyright--footer">© Екатерина Леонидова | создано с любовью в LoftSchool | 2016</div>
       </section>
     </div>
-    <script src="js/script.min.js"></script>
   </body>
+  <script src="js/script.min.js"></script>
 </html>
