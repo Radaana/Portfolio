@@ -6,9 +6,8 @@
   z-index: 2;
   position: relative;
 
-    &--blog {
+    &--sameColor {
         .traingle {
-     
             @include triangleColors(#faf8f0, #faf8f0)
           }
     }
