@@ -9,9 +9,12 @@ block content
                 .header__socials
                     include pug/socials.pug
                 .header__menu 
-                    include icons/hamburger.svg
+                    svg.svg(width="40" height="35")
+                        use(xlink:href="img/sprite.svg#hamburger")
+                .section__backing
+                    include icons/blog_header.svg
                 .photo
-                    img.photo__jpg(src='img/me.jpg')
+                    img.img(src='img/me.jpg')
                 h1.section__title Блог
                 p.header__text Статьи, которые я написала         
             .blog__main
@@ -28,14 +31,14 @@ block content
                     main.contents__inner
                         article.article
                             h2.article__title Заголовок статьи
-                            time.article__date 20 февраля 2018
+                            time.article__date(datetime="2018-01-20") 20 февраля 2018
                             p.article__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempore assumenda voluptatem eveniet omnis nisi facilis ipsum tempora corrupti esse asperiores, fuga rem est quisquam amet qui magni, obcaecati eum recusandae aspernatur eligendi nam accusamus non! Repellat rerum hic, ipsa delectus illo corporis, aliquam totam, sequi quisquam velit quos eligendi.
                         article.article
                             h2.article__title  Ещё статья
-                            time.article__date 20 февраля 2018
+                            time.article__date(datetime="2018-01-20") 20 февраля 2018
                             p.article__text Далеко-далеко за словесными горами в стране.
                         article.article
                             h2.article__title  Последняя статья
-                            time.article__date 20 февраля 2018
+                            time.article__date(datetime="2018-01-20") 20 февраля 2018
                             p.article__text Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
             include pug/footer.pug

@@ -1,0 +1,46 @@
+extends pug/base
+
+block head
+    title Авторизация
+block content
+    .maincontent
+        section.section.welcome
+            .auth
+                h3.section__subtitle.section__subtitle--white.auth__title Авторизация
+                form.contact-me__form.form.form--contact(action="")
+                    .form__input
+                        span.form__pic
+                            svg.form__svg
+                                use(xlink:href="img/sprite.svg#login")
+                        label.visually-hidden(for="login") Логин
+                        input.input.input--half-round(type="text" name="login" placeholder="Логин" id="login") 
+
+                    .form__input
+                        span.form__pic
+                            svg.form__svg
+                                use(xlink:href="img/sprite.svg#password")
+                        label.visually-hidden(for="password") Пароль
+                        input.input.input--half-round(type="password" name="password" placeholder="Пароль" id="password")  
+                    .form__group
+                        label
+                            input.form__switch(type="checkbox" id="dont-disturb" name="dont-disturb" value="1" checked)
+                            span.form__switch--checkbox 
+                            span.form__label Не перезванивать 
+                    .form__group.form__group--last
+                        span.form__text А вы точно не робот?
+                        .form__checkboxes 
+                            label 
+                                input.form__switch(type="radio" name="robot" value="Да" checked)
+                                span.form__switch--radio
+                                span.form__label.form__label--green  Да
+                            label 
+                                input.form__switch(type="radio" name="robot" value="Не уверен")
+                                span.form__switch--radio
+                                span.form__label.form__label--green  Не уверен
+                    .form__buttons
+                        button.btn.form__btn(type="reset") На главную
+                        button.btn.form__btn(type="submit") Войти
+
+               
+            .copyright.copyright--index © Екатерина Леонидова | создано с любовью в LoftSchool | 2016
+

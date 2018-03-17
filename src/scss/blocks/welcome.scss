@@ -13,7 +13,8 @@
     background-color: rgba(#000, 0.5);
     display: flex;
     flex-direction: column;
-    
+    border-radius: 10px; 
+    overflow: hidden;
 }
 
 .welcome__button {

@@ -8,24 +8,31 @@ block content
             header.header
                 .header__socials
                     include pug/socials.pug
-                a.header__menu(href="#") 
-                    include icons/hamburger.svg
+                button.btn.header__menu
+                    svg.svg(width="40" height="35")
+                        use(xlink:href="img/sprite.svg#hamburger")
+                .section__backing
+                    include icons/portfolio_header.svg
                 .profile
                     .photo
-                        img.photo__jpg(src='img/me.jpg')
+                        img.img(src='img/me.jpg')
                     h1.profile__title Леонидова Екатерина
                     p.profile__text Веб-разработчик   
-                a.arrow.header__arrow(href="#")
-                    include icons/arrow_down.svg
+                button.btn.arrow.header__arrow
+                    svg.svg(width="26" height="16")
+                        use(xlink:href="img/sprite.svg#arrow_down")
             .about-me__main    
                 .triangles
                     svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="traingle")
                         polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5")  
                 .about-me__content
-                    .about-me__left    
-                        h1.section__title.section__title--dark.about-me__title  Обо мне 
-                        .user
+                    .about-me__left
+                        .section__title-box.about-me__title
+                            .section__backing
+                                include icons/about_header.svg    
+                            h1.section__title.section__title--dark  Обо мне 
+                        .user.about-me__user
                             .user__pic
                                 img.user__img(src='img/me.jpg')
                             h3.section__subtitle Кто я

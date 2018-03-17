@@ -2,8 +2,16 @@
     background-image: url('../img/works-bg.png');
     background-size: cover;
     background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // margin-bottom: 147px;
 }
 
 .speaking__testimonials {
-    margin: 0 auto;
+    margin: 20px auto 50px;
+}
+
+.speaking__contact-me {
+    margin-bottom: 70px;
 }

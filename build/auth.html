@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Авторизация</title>
+  </head>
+  <body>
+    <div class="maincontent">
+      <section class="section welcome">
+        <div class="auth">
+          <h3 class="section__subtitle section__subtitle--white auth__title">Авторизация</h3>
+          <form class="contact-me__form form form--contact" action="">
+            <div class="form__input"><span class="form__pic">
+                <svg class="form__svg">
+                  <use xlink:href="img/sprite.svg#login"></use>
+                </svg></span>
+              <label class="visually-hidden" for="login">Логин</label>
+              <input class="input input--half-round" type="text" name="login" placeholder="Логин" id="login">
+            </div>
+            <div class="form__input"><span class="form__pic">
+                <svg class="form__svg">
+                  <use xlink:href="img/sprite.svg#password"></use>
+                </svg></span>
+              <label class="visually-hidden" for="password">Пароль</label>
+              <input class="input input--half-round" type="password" name="password" placeholder="Пароль" id="password">
+            </div>
+            <div class="form__group">
+              <label>
+                <input class="form__switch" type="checkbox" id="dont-disturb" name="dont-disturb" value="1" checked><span class="form__switch--checkbox"> </span><span class="form__label">Не перезванивать </span>
+              </label>
+            </div>
+            <div class="form__group form__group--last"><span class="form__text">А вы точно не робот?</span>
+              <div class="form__checkboxes"> 
+                <label> 
+                  <input class="form__switch" type="radio" name="robot" value="Да" checked><span class="form__switch--radio"></span><span class="form__label form__label--green"> Да</span>
+                </label>
+                <label> 
+                  <input class="form__switch" type="radio" name="robot" value="Не уверен"><span class="form__switch--radio"></span><span class="form__label form__label--green"> Не уверен</span>
+                </label>
+              </div>
+            </div>
+            <div class="form__buttons">
+              <button class="btn form__btn" type="reset">На главную</button>
+              <button class="btn form__btn" type="submit">Войти</button>
+            </div>
+          </form>
+        </div>
+        <div class="copyright copyright--index">© Екатерина Леонидова | создано с любовью в LoftSchool | 2016</div>
+      </section>
+    </div>
+  </body>
+  <script src="js/script.min.js"></script>
+</html>
