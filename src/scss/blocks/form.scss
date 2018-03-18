@@ -9,11 +9,12 @@
 
 .form__btn {
     width: 50%;
-    padding: 15px 55px;
+    padding: 15px 35px;
     background-color: $lightGreen;
     font-family: 'robotomedium', sans-serif;
     color: #fff;
     border-left: 2px solid #9fb99d;
+    text-align: center;
     
     &:first-child {
         border-left: none;
