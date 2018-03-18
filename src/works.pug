@@ -12,8 +12,9 @@ block content
                 button.btn.header__menu
                     svg.svg(width="40" height="35")
                         use(xlink:href="img/sprite.svg#hamburger")
-                .section__backing
-                    include icons/portfolio_header.svg
+                .section__backing.section__backing--header
+                    svg.svg
+                        use(xlink:href="img/sprite.svg#portfolio_header") 
                 .profile.header__profile
                     .photo
                         img.img(src="img/me.jpg")
@@ -29,8 +30,9 @@ block content
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5")  
                 .works__content
                     .section__title-box
-                        .section__backing
-                            include icons/works_header.svg
+                        .section__backing.section__backing--subtitle
+                            svg.svg.svg--green
+                                use(xlink:href="img/sprite.svg#works_header") 
                         h2.section__title.section__title--dark.works__title  Мои Работы
                     .works__slider.slider
                             .slider__info 
@@ -61,8 +63,9 @@ block content
                                                 use(xlink:href="img/sprite.svg#arrow_down")
             .works__about.speaking
                 .section__title-box
-                    .section__backing
-                        include icons/about_header.svg
+                    .section__backing.section__backing--subtitle
+                        svg.svg.svg--green
+                            use(xlink:href="img/sprite.svg#about_header") 
                     h2.section__title.section__title--dark.works__title  Что обо мне говорят
                 .testimonials.speaking__testimonials
                     .testimonials__left.review

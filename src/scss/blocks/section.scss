@@ -13,8 +13,8 @@
     max-width: 380px;
     text-transform: uppercase;
     position: relative;
-    display: inline-block;
-    // display: block;
+    // display: inline-block;
+    display: block;
     // height: 200px;
     // width: 300px;
 
@@ -40,6 +40,7 @@
 }
 
 .section__subtitle {
+    // display: inline-block;
     @include sansus;
     font-size: 35px;
     color: $gray;
@@ -80,7 +81,18 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
+    // width: 100%;
     // z-index: -10;
+
+    &--header {
+        height: 50%;
+        width: 80%;
+    }
+
+    &--subtitle {
+        top: 25%;
+        width: 100%;
+    }
 }
 
 .section__title-box {

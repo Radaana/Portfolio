@@ -12,8 +12,9 @@ block content
                 button.btn.header__menu
                     svg.svg(width="40" height="35")
                         use(xlink:href="img/sprite.svg#hamburger")
-                .section__backing
-                    include icons/portfolio_header.svg
+                .section__backing.section__backing--header
+                    svg.svg
+                        use(xlink:href="img/sprite.svg#portfolio_header") 
                 .profile.header__profile
                     .photo
                         img.img(src='img/me.jpg')
@@ -30,8 +31,9 @@ block content
                 .about-me__content
                     .about-me__left
                         .section__title-box.about-me__title
-                            .section__backing
-                                include icons/about_header.svg    
+                            .section__backing.section__backing--subtitle
+                                svg.svg.svg--green
+                                    use(xlink:href="img/sprite.svg#about_header")  
                             h2.section__title.section__title--dark  Обо мне 
                         .user.about-me__user
                             .user__pic
