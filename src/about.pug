@@ -4,7 +4,8 @@ block head
     title Обо мне
 block content
     .maincontent
-        section.section.about-me    
+        section.section.about-me
+            h1.visually-hidden Обо мне, мои навыки и контакты      
             header.header
                 .header__socials
                     include pug/socials.pug
@@ -16,7 +17,7 @@ block content
                 .profile
                     .photo
                         img.img(src='img/me.jpg')
-                    h1.profile__title Леонидова Екатерина
+                    h2.profile__title Леонидова Екатерина
                     p.profile__text Веб-разработчик   
                 button.btn.arrow.header__arrow
                     svg.svg(width="26" height="16")
@@ -31,7 +32,7 @@ block content
                         .section__title-box.about-me__title
                             .section__backing
                                 include icons/about_header.svg    
-                            h1.section__title.section__title--dark  Обо мне 
+                            h2.section__title.section__title--dark  Обо мне 
                         .user.about-me__user
                             .user__pic
                                 img.user__img(src='img/me.jpg')
@@ -64,7 +65,7 @@ block content
                         each contact in contacts
                             li.contacts__row
                                 .contacts__icon
-                                    svg.contacts__svg
+                                    svg.contacts__svg(width="24" height="24")
                                         use(xlink:href=`img/sprite.svg#${contact[0]}`)
                                 .contacts__text #{contact[1]}    
                 .about-me__footer

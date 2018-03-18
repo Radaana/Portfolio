@@ -4,7 +4,8 @@ block head
     title Мои работы
 block content
     .maincontent
-        section.section.works  
+        section.section.works
+            h1.visually-hidden Мои работы и отзывы обо мне  
             header.header
                 .header__socials
                     include pug/socials.pug
@@ -16,7 +17,7 @@ block content
                 .profile
                     .photo
                         img.img(src="img/me.jpg")
-                    h1.profile__title Леонидова Екатерина
+                    h2.profile__title Леонидова Екатерина
                     p.profile__text Веб-разработчик   
                 button.btn.arrow.header__arrow
                     svg.svg(width="26" height="16")
@@ -30,7 +31,7 @@ block content
                     .section__title-box
                         .section__backing
                             include icons/works_header.svg
-                        h1.section__title.section__title--dark.works__title  Мои Работы
+                        h2.section__title.section__title--dark.works__title  Мои Работы
                     .works__slider.slider
                             .slider__info 
                                 h3.section__subtitle.slider__title Сайт школы онлайн-образования
@@ -62,7 +63,7 @@ block content
                 .section__title-box
                     .section__backing
                         include icons/about_header.svg
-                    h1.section__title.section__title--dark.works__title  Что обо мне говорят
+                    h2.section__title.section__title--dark.works__title  Что обо мне говорят
                 .testimonials.speaking__testimonials
                     .testimonials__left.review
                         .photo.photo--small

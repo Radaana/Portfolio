@@ -5,12 +5,13 @@ block head
 block content
     .maincontent
         section.section.welcome
+            h1.visually-hidden Личный сайт разработчика Леонидовой Екатерины  
             a.welcome-btn.welcome__button(href="auth.html") Авторизоваться
             .welcome__inner
                 .profile
                     .photo
                         img.img(src='img/me.jpg')
-                    h1.profile__title Леонидова Екатерина
+                    h2.profile__title Леонидова Екатерина
                     p.profile__text Веб-разработчик
                     include pug/socials.pug
                 +nav(0)

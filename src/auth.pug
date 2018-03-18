@@ -5,19 +5,20 @@ block head
 block content
     .maincontent
         section.section.welcome
+            h1.visually-hidden Страница авторизации на сайте 
             .auth
-                h3.section__subtitle.section__subtitle--white.auth__title Авторизация
+                h2.section__subtitle.section__subtitle--white.auth__title Авторизация
                 form.contact-me__form.form.form--contact(action="")
                     .form__input
                         span.form__pic
-                            svg.form__svg
+                            svg.form__svg(width="17" height="17")
                                 use(xlink:href="img/sprite.svg#login")
                         label.visually-hidden(for="login") Логин
                         input.input.input--half-round(type="text" name="login" placeholder="Логин" id="login") 
 
                     .form__input
                         span.form__pic
-                            svg.form__svg
+                            svg.form__svg(width="17" height="17")
                                 use(xlink:href="img/sprite.svg#password")
                         label.visually-hidden(for="password") Пароль
                         input.input.input--half-round(type="password" name="password" placeholder="Пароль" id="password")  
