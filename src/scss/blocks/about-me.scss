@@ -35,12 +35,14 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+}
 
-    // &::after {
-    //     content: '';
-    //     display: block;
-    //     height: 147px;
-    // }
+.about-me__contacts {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-left: -190px;
+    z-index: 2;
 }
 
 .about-me__footer {

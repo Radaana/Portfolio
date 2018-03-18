@@ -6,8 +6,8 @@
     background-color: #ebefe2;
 
     @include screen-sm {
-    flex-wrap: nowrap;
-    }
+        flex-wrap: nowrap;
+        }
 }
 
 .slider__info {

@@ -1,6 +1,6 @@
 .contents {
     display: flex;
-    flex-grow: 1;
+    
     
     &::after {
         content: '';
@@ -9,6 +9,10 @@
     }
 }
 
-.contents__inner {
+.contents__left {
+    flex-shrink: 0;
+}
+
+.contents__right {
     display: block;
 }

@@ -1,19 +1,12 @@
 .contacts {
-    position: absolute;
     width: 380px;
     height: 312px;
     background-color: rgba(#fff, 0.8);
     border-radius: 10px; 
-    top: 25%;
-    left: 50%;
-    margin-left: -190px;
     padding: 35px 40px;
-    z-index: 2;
-
 }
 
 .contacts__list {
-    // list-style: none;
     margin-top: 15px;
 }
 
