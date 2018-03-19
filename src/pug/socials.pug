@@ -1,13 +1,16 @@
-//- include mixins.pug
+
 
 ul.socials
     //- each social in ['vk', 'github', 'in' ]
     li.socials__item
         a.socials__link(href="#" title="Моя страница Вконтакте")
-            include ../icons/vk.svg
+            svg.svg.socials__svg(width="31" height="17")
+                use(xlink:href="img/sprite.svg#vk")
     li.socials__item
         a.socials__link(href="#"  title="Моя страница GitHub")
-            include ../icons/github.svg
+            svg.svg.socials__svg(width="26" height="22")
+                use(xlink:href="img/sprite.svg#github")
     li.socials__item
         a.socials__link(href="#"  title="Моя страница LinkedIn")
-            include ../icons/in.svg
+            svg.svg.socials__svg(width="24" height="22")
+                use(xlink:href="img/sprite.svg#in")

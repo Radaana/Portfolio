@@ -23,20 +23,20 @@ block content
                         label.visually-hidden(for="password") Пароль
                         input.input.input--half-round(type="password" name="password" placeholder="Пароль" id="password")  
                     .form__group
-                        label
-                            input.form__switch(type="checkbox" id="dont-disturb" name="dont-disturb" value="1" checked)
-                            span.form__switch--checkbox 
-                            span.form__label Не перезванивать 
+                        label.form__checkbox
+                            input.form__hidden(type="checkbox" id="human" name="human" value="1" checked)
+                            span.form__switch.form__switch--checkbox 
+                            span.form__label Я человек 
                     .form__group.form__group--last
                         span.form__text А вы точно не робот?
-                        .form__checkboxes 
-                            label 
-                                input.form__switch(type="radio" name="robot" value="Да" checked)
-                                span.form__switch--radio
+                        .form__radios
+                            label.form__radio
+                                input.form__hidden(type="radio" name="robot" value="Да" checked)
+                                span.form__switch.form__switch--radio
                                 span.form__label.form__label--green  Да
-                            label 
-                                input.form__switch(type="radio" name="robot" value="Не уверен")
-                                span.form__switch--radio
+                            label.form__radio 
+                                input.form__hidden(type="radio" name="robot" value="Не уверен")
+                                span.form__switch.form__switch--radio
                                 span.form__label.form__label--green  Не уверен
                     .form__buttons
                         a.btn.form__btn(href="index.html" title="Главная") На главную

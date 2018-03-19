@@ -23,12 +23,12 @@ block content
                 button.btn.arrow.header__arrow
                     svg.svg(width="26" height="16")
                         use(xlink:href="img/sprite.svg#arrow_down")
-            .works__main    
+            main.works__main    
                 .triangles.triangles--sameColor
                     svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="traingle")
                         polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5")  
-                .works__content
+                section.works__content
                     .section__title-box
                         .section__backing.section__backing--subtitle
                             svg.svg.svg--green
@@ -51,17 +51,17 @@ block content
                                     .slider__work 
                                         img.img(src="img/works.png" alt="Сайт школы онлайн образования")
                                     button.btn.slider__btn
-                                        button.btn.arrow.slider__arrow
+                                        .arrow.slider__arrow
                                             svg.svg
                                                 use(xlink:href="img/sprite.svg#arrow_down")
                                 .slider__right
                                     .slider__work 
                                         img.img(src="img/works.png" alt="Сайт школы онлайн образования")
                                     button.btn.slider__btn
-                                        button.btn.arrow.arrow--up.slider__arrow
+                                        .arrow.arrow--up.slider__arrow
                                             svg.svg
                                                 use(xlink:href="img/sprite.svg#arrow_down")
-            .works__about.speaking
+            section.works__about.speaking
                 .section__title-box
                     .section__backing.section__backing--subtitle
                         svg.svg.svg--green
@@ -93,7 +93,7 @@ block content
                             input.input(type="email" name="email" placeholder="Email" id="email") 
                         .form__input
                             label.visually-hidden(for="email") Ваше сообщение
-                            textarea.input.textarea(name="comment" placeholder="Ваше сообщение" id="comment" rows="7") 
+                            textarea.textarea.form__textarea(name="comment" placeholder="Ваше сообщение" id="comment" rows="7")
                         .form__buttons
                             button.btn.form__btn(type="submit") Отправить
                             button.btn.form__btn(type="reset") Очистить

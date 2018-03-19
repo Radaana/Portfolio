@@ -24,7 +24,8 @@
     padding: 0;
     font-size: 35px;
     @include sansus;
-
+    text-transform: none;
+    color: $text;
 }
 
 .article__date {

@@ -23,12 +23,12 @@ block content
                 button.btn.arrow.header__arrow
                     svg.svg(width="26" height="16")
                         use(xlink:href="img/sprite.svg#arrow_down")
-            .about-me__main    
+            main.about-me__main    
                 .triangles
                     svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="traingle")
                         polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5")  
-                .about-me__content
+                section.about-me__content
                     .about-me__left
                         .section__title-box.about-me__title
                             .section__backing.section__backing--subtitle
@@ -49,7 +49,7 @@ block content
                             - var skillSet = [{ category: 'Frontend', skills: [ {name : 'HTML', level: 90}, {name: 'CSS', level: 80}, {name: 'JavaScript & jQuery', level: 50}]}, { category: 'Backend', skills: [{ name: 'PHP', level: 15}, { name: 'mySQL', level: 15}, { name: 'Node.js & npm', level: 15}, { name: 'MongoDB', level: 15}]}, { category: 'Workflow', skills: [{name: 'Git', level: 50}, {name: 'Gulp', level: 40}, {name: 'Bower', level: 35}]}]
                             each item in skillSet 
                                 li.skills__item
-                                    .skills__title #{item.category}
+                                    h4.skills__title #{item.category}
                                     ul.skills__row
                                         each skill in item.skills
                                             li.skills__skill.skill 
@@ -57,11 +57,11 @@ block content
                                                     circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
                                                     circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class=`circle__second circle__second--${skill.level}`)
                                                 .skill__title #{skill.name}
-            .about-me__map
+            section.about-me__map
                 .map#map
                 .contacts.about-me__contacts
                     .contacts__title
-                        h3.section__subtitle Контакты
+                        h2.section__subtitle Контакты
                     ul.contacts__list
                         - var contacts = [ ['skype', 'iscazia'], ['envelope', 'leonidovaes@gmail.com'], ['phone', '+7 916 --- -- --'], ['map_marker', 'Москва, м. Проспект Вернадского'] ]
                         each contact in contacts

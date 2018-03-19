@@ -5,6 +5,8 @@
 
 .form__buttons {
     display: flex;
+    width: 100%;
+    min-height: 45px;
 }
 
 .form__btn {
@@ -46,7 +48,14 @@
     padding-bottom: 15px;
 }
 
-.form__checkboxes {
+.form__checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.form__radios {
     display: flex;
     justify-content: space-around;
     width: 60%;
@@ -63,10 +72,11 @@
     }
 }
 
-
+.form__hidden {
+    display: none;
+}
 
 .form__switch {
-    display: none;
 
     &--checkbox {
         position: relative;
@@ -74,6 +84,7 @@
         height: 20px;
         background-color: $green;
         margin-right: rem(20px);
+        flex-shrink: 0;
     }
 
     &--radio {
@@ -98,7 +109,7 @@
         color: #fff;
     }
 
-.form__switch:checked + .form__switch--checkbox::before {
+.form__hidden:checked + .form__switch--checkbox::before {
     content: "";
     display: block;
     position: absolute;
@@ -115,7 +126,7 @@
     transform: rotate(45deg);
 }
 
-.form__switch:checked + .form__switch--radio::before {
+.form__hidden:checked + .form__switch--radio::before {
     content: "";
     display: block;
     position: absolute;
@@ -129,7 +140,7 @@
     border-radius: 50%;
 }
 
-.form__switch:checked ~ .form__label--green {
+.form__hidden:checked ~ .form__label--green {
     color: $green;
 
 }

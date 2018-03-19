@@ -28,17 +28,17 @@
               <input class="input input--half-round" type="password" name="password" placeholder="Пароль" id="password">
             </div>
             <div class="form__group">
-              <label>
-                <input class="form__switch" type="checkbox" id="dont-disturb" name="dont-disturb" value="1" checked><span class="form__switch--checkbox"> </span><span class="form__label">Не перезванивать </span>
+              <label class="form__checkbox">
+                <input class="form__hidden" type="checkbox" id="human" name="human" value="1" checked><span class="form__switch form__switch--checkbox"> </span><span class="form__label">Я человек </span>
               </label>
             </div>
             <div class="form__group form__group--last"><span class="form__text">А вы точно не робот?</span>
-              <div class="form__checkboxes"> 
-                <label> 
-                  <input class="form__switch" type="radio" name="robot" value="Да" checked><span class="form__switch--radio"></span><span class="form__label form__label--green"> Да</span>
+              <div class="form__radios">
+                <label class="form__radio">
+                  <input class="form__hidden" type="radio" name="robot" value="Да" checked><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Да</span>
                 </label>
-                <label> 
-                  <input class="form__switch" type="radio" name="robot" value="Не уверен"><span class="form__switch--radio"></span><span class="form__label form__label--green"> Не уверен</span>
+                <label class="form__radio"> 
+                  <input class="form__hidden" type="radio" name="robot" value="Не уверен"><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Не уверен</span>
                 </label>
               </div>
             </div>
