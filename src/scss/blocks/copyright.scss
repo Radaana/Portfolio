@@ -4,13 +4,9 @@
     display: block;
     text-align: center;
 
-    &--index {
-        position: absolute;
-        bottom: 45px;
-    }
 
     &--footer {
-        background-color: $lightGreen;
+        background-color: rgba(#6c9c5a, 0.8);
         font-family: 'robotolight', sans-serif;
         height: 35px;
         line-height: 35px;

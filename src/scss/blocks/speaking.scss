@@ -1,0 +1,17 @@
+.speaking {
+    background-image: url('../img/works-bg.png');
+    background-size: cover;
+    background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.speaking__testimonials {
+    margin: 20px auto 50px;
+}
+
+.speaking__contact-me {
+    margin-bottom: 70px;
+}

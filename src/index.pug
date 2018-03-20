@@ -5,16 +5,17 @@ block head
 block content
     .maincontent
         section.section.welcome
-            a.button.welcome__button Авторизоваться
+            h1.visually-hidden Личный сайт разработчика Леонидовой Екатерины  
+            a.welcome-btn.welcome__button(href="auth.html" title="Авторизация") Авторизоваться
             .welcome__inner
-                .profile
+                .profile.header__profile
                     .photo
-                        img.photo__jpg(src='img/me.jpg')
-                    h1.profile__title Леонидова Екатерина
+                        img.img(src="img/me.jpg" alt="Леонидова Екатерина")
+                    h2.profile__title Леонидова Екатерина
                     p.profile__text Веб-разработчик
                     include pug/socials.pug
                 +nav(0)
 
                
-            .copyright.copyright--index © Екатерина Леонидова | создано с любовью в LoftSchool | 2016
+            .copyright.welcome__copyright © Екатерина Леонидова | создано с любовью в LoftSchool | 2016
 

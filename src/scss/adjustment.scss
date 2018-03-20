@@ -2,34 +2,6 @@
     height: 100%;
     min-height: 650px;
     width: 100%;
-    
-}
-
-
-.section {
-    min-height: 100%;
-    width: 100%;
-    background-color: #faf8f0;
-}    
-
-.section__title {
-    @include sansus;
-    font-size: 63px;
-    color: #fff;
-    padding: 30px 0 ;
-    margin: 0;
-    text-transform: uppercase;
-    position: relative;
-
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 10%;
-        background-color: #fff;
-        width: 80%;
-        height: 3px;    
-    }   
 }
 
 .container {
@@ -37,4 +9,64 @@
     max-width: 1400px;
     // height: 100%;
     margin: 0 auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+.img {
+    max-width: 100%;
+    height: auto;
+}
+
+.svg {
+    width: 100%;
+    height: 100%;
+    fill:white;
+
+    &--green {
+        fill: $green;
+    }
+}
+
+h1 {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+h2 {
+    @include sansus;
+    font-size: 63px;
+    color:  $dark;
+    text-transform: uppercase;
+}
+
+h3 {
+    @include sansus;
+    font-size: 35px;
+    color: $gray;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'robotomedium', sans-serif;
+    font-size: 28px;
+    color: $gray;
+    margin: 0;
+    padding: 0;
 }

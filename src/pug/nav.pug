@@ -2,12 +2,12 @@ mixin nav(long)
     .nav
         ul.nav__list
             li.nav__item
-                a.nav__link(href='works.html') Мои работы
+                a.nav__link(href="works.html" title="Мои работы") Мои работы
             li.nav__item
-                a.nav__link(href='about.html') Обо мне
+                a.nav__link(href="about.html" title="Обо мне") Обо мне
             li.nav__item
-                a.nav__link(href='blog.html') Блог
+                a.nav__link(href="blog.html" title="Блог") Блог
             if long == 1 
                 li.nav__item
-                    a.nav__link(href='index.html') Авторизация
+                    a.nav__link(href="auth.html" title="Авторизация") Авторизация
                 //- each item in ['Мои работы', 'Обо мне', 'Блог']

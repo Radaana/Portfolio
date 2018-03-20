@@ -43,7 +43,7 @@ const paths =  {
 };
 
 const images = 
-  paths.src + '/img/*.{gif,png,jpg,jpeg,svg,ico}'
+  paths.src + '/img/*.{gif,png,jpg,jpeg,ico}'
   // paths.src + '/blocks/**/img/*.{gif,png,jpg,jpeg,svg}',
   // '!' + paths.src + '/blocks/sprite-png/png/*',
   // '!' + paths.src + '/blocks/sprite-svg/svg/*',
@@ -165,7 +165,7 @@ function svgSpriteBuild() { //SVG Sprite
         }
       }
     }))
-    .pipe(gulp.dest(paths.src + 'img/'));
+    .pipe(gulp.dest(paths.build + 'img/'));
 };
 
 

@@ -1,6 +1,6 @@
 .footer {
-    background-color: $dark;
-    min-height: 147px;
+    background-color: rgba(#373e42, 0.8);
+    height: 147px;
     display: flex;
     color: #fff;
     padding: 25px;
@@ -8,9 +8,7 @@
 }
 
 .footer__column {
-    // flex-grow: 1;
     width: 33%;
-    // height: 100%;
     display: flex;
     flex-direction: column;
     border-right: 2px solid rgba(#fff, 0.2);
@@ -19,8 +17,6 @@
         border-right: none;
     }
 }
-
-
 
 .footer__text {
     font-family: 'robotolight', sans-serif;

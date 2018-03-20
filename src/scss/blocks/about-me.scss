@@ -1,0 +1,58 @@
+.about-me {
+    width: 100%;
+}
+
+.about-me__content  {
+    display: flex;
+    height: 100%;
+}
+
+.about-me__left {
+    display: flex;
+    align-items: flex-start;
+    width: 50%;
+    padding: 20px 20px 20px 0;
+    background-color: #ebefe2;
+}
+
+.about-me__right {
+    width: 50%;
+    background-color: #f4f5f0;
+    padding: 20px 35px;
+}
+
+.about-me__title {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+}
+
+.user.about-me__user {
+    width: 50%;
+}
+
+.about-me__skills {
+    margin-top: 25px;
+}
+
+.about-me__map {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.about-me__contacts {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-left: -190px;
+    z-index: 2;
+}
+
+.about-me__footer {
+    width: 100%;
+    height: 185px;
+    margin-top: -185px;
+    z-index: 2;
+    position: absolute;
+}

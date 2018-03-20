@@ -8,10 +8,191 @@
   </head>
   <body>
     <div class="maincontent">
-      <section class="section">
-        <h1 class="section__title">Мои работы</h1>
-        <div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At modi in quisquam perferendis laborum omnis sed rerum fugit facere eius. Aliquam, voluptas natus possimus labore reiciendis iusto beatae quis temporibus?</p>
+      <section class="section works">
+        <h1 class="visually-hidden">Мои работы и отзывы обо мне  </h1>
+        <header class="header">
+          <div class="header__socials">
+            <ul class="socials">
+              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница Вконтакте">
+                  <svg class="svg socials__svg" width="31" height="17">
+                    <use xlink:href="img/sprite.svg#vk"></use>
+                  </svg></a></li>
+              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница GitHub">
+                  <svg class="svg socials__svg" width="26" height="22">
+                    <use xlink:href="img/sprite.svg#github"></use>
+                  </svg></a></li>
+              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница LinkedIn">
+                  <svg class="svg socials__svg" width="24" height="22">
+                    <use xlink:href="img/sprite.svg#in"></use>
+                  </svg></a></li>
+            </ul>
+          </div>
+          <button class="btn header__menu">
+            <svg class="svg" width="40" height="35">
+              <use xlink:href="img/sprite.svg#hamburger"></use>
+            </svg>
+          </button>
+          <div class="section__backing section__backing--header">
+            <svg class="svg">
+              <use xlink:href="img/sprite.svg#portfolio_header"> </use>
+            </svg>
+          </div>
+          <div class="profile header__profile">
+            <div class="photo"><img class="img" src="img/me.jpg" alt="Леонидова Екатерина"></div>
+            <h2 class="profile__title">Леонидова Екатерина</h2>
+            <p class="profile__text">Веб-разработчик   </p>
+          </div>
+          <button class="btn arrow header__arrow">
+            <svg class="svg" width="26" height="16">
+              <use xlink:href="img/sprite.svg#arrow_down"></use>
+            </svg>
+          </button>
+        </header>
+        <main class="works__main">   
+          <div class="triangles triangles--sameColor">
+            <svg class="traingle" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none">
+              <polygon class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
+              <polygon class="triangle__right" points="1000,0   1000,86   500,86   500,75.5"> </polygon>
+            </svg>
+          </div>
+          <section class="works__content">
+            <div class="section__title-box">
+              <div class="section__backing section__backing--subtitle">
+                <svg class="svg svg--green">
+                  <use xlink:href="img/sprite.svg#works_header"> </use>
+                </svg>
+              </div>
+              <h2 class="section__title section__title--dark works__title"> Мои Работы</h2>
+            </div>
+            <div class="works__slider slider">
+              <div class="slider__info"> 
+                <h3 class="section__subtitle slider__title">Сайт школы онлайн-образования</h3>
+                <div class="slider__desc">HTML , CSS, JAVASCRIPT</div><a class="slider__link link-btn" href="#"><span class="link-btn__icon">
+                    <svg class="link-btn__svg">
+                      <use xlink:href="img/sprite.svg#link"></use>
+                    </svg></span><span class="link-btn__link-text">Посмотреть сайт</span></a>
+              </div>
+              <div class="slider__display"> 
+                <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
+              </div>
+              <div class="slider__btns">
+                <div class="slider__left">
+                  <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
+                  <button class="btn slider__btn">
+                    <div class="arrow slider__arrow">
+                      <svg class="svg">
+                        <use xlink:href="img/sprite.svg#arrow_down"></use>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+                <div class="slider__right">
+                  <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
+                  <button class="btn slider__btn">
+                    <div class="arrow arrow--up slider__arrow">
+                      <svg class="svg">
+                        <use xlink:href="img/sprite.svg#arrow_down"></use>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <section class="works__about speaking">
+          <div class="section__title-box">
+            <div class="section__backing section__backing--subtitle">
+              <svg class="svg svg--green">
+                <use xlink:href="img/sprite.svg#about_header"> </use>
+              </svg>
+            </div>
+            <h2 class="section__title section__title--dark works__title"> Что обо мне говорят</h2>
+          </div>
+          <div class="testimonials speaking__testimonials">
+            <div class="testimonials__left review">
+              <div class="photo photo--small"><img class="img" src="img/Dmitry.jpg" alt="Дмитрий Ковальчук"></div>
+              <blockquote class="review__text">Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</blockquote>
+              <cite class="review__cite">
+                <div class="review__author">Ковальчук Дмитрий</div>
+                <div class="review__place">- Loftschool</div>
+              </cite>
+            </div>
+            <div class="testimonials__right review">
+              <div class="photo photo--small"><img class="img" src="img/Linus.jpg" alt="Линус Торвальдс"></div>
+              <blockquote class="review__text">Talk is cheap. Show me the code.</blockquote>
+              <cite class="review__cite">
+                <div class="review__author">Linus Torvalds</div>
+                <div class="review__place">- The Linux Foundation</div>
+              </cite>
+            </div>
+          </div>
+          <div class="contact-me speaking__contact-me">
+            <h3 class="section__subtitle section__subtitle--dark contact-me__title">Связаться со мной</h3>
+            <form class="contact-me__form form form--contact" action="">
+              <div class="form__input">
+                <label class="visually-hidden" for="name">Имя</label>
+                <input class="input" type="text" name="name" placeholder="Имя" id="name">
+              </div>
+              <div class="form__input">
+                <label class="visually-hidden" for="email">Email</label>
+                <input class="input" type="email" name="email" placeholder="Email" id="email">
+              </div>
+              <div class="form__input">
+                <label class="visually-hidden" for="email">Ваше сообщение</label>
+                <textarea class="textarea form__textarea" name="comment" placeholder="Ваше сообщение" id="comment" rows="7"></textarea>
+              </div>
+              <div class="form__buttons">
+                <button class="btn form__btn" type="submit">Отправить</button>
+                <button class="btn form__btn" type="reset">Очистить</button>
+              </div>
+            </form>
+          </div>
+          <button class="btn arrow arrow--up contact-me__arrow">
+            <svg class="svg" width="26" height="16">
+              <use xlink:href="img/sprite.svg#arrow_down"></use>
+            </svg>
+          </button>
+        </section>
+        <div class="works__footer">
+          <footer class="footer">
+            <div class="footer__column"> 
+              <p class="footer__text">Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. </p>
+            </div>
+            <div class="footer__column"> 
+              <div class="footer__nav">
+                <div class="nav">
+                  <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="works.html" title="Мои работы">Мои работы</a></li>
+                    <li class="nav__item"><a class="nav__link" href="about.html" title="Обо мне">Обо мне</a></li>
+                    <li class="nav__item"><a class="nav__link" href="blog.html" title="Блог">Блог</a></li>
+                    <li class="nav__item"><a class="nav__link" href="auth.html" title="Авторизация">Авторизация</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer__socials">
+                <ul class="socials">
+                  <li class="socials__item"><a class="socials__link" href="#" title="Моя страница Вконтакте">
+                      <svg class="svg socials__svg" width="31" height="17">
+                        <use xlink:href="img/sprite.svg#vk"></use>
+                      </svg></a></li>
+                  <li class="socials__item"><a class="socials__link" href="#" title="Моя страница GitHub">
+                      <svg class="svg socials__svg" width="26" height="22">
+                        <use xlink:href="img/sprite.svg#github"></use>
+                      </svg></a></li>
+                  <li class="socials__item"><a class="socials__link" href="#" title="Моя страница LinkedIn">
+                      <svg class="svg socials__svg" width="24" height="22">
+                        <use xlink:href="img/sprite.svg#in"></use>
+                      </svg></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__column quote">
+              <blockquote class="quote__text">Talk is cheap. Show me the code.</blockquote>
+              <cite class="quote__author">― Linus Torvalds</cite>
+            </div>
+          </footer>
+          <div class="copyright copyright--footer">© Екатерина Леонидова | создано с любовью в LoftSchool | 2016</div>
         </div>
       </section>
     </div>

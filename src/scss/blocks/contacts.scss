@@ -1,0 +1,27 @@
+.contacts {
+    width: 380px;
+    height: 312px;
+    background-color: rgba(#fff, 0.8);
+    border-radius: 10px; 
+    padding: 35px 40px;
+}
+
+.contacts__list {
+    margin-top: 15px;
+}
+
+.contacts__row {
+    display: flex;
+    height: 45px;
+}
+
+
+.contacts__svg {
+    fill: $lightGreen;
+    width: 24px;
+    height: 24px;
+}
+
+.contacts__text {
+    margin-left: 10px;
+}

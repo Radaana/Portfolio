@@ -1,9 +1,18 @@
 .contents {
     display: flex;
-    flex-grow: 1;
     
+    
+    &::after {
+        content: '';
+        display: block;
+        height: 147px;
+    }
 }
 
-.contents__inner {
+.contents__left {
+    flex-shrink: 0;
+}
+
+.contents__right {
     display: block;
 }

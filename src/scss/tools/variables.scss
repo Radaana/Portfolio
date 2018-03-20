@@ -22,3 +22,15 @@ $text:                        #455a64;
 @mixin sansus {
     font-family: 'sansus_webissimoregular', sans-serif;
 } 
+
+@mixin triangleColors($color1, $color2) {
+    
+    & .triangle__left{
+        fill: $color1;
+      }
+
+
+    & .triangle__right{
+        fill: $color2;
+    }
+} 
