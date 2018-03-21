@@ -1,20 +1,22 @@
 .contact-me {
-    width: 380px;
+    width: rem(380px);
     background-color: rgba(#fff, 0.5);
-    border-radius: 10px; 
+    border-radius: rem(10px); 
     overflow: hidden;
-    padding-top: 30px;
+    padding-top: rem(30px);
     z-index: 2;   
-    min-height: 460px; 
+    min-height: rem(460px); 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    @include screen-sm {
+        width: rem(350px);
+    }
 }
 
-.contact-me__arrow {
-    margin-bottom: 240px;
-}
+
 
 .contact-me__title {
-    margin: 20px auto;
+    margin: rem(20px) auto;
 }

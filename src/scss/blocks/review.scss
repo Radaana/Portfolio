@@ -2,10 +2,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .review__author {
     font-style: italic;
     color: $green;
     font-weight: bold;
+}
+
+.review__text {
+    margin : 0;
+    padding: rem(20px);
+    font-style: italic;
+    line-height: rem(24px);
 }

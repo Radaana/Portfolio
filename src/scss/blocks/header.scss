@@ -1,5 +1,5 @@
 .header {
-    height: 600px;
+    height: rem(600px);
     width: 100%;
     background: url('../img/welcome-bg.jpg') center center no-repeat;
     background-size: cover;
@@ -13,8 +13,8 @@
 
 .header__socials {
     position: absolute;
-    top: 35px;
-    left: 30px;
+    top: rem(35px);
+    left: rem(30px);
     .socials__link {
         opacity: 1;
     }
@@ -22,10 +22,10 @@
 
 .header__menu {
     position: absolute;
-    top: 30px;
-    right: 30px;
-    width: 40px;
-    height: 35px;
+    top: rem(30px);
+    right: rem(30px);
+    width: rem(40px);
+    height: rem(35px);
     
 }
 
@@ -35,8 +35,8 @@
 
 .header__arrow {
     position: absolute;
-    bottom: 70px;
+    bottom: rem(70px);
     left: 50%;
-    margin-left: -13px;
+    margin-left: rem(-13px);
     z-index: 4;
 }

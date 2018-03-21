@@ -1,14 +1,14 @@
 .photo {
-    width: 140px;
-    height: 140px;
+    width: rem(140px);
+    height: rem(140px);
     border-radius: 50%;
     overflow: hidden;
     z-index: 10;
     position: relative;
 
     &--small {
-        width: 77px;
-        height: 77px;
+        width: rem(77px);
+        height: rem(77px);
     }
 }
 

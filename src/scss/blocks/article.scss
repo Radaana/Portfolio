@@ -1,5 +1,5 @@
 .article {
-    padding: 40px 5px 40px 5px;
+    padding: rem(20px) rem(5px) rem(40px) rem(5px);
     position: relative;
 
     &::before {
@@ -7,8 +7,8 @@
         position: absolute;
         top: 0;
         display: block;
-        width: 680px;
-        height: 5px;
+        width: rem(680px);
+        height: rem(5px);
         background-color: $dark;
         opacity: 0.07;
     }
@@ -22,7 +22,7 @@
 
 .article__title {
     padding: 0;
-    font-size: 35px;
+    font-size: rem(35px);
     @include sansus;
     text-transform: none;
     color: $text;

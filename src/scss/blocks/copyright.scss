@@ -8,7 +8,11 @@
     &--footer {
         background-color: rgba(#6c9c5a, 0.8);
         font-family: 'robotolight', sans-serif;
-        height: 35px;
-        line-height: 35px;
+        height: rem(35px);
+        line-height: rem(35px);
+
+        @include screen-sm {
+            height: rem(66px);
+        }
     }
 }

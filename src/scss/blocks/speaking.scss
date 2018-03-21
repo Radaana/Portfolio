@@ -5,13 +5,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
 }
 
 .speaking__testimonials {
-    margin: 20px auto 50px;
+    margin: rem(20px) auto rem(50px);
+    width: 60%;
+
+    @include screen-sm {
+        width: 100%;
+    }
 }
 
 .speaking__contact-me {
-    margin-bottom: 70px;
+    margin-bottom: rem(70px);
+}
+
+.speaking__arrow {
+    margin-bottom: rem(182px);
+
+    @include screen-sm {
+        margin-bottom: rem(265px);
+    }
+
+    @include screen-xs {
+        margin-bottom: rem(358px);
+    }
 }

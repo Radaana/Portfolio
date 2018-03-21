@@ -24,7 +24,7 @@ block content
                     svg.svg(width="26" height="16")
                         use(xlink:href="img/sprite.svg#arrow_down")
             main.about-me__main    
-                .triangles
+                .triangles.about-me__triangles
                     svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="traingle")
                         polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5")  
@@ -43,8 +43,8 @@ block content
                                 p Я веб разработчик из Москвы. Мне 30 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты, изучать новые подходы и фреймворки, постоянно учиться.
                                 p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool на продвинутом курсе по веб-разработке. 
                     .about-me__right
-                        h3.section__subtitle Чем я могу быть вам полезна
-                        .text Больше всего меня привлекает Frontend разработка, но я могу решать несложные задачи на Backend. Ниже список моих навыков: 
+                        h3.section__subtitle.about-me__subtitle Чем я могу быть вам полезна
+                        .text.about-me__text Больше всего меня привлекает Frontend разработка, но я могу решать несложные задачи на Backend. Ниже список моих навыков: 
                         ul.skills__list.about-me__skills
                             - var skillSet = [{ category: 'Frontend', skills: [ {name : 'HTML', level: 90}, {name: 'CSS', level: 80}, {name: 'JavaScript & jQuery', level: 50}]}, { category: 'Backend', skills: [{ name: 'PHP', level: 15}, { name: 'mySQL', level: 15}, { name: 'Node.js & npm', level: 15}, { name: 'MongoDB', level: 15}]}, { category: 'Workflow', skills: [{name: 'Git', level: 50}, {name: 'Gulp', level: 40}, {name: 'Bower', level: 35}]}]
                             each item in skillSet 

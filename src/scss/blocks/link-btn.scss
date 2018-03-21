@@ -1,5 +1,5 @@
 .link-btn  {
-    padding: 12px 16px;
+    padding: rem(12px) rem(16px);
     background-color: $lightGreen;
     border-radius: 30px;
     color: #fff;
@@ -12,9 +12,9 @@
   }
   
   .link-btn__icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+    width: rem(20px);
+    height: rem(20px);
+    margin-right: rem(10px);
   }
   
   

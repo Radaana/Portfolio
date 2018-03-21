@@ -1,17 +1,17 @@
 .form__input {
-    padding: 10px 20px;
+    padding: rem(10px) rem(20px);
     display: flex;
 }
 
 .form__buttons {
     display: flex;
     width: 100%;
-    min-height: 45px;
+    min-height: rem(45px);
 }
 
 .form__btn {
     width: 50%;
-    padding: 15px 35px;
+    padding: rem(15px) rem(35px);
     background-color: $lightGreen;
     font-family: 'robotomedium', sans-serif;
     color: #fff;
@@ -29,8 +29,8 @@
 
 .form__pic {
     background-color: #f0efe9;
-    width: 45px;
-    height: 45px;
+    width: rem(45px);
+    height: rem(45px);
     border-radius: 30px 0 0 30px;
     display: flex;
     justify-content: center;
@@ -38,21 +38,21 @@
 }
 
 .form__svg {
-    width: 17px;
-    height: 17px;
+    width: rem(17px);
+    height: rem(17px);
     fill: #c4cbcd;
 }
 
 .form__text {
     display: block;
-    padding-bottom: 15px;
+    padding-bottom: rem(15px);
 }
 
 .form__checkbox {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px;
+    padding: 0 rem(20px);
 }
 
 .form__radios {
@@ -65,10 +65,10 @@
 .form__group {
     color: #fff;
     text-align: center;
-    padding: 15px 0;
+    padding: rem(15px) 0;
     
     &--last {
-        margin-bottom: 30px;
+        margin-bottom: rem(30px);
     }
 }
 
@@ -119,7 +119,7 @@
     bottom: 2px;
     left: 7px;
     
-    width: 7px;
+    width: 7px; 
     height: 12px;
     border-right: 3px solid #fff;
     border-bottom: 3px solid #fff;
