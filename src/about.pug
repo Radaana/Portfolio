@@ -45,18 +45,10 @@ block content
                     .about-me__right
                         h3.section__subtitle.about-me__subtitle Чем я могу быть вам полезна
                         .text.about-me__text Больше всего меня привлекает Frontend разработка, но я могу решать несложные задачи на Backend. Ниже список моих навыков: 
-                        ul.skills__list.about-me__skills
-                            - var skillSet = [{ category: 'Frontend', skills: [ {name : 'HTML', level: 90}, {name: 'CSS', level: 80}, {name: 'JavaScript & jQuery', level: 50}]}, { category: 'Backend', skills: [{ name: 'PHP', level: 15}, { name: 'mySQL', level: 15}, { name: 'Node.js & npm', level: 15}, { name: 'MongoDB', level: 15}]}, { category: 'Workflow', skills: [{name: 'Git', level: 50}, {name: 'Gulp', level: 40}, {name: 'Bower', level: 35}]}]
-                            each item in skillSet 
-                                li.skills__item
-                                    h4.skills__title #{item.category}
-                                    ul.skills__row
-                                        each skill in item.skills
-                                            li.skills__skill.skill 
-                                                svg.skill__circle.circle(viewBox="0 0 110 110")
-                                                    circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
-                                                    circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class=`circle__second circle__second--${skill.level}`)
-                                                .skill__title #{skill.name}
+                        ul.skills__list.about-me__skills.skills#app
+                            skills-list(:items="frontend")
+                            skills-list(:items="backend")
+                            skills-list(:items="workflow")
             section.about-me__map
                 .map#map
                 .contacts.about-me__contacts
@@ -72,7 +64,17 @@ block content
                                 .contacts__text #{contact[1]}    
                 .about-me__footer
                     include pug/footer.pug
+                script(type="text/x-template",id="skills-item")
+                    li.skills__skill.skill 
+                        svg.skill__circle.circle(viewBox="0 0 110 110")
+                            circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                            circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__second"  :class="'circle__second--' + skill.level ")
+                        .skill__title {{skill.name}}
+                script(type="text/x-template" id="skills-list")
+                        li.skills__item
+                            h4.skills__title {{items.title}}
+                            ul.skills__row
+                                skills-item(v-for="item in items.skills"  :skill="item"  :key="item.id")
 block script
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCdiqpmw5rW0CewRcKKUTZCtx4ePiFkEBA&callback=initMap')             
-    
     

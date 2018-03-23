@@ -1,4 +1,4 @@
-// var Map = require('./modules/map');
+var Map = require('./modules/map');
 
 window.initMap = function() {
     var uluru = {lat: 55.671998, lng: 37.492849}; 
@@ -226,10 +226,6 @@ window.initMap = function() {
             mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
                     'styled_map']
           }
-
-        // 34.002510, -118.458889
-        // 33.997616, -118.434189
-        // 34.013016, -118.491651
     });
     var marker = new google.maps.Marker({
         position: me,
@@ -241,5 +237,40 @@ window.initMap = function() {
 
 };
 
-// module.exports = initMap;
-// Map();
+// var Vue = require('vue');
+
+Vue.component('skills-item', {
+  template: "#skills-item",
+  props: ['skill']
+});
+
+Vue.component("skills-list", {
+  template: "#skills-list",
+  props: ['items'],
+  data() {
+    return {
+    }
+  },
+});
+
+const app = new Vue({
+  data: {
+    frontend: { title: 'Frontend', 
+                skills: [ {name : 'HTML', level: 90}, 
+                          {name: 'CSS', level: 80}, 
+                          {name: 'JavaScript & jQuery', level: 50}]}, 
+    backend: { title : 'Backend', 
+                skills: [ { name: 'PHP', level: 15}, 
+                          { name: 'mySQL', level: 15}, 
+                          { name: 'Node.js & npm', level: 15}, 
+                          { name: 'MongoDB', level: 15}]}, 
+    workflow: { title : 'Workflow', 
+                skills: [ {name: 'Git', level: 50}, 
+                          {name: 'Gulp', level: 40}, 
+                          {name: 'Bower', level: 35}]}
+  }
+}); // Vue end
+
+app.$mount("#app");
+
+

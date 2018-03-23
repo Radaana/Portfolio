@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Обо мне</title>
   </head>
   <body>
@@ -77,92 +78,10 @@
             <div class="about-me__right">
               <h3 class="section__subtitle about-me__subtitle">Чем я могу быть вам полезна</h3>
               <div class="text about-me__text">Больше всего меня привлекает Frontend разработка, но я могу решать несложные задачи на Backend. Ниже список моих навыков: </div>
-              <ul class="skills__list about-me__skills">
-                <li class="skills__item">
-                  <h4 class="skills__title">Frontend</h4>
-                  <ul class="skills__row">
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--90" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">HTML</div>
-                    </li>
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--80" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">CSS</div>
-                    </li>
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--50" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">JavaScript &amp; jQuery</div>
-                    </li>
-                  </ul>
-                </li>
-                <li class="skills__item">
-                  <h4 class="skills__title">Backend</h4>
-                  <ul class="skills__row">
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--15" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">PHP</div>
-                    </li>
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--15" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">mySQL</div>
-                    </li>
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--15" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">Node.js &amp; npm</div>
-                    </li>
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--15" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">MongoDB</div>
-                    </li>
-                  </ul>
-                </li>
-                <li class="skills__item">
-                  <h4 class="skills__title">Workflow</h4>
-                  <ul class="skills__row">
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--50" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">Git</div>
-                    </li>
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--40" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">Gulp</div>
-                    </li>
-                    <li class="skills__skill skill"> 
-                      <svg class="skill__circle circle" viewBox="0 0 110 110">
-                        <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                        <circle class="circle__second circle__second--35" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
-                      </svg>
-                      <div class="skill__title">Bower</div>
-                    </li>
-                  </ul>
-                </li>
+              <ul class="skills__list about-me__skills skills" id="app">
+                <skills-list :items="frontend"></skills-list>
+                <skills-list :items="backend"></skills-list>
+                <skills-list :items="workflow"></skills-list>
               </ul>
             </div>
           </section>
@@ -248,6 +167,23 @@
             </footer>
             <div class="copyright copyright--footer">© Екатерина Леонидова | создано с любовью в LoftSchool | 2018</div>
           </div>
+          <script type="text/x-template" id="skills-item">
+            <li class="skills__skill skill"> 
+              <svg class="skill__circle circle" viewBox="0 0 110 110">
+                <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
+                <circle class="circle__second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" :class="'circle__second--' + skill.level "></circle>
+              </svg>
+              <div class="skill__title">{{skill.name}}</div>
+            </li>
+          </script>
+          <script type="text/x-template" id="skills-list">
+            <li class="skills__item">
+              <h4 class="skills__title">{{items.title}}</h4>
+              <ul class="skills__row">
+                <skills-item v-for="item in items.skills" :skill="item" :key="item.id"></skills-item>
+              </ul>
+            </li>
+          </script>
         </section>
       </section>
     </div>
