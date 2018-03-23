@@ -10,8 +10,8 @@ block content
                 .header__socials
                     include pug/socials.pug
                 button.btn.header__menu
-                    svg.svg(width="40" height="35")
-                        use(xlink:href="img/sprite.svg#hamburger")
+                    .hamburger-menu#hamburger-menu
+                        .hamburger-menu__bars
                 .section__backing.section__backing--header
                     svg.svg
                         use(xlink:href="img/sprite.svg#portfolio_header") 
@@ -102,5 +102,7 @@ block content
                         use(xlink:href="img/sprite.svg#arrow_down")
             .works__footer
                 include pug/footer.pug
- 
-    
+            .fullscreen.visually-hidden
+                +nav(1)
+block script
+    script(src='js/works.bundle.js')    

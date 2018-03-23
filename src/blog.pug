@@ -9,9 +9,9 @@ block content
             header.header
                 .header__socials
                     include pug/socials.pug
-                .header__menu 
-                    svg.svg(width="40" height="35")
-                        use(xlink:href="img/sprite.svg#hamburger")
+                button.btn.header__menu 
+                    .hamburger-menu#hamburger-menu
+                        .hamburger-menu__bars
                 .section__backing
                     svg.svg
                         use(xlink:href="img/sprite.svg#blog_header") 
@@ -60,3 +60,7 @@ block content
                             time.article__date(datetime="2018-01-20") 20 февраля 2018
                             p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
             include pug/footer.pug
+        .fullscreen.visually-hidden
+            +nav(1)
+block script
+    script(src='js/blog.bundle.js')

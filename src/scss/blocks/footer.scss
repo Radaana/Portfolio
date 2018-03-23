@@ -69,9 +69,11 @@
 
 .footer__text {
     font-family: 'robotolight', sans-serif;
+    padding-left: rem(15px);
 }
 
 .footer__nav {
+
     .nav__item {
         flex-grow: 0;
         background-color: transparent;
@@ -94,12 +96,13 @@
     padding: rem(15px);
 
     @include screen-sm {
-        padding: rem(0px);
+        padding: rem(0px) rem(0px) rem(0px) rem(15px);
     }
 
     @include screen-xs {
         display: flex;
         justify-content: center;
+        padding: 0;
     }
 
     .socials__link:hover {

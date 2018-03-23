@@ -29,9 +29,9 @@
             </ul>
           </div>
           <button class="btn header__menu">
-            <svg class="svg" width="40" height="35">
-              <use xlink:href="img/sprite.svg#hamburger"></use>
-            </svg>
+            <div class="hamburger-menu" id="hamburger-menu">
+              <div class="hamburger-menu__bars"></div>
+            </div>
           </button>
           <div class="section__backing section__backing--header">
             <svg class="svg">
@@ -195,8 +195,18 @@
           </footer>
           <div class="copyright copyright--footer">© Екатерина Леонидова | создано с любовью в LoftSchool | 2018</div>
         </div>
+        <div class="fullscreen visually-hidden">
+          <div class="nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a class="nav__link" href="works.html" title="Мои работы">Мои работы</a></li>
+              <li class="nav__item"><a class="nav__link" href="about.html" title="Обо мне">Обо мне</a></li>
+              <li class="nav__item"><a class="nav__link" href="blog.html" title="Блог">Блог</a></li>
+              <li class="nav__item"><a class="nav__link" href="auth.html" title="Авторизация">Авторизация</a></li>
+            </ul>
+          </div>
+        </div>
       </section>
     </div>
-    <script src="js/script.min.js"></script>
+    <script src="js/works.bundle.js">   </script>
   </body>
 </html>

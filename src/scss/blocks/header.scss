@@ -22,11 +22,15 @@
 
 .header__menu {
     position: absolute;
+    z-index: 50;
     top: rem(30px);
     right: rem(30px);
     width: rem(40px);
     height: rem(35px);
     
+    &--fixed {
+        position: fixed;
+    }
 }
 
 .header__profile {

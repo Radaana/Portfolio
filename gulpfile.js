@@ -79,7 +79,7 @@ function scripts() { //JS
       presets: ['env']
     }))
     .pipe(uglify())
-    .pipe(concat('script.min.js'))
+    // .pipe(concat('script.min.js'))
     .pipe(gulp.dest(paths.build + 'js/'))
 }
 

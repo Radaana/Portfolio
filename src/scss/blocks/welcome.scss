@@ -12,8 +12,14 @@
     }
 }
 
-.welcome__inner {
+.welcome__flipper {
     max-width: rem(380px);
+    min-height: rem(395px);
+    flex-grow: 1;
+}
+
+.welcome__inner {
+    min-width: rem(380px);
     min-height: rem(395px);
     background-color: rgba(#000, 0.5);
     display: flex;
@@ -22,7 +28,7 @@
     overflow: hidden;
 
     @include screen-sm {
-        max-width: rem(348px);
+        min-width: rem(348px);
     }
 }
 

@@ -10,8 +10,8 @@ block content
                 .header__socials
                     include pug/socials.pug
                 button.btn.header__menu
-                    svg.svg(width="40" height="35")
-                        use(xlink:href="img/sprite.svg#hamburger")
+                    .hamburger-menu#hamburger-menu
+                        .hamburger-menu__bars
                 .section__backing.section__backing--header
                     svg.svg
                         use(xlink:href="img/sprite.svg#portfolio_header") 
@@ -64,17 +64,21 @@ block content
                                 .contacts__text #{contact[1]}    
                 .about-me__footer
                     include pug/footer.pug
-                script(type="text/x-template",id="skills-item")
-                    li.skills__skill.skill 
-                        svg.skill__circle.circle(viewBox="0 0 110 110")
-                            circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
-                            circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__second"  :class="'circle__second--' + skill.level ")
-                        .skill__title {{skill.name}}
-                script(type="text/x-template" id="skills-list")
-                        li.skills__item
-                            h4.skills__title {{items.title}}
-                            ul.skills__row
-                                skills-item(v-for="item in items.skills"  :skill="item"  :key="item.id")
+            .fullscreen.visually-hidden
+                +nav(1)
+            script(type="text/x-template",id="skills-item")
+                li.skills__skill.skill 
+                    svg.skill__circle.circle(viewBox="0 0 110 110")
+                        circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                        circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__second"  :class="'circle__second--' + skill.level ")
+                    .skill__title {{skill.name}}
+            script(type="text/x-template" id="skills-list")
+                    li.skills__item
+                        h4.skills__title {{items.title}}
+                        ul.skills__row
+                            skills-item(v-for="item in items.skills"  :skill="item"  :key="item.id")
 block script
+    script(src='js/about.bundle.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCdiqpmw5rW0CewRcKKUTZCtx4ePiFkEBA&callback=initMap')             
+    
     

@@ -1,3 +1,7 @@
+.works {
+    position: relative;
+}
+
 .works__main {
     width: 100%;
     min-height: 100vh;
@@ -5,8 +9,6 @@
     position: relative;
     margin: 0;
 }
-
-
 
 .works__title {
     display: flex;
@@ -17,8 +19,6 @@
     align-items: flex-end;
     min-height: rem(165px);
 }
-
-
 
 .works__slider {
     height: 100vh;
