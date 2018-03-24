@@ -22,11 +22,21 @@
     right: 0;
     bottom: 0;
     left: 0;
-    filter: blur(15px);
+    // filter: blur(15px);
     background-image: url('../img/works-bg.png');
-    background-size: 900px;
+    // background-size: 900px;
     background-repeat: no-repeat;
     // background-position: center bottom;
+
+    @include screen-sm {
+        background-image: url('../img/works-bg-sm.png');
+    }
+
+    @include screen-xs {
+        background-image: url('../img/works-bg-xs.png');
+
+        padding: 0 5%;
+    }
 }
 
 .contact-me__title {

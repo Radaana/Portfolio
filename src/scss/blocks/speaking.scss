@@ -13,12 +13,15 @@
 .speaking__bg {
     position: absolute;
     // top: 0;
-    // right: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    min-width: 900px;
+    // min-width: 900px;
 }
+
+// .speaking__img {
+//     object-fit: contain;
+// }
 
 .speaking__testimonials {
     margin: rem(20px) auto rem(50px);

@@ -7,20 +7,22 @@
     position: relative;
     height: 100vh;
 
+    @include screen-sm {
+        background: url('../img/welcome-bg-sm.jpg') center center no-repeat;
+        background-size: cover;
+    }
+
     @include screen-xs {
+        background: url('../img/welcome-bg-xs.jpg') center center no-repeat;
+        background-size: cover;
         padding: 0 5%;
     }
 }
 
 .welcome__flipper {
-    // position: absolute;
-    // left: 50%;
-    // top: 50%;
-    // transform: translate(-50%, -50%);
     min-width: rem(380px);
     min-height: rem(395px);
-    // flex-grow: 1;
-    // display: flex;
+
 
     @include screen-sm {
         min-width: rem(348px);

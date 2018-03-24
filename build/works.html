@@ -102,7 +102,13 @@
           </section>
         </main>
         <section class="works__about speaking">
-          <div class="speaking__bg"><img class="img" src="img/works-bg.png" alt="Фон страницы"></div>
+          <div class="speaking__bg">
+            <picture class="img speaking__img">
+              <source srcset="img/works-bg-sm.png" media="(max-width: 768px)">
+              <source srcset="img/works-bg-xs.png" media="(max-width: 580px)">
+              <source srcset="img/works-bg.png"><img srcset="img/works-bg.png" alt="Фон страницы">
+            </picture>
+          </div>
           <div class="section__title-box">
             <div class="section__backing section__backing--subtitle">
               <svg class="svg svg--green">

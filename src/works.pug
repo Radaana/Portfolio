@@ -63,7 +63,11 @@ block content
                                                 use(xlink:href="img/sprite.svg#arrow_down")
             section.works__about.speaking
                 .speaking__bg
-                    img.img(src="img/works-bg.png" alt="Фон страницы")
+                    picture.img.speaking__img
+                        source(srcset="img/works-bg-sm.png" media="(max-width: 768px)")
+                        source(srcset="img/works-bg-xs.png" media="(max-width: 580px)")
+                        source(srcset="img/works-bg.png")
+                        img(srcset="img/works-bg.png" alt="Фон страницы")
                 .section__title-box
                     .section__backing.section__backing--subtitle
                         svg.svg.svg--green
