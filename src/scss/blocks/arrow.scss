@@ -1,8 +1,9 @@
 .arrow {
     width: rem(26px);
     height: rem(16px);
+
+    &:hover {
+        transform: scale(2);
+    }
 }
 
-.arrow--up {
-    transform: rotate(180deg);
-}

@@ -5,10 +5,12 @@
     top: 0;
     left: 0;
     z-index: 30;
-    background-color: $lightGreen;
+    background-color: rgba($lightGreen, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transition: all .4s ease-in-out;
 
     .nav__list {
         display: flex;

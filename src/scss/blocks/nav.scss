@@ -13,7 +13,7 @@
         border-left: none;
     }
 
-    &:hover {
+    &:hover, &:focus {
         background-color: $green;
     }
 

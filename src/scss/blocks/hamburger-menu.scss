@@ -32,6 +32,10 @@
             }
         }
     }
+
+    &:hover {
+        transform: scale(0.8);
+    }
 }
 
 .hamburger-menu__bars

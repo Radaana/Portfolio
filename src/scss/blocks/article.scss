@@ -7,7 +7,8 @@
         position: absolute;
         top: 0;
         display: block;
-        width: rem(680px);
+        width: 80%;
+        max-width: rem(680px);
         height: rem(5px);
         background-color: $dark;
         opacity: 0.07;

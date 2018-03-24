@@ -1,6 +1,5 @@
 .section {
     min-height: 650px;
-    // height: 100%;
     width: 100%;
     background-color: #faf8f0;
 }    
@@ -14,10 +13,7 @@
     max-width: rem(380px);
     text-transform: uppercase;
     position: relative;
-    // display: inline-block;
     display: block;
-    // height: 200px;
-    // width: 300px;
 
     &::after {
         content: '';
@@ -41,7 +37,6 @@
 }
 
 .section__subtitle {
-    // display: inline-block;
     @include sansus;
     font-size: rem(35px);
     color: $gray;
@@ -51,9 +46,6 @@
     position: relative;
     text-align: center;
     max-width: rem(295px);
-    
-    // display: inline-block;
-
 
     &::after {
         content: '';
@@ -82,8 +74,6 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // width: 100%;
-    // z-index: -10;
 
     &--header {
         height: 50%;

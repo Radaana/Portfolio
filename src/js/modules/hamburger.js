@@ -1,10 +1,12 @@
-var ham = {
+let ham = {
     init() {
         let hamburger = document.getElementById('hamburger-menu');
         // let close = document.getElementByClassName('hamburger-menu--close');
         let nav = document.getElementsByClassName('fullscreen')[0];
         let navItem = nav.getElementsByClassName('nav__link');
         let wrapper = document.getElementsByClassName('header__menu')[0];
+        let body = document.getElementsByTagName('body')[0];
+        
       
         hamburger.addEventListener('click', e => {
           e.preventDefault();
@@ -13,10 +15,12 @@ var ham = {
             nav.classList.add('visually-hidden');
             hamburger.classList.remove('hamburger-menu--close');
             wrapper.classList.remove('header__menu--fixed');
+            body.classList.remove('overflow-hidden');
           } else {
             nav.classList.remove('visually-hidden');
             hamburger.classList.add('hamburger-menu--close');
             wrapper.classList.add('header__menu--fixed');
+            body.classList.add('overflow-hidden');
           }
         }); // hamburger END
       
@@ -26,6 +30,7 @@ var ham = {
             nav.classList.add('visually-hidden');
             hamburger.classList.remove('hamburger-menu--close');
             wrapper.classList.remove('header__menu--fixed');
+            body.classList.remove('overflow-hidden');
           })
         } // navItem END
     }

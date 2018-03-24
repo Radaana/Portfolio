@@ -13,9 +13,23 @@
 }
 
 .welcome__flipper {
-    max-width: rem(380px);
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+    min-width: rem(380px);
     min-height: rem(395px);
-    flex-grow: 1;
+    // flex-grow: 1;
+    // display: flex;
+
+    @include screen-sm {
+        min-width: rem(348px);
+    }
+
+    @include screen-xs {
+        min-width: rem(300px);
+        // max-width: rem(348px);
+    }
 }
 
 .welcome__inner {
@@ -26,9 +40,15 @@
     flex-direction: column;
     border-radius: 15px; 
     overflow: hidden;
+    flex-grow: 1;
 
     @include screen-sm {
         min-width: rem(348px);
+    }
+
+    @include screen-xs {
+        min-width: rem(100px);
+        max-width: rem(348px);
     }
 }
 

@@ -62,6 +62,8 @@ block content
                                             svg.svg
                                                 use(xlink:href="img/sprite.svg#arrow_down")
             section.works__about.speaking
+                .speaking__bg
+                    img.img(src="img/works-bg.png" alt="Фон страницы")
                 .section__title-box
                     .section__backing.section__backing--subtitle
                         svg.svg.svg--green
@@ -83,6 +85,7 @@ block content
                             .review__author Linus Torvalds
                             .review__place - The Linux Foundation
                 .contact-me.speaking__contact-me
+                    .contact-me__bg
                     h3.section__subtitle.section__subtitle--dark.contact-me__title Связаться со мной
                     form.contact-me__form.form.form--contact(action="")
                         .form__input
@@ -97,9 +100,9 @@ block content
                         .form__buttons
                             button.btn.form__btn(type="submit") Отправить
                             button.btn.form__btn(type="reset") Очистить
-                button.btn.arrow.arrow--up.speaking__arrow
+                button.btn.arrow.speaking__arrow
                     svg.svg(width="26" height="16")
-                        use(xlink:href="img/sprite.svg#arrow_down")
+                        use(xlink:href="img/sprite.svg#portf_arrow_up")
             .works__footer
                 include pug/footer.pug
             .fullscreen.visually-hidden
