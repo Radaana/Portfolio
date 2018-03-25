@@ -9,7 +9,7 @@ block content
             header.header
                 .header__socials
                     include pug/socials.pug
-                button.btn.header__menu
+                button.btn.header__menu(type="button")
                     .hamburger-menu#hamburger-menu
                         .hamburger-menu__bars
                 .section__backing.section__backing--header
@@ -20,7 +20,7 @@ block content
                         img.img(src="img/me.jpg" alt="Леонидова Екатерина")
                     h2.profile__title Леонидова Екатерина
                     p.profile__text Веб-разработчик   
-                button.btn.arrow.header__arrow
+                button.btn.arrow.header__arrow(type="button")
                     svg.svg(width="26" height="16")
                         use(xlink:href="img/sprite.svg#arrow_down")
             main.about-me__main    

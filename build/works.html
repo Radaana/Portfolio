@@ -29,7 +29,7 @@
                   </svg></a></li>
             </ul>
           </div>
-          <button class="btn header__menu">
+          <button class="btn header__menu" type="button">
             <div class="hamburger-menu" id="hamburger-menu">
               <div class="hamburger-menu__bars"></div>
             </div>
@@ -44,7 +44,7 @@
             <h2 class="profile__title">Леонидова Екатерина</h2>
             <p class="profile__text">Веб-разработчик   </p>
           </div>
-          <button class="btn arrow header__arrow">
+          <button class="btn arrow header__arrow" type="button">
             <svg class="svg" width="26" height="16">
               <use xlink:href="img/sprite.svg#arrow_down"></use>
             </svg>
@@ -80,7 +80,7 @@
               <div class="slider__btns">
                 <div class="slider__left">
                   <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
-                  <button class="btn slider__btn">
+                  <button class="btn slider__btn" type="button">
                     <div class="arrow slider__arrow">
                       <svg class="svg">
                         <use xlink:href="img/sprite.svg#arrow_down"></use>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="slider__right">
                   <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
-                  <button class="btn slider__btn">
+                  <button class="btn slider__btn" type="button">
                     <div class="arrow arrow--up slider__arrow">
                       <svg class="svg">
                         <use xlink:href="img/sprite.svg#arrow_down"></use>
@@ -136,29 +136,32 @@
               </cite>
             </div>
           </div>
+          <div class="speaking__form"></div>
           <div class="contact-me speaking__contact-me">
-            <div class="contact-me__bg"></div>
-            <h3 class="section__subtitle section__subtitle--dark contact-me__title">Связаться со мной</h3>
-            <form class="contact-me__form form form--contact" action="">
-              <div class="form__input">
-                <label class="visually-hidden" for="name">Имя</label>
-                <input class="input" type="text" name="name" placeholder="Имя" id="name">
-              </div>
-              <div class="form__input">
-                <label class="visually-hidden" for="email">Email</label>
-                <input class="input" type="email" name="email" placeholder="Email" id="email">
-              </div>
-              <div class="form__input">
-                <label class="visually-hidden" for="email">Ваше сообщение</label>
-                <textarea class="textarea form__textarea" name="comment" placeholder="Ваше сообщение" id="comment" rows="7"></textarea>
-              </div>
-              <div class="form__buttons">
-                <button class="btn form__btn" type="submit">Отправить</button>
-                <button class="btn form__btn" type="reset">Очистить</button>
-              </div>
-            </form>
+            <div class="contact-me__bg"> </div>
+            <div class="contact-me__content">
+              <h3 class="section__subtitle section__subtitle--dark contact-me__title">Связаться со мной</h3>
+              <form class="contact-me__form form form--contact" action="">
+                <div class="form__input">
+                  <label class="visually-hidden" for="name">Имя</label>
+                  <input class="input" type="text" name="name" placeholder="Имя" id="name">
+                </div>
+                <div class="form__input">
+                  <label class="visually-hidden" for="email">Email</label>
+                  <input class="input" type="email" name="email" placeholder="Email" id="email">
+                </div>
+                <div class="form__input">
+                  <label class="visually-hidden" for="email">Ваше сообщение</label>
+                  <textarea class="textarea form__textarea" name="comment" placeholder="Ваше сообщение" id="comment" rows="7"></textarea>
+                </div>
+                <div class="form__buttons">
+                  <button class="btn form__btn" type="submit">Отправить</button>
+                  <button class="btn form__btn" type="reset">Очистить</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <button class="btn arrow speaking__arrow">
+          <button class="btn arrow speaking__arrow" type="button">
             <svg class="svg" width="26" height="16">
               <use xlink:href="img/sprite.svg#portf_arrow_up"></use>
             </svg>

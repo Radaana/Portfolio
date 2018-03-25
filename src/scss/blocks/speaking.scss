@@ -12,6 +12,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    // top: 0;
 }
 
 .speaking__testimonials {
@@ -23,9 +24,20 @@
     }
 }
 
-.speaking__contact-me {
+.speaking__form {
     margin-bottom: rem(70px);
+    width: 100%;
+    min-height: rem(500px);
+    // position: relative;
+}
+
+.speaking__contact-me {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     overflow: hidden;  
+    margin-bottom: rem(70px);
 }
 
 .speaking__arrow {

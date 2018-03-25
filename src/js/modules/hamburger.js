@@ -7,8 +7,8 @@ let ham = {
         let wrapper = document.getElementsByClassName('header__menu')[0];
         let body = document.getElementsByTagName('body')[0];
         let animation = false;
-      
-        hamburger.addEventListener('click', e => {
+
+        wrapper.addEventListener('click', e => {
           e.preventDefault();
           // console.log('test');
           if (hamburger.classList.contains('hamburger-menu--close')) {
@@ -42,13 +42,3 @@ let ham = {
 
 module.exports = ham;
 
-// function Module2(id) {
-//     this.element = document.getElementById(id);
-// }
- 
-// Module2.prototype.ChangeText2 = function () {
-//     this.element.innerHTML = 'А я модуль номер два и вывожу привет в консоле... ';
-//     console.log('Здравствуй, Мир');
-// };
-
-// module.exports = Module2;
