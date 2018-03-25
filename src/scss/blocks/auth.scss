@@ -2,7 +2,6 @@
     min-width: rem(380px);
     background-color: rgba(#000, 0.5);
     display: flex;
-    // flex-grow: 1;
     flex-direction: column;
     border-radius: 15px; 
     overflow: hidden;
@@ -21,7 +20,6 @@
 
 .auth__title {
     margin: 0 auto;
-    // padding: rem(20px) 0;
 }
 
 .auth__form {

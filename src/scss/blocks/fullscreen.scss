@@ -1,16 +1,22 @@
 .fullscreen {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
+    width: 1px;
+    height: 1px;
+    position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    overflow: hidden;
     z-index: 30;
     background-color: rgba($lightGreen, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s ease-in-out;
 
-    transition: all .4s ease-in-out;
+    &--shown {
+        width: 100%;
+        height: 100vh;  
+    }
 
     .nav__list {
         display: flex;
@@ -22,23 +28,12 @@
         flex-grow: 0;
         background-color: transparent;
         border-left: 0;
-        // align-items: center;
         position: relative;
           
-        &:hover {
+        &:hover, &:focus {
             background-color: transparent;
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                margin-left: rem(-45px);
-                background-color: #fff;
-                width: rem(90px);
-                height: 3px;    
-            }          
+                  
         }
-    
     }
     
     .nav__link {
@@ -51,7 +46,21 @@
         width: 100%;
         height: 100%;
         text-align: center;
+        background-color: transparent;
 
+        &:hover, &:focus {
+            background-color: transparent;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left: rem(-45px);
+                background-color: #fff;
+                width: rem(90px);
+                height: 3px;    
+            }   
+        }
     }
-    
 }

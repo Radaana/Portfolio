@@ -10,8 +10,9 @@
 
     &:first-child {
         margin-left: 0;
-    }
+    }  
 }
+
 
 .socials__link {
     display: block;
@@ -34,7 +35,7 @@
     }
 }
 
-.socials__link:hover {
+.socials__link:hover, .socials__link:focus {
     opacity: 1;
 
     .socials__svg {

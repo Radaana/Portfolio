@@ -8,8 +8,8 @@ let blur =  {
         let blurCSS = form.style;
         blurCSS.backgroundSize = imgWidth + 'px' + ' ' + 'auto';
         // blurCSS.backgroundPosition = posLeft + 'px' + ' ' + (posTop+400) + 'px';
-        blurCSS.backgroundPosition = posLeft + 'px' + ' ' + 'bottom';
-        // blurCSS.backgroundPosition = (posLeft+350) + 'px' + ' ' + 'bottom';
+        // blurCSS.backgroundPosition = posLeft + 'px' + ' ' + 'bottom';
+        blurCSS.backgroundPosition = (posLeft+350) + 'px' + ' ' + 'bottom';
     }
 }
 

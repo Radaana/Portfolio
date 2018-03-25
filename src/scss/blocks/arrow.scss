@@ -2,7 +2,7 @@
     width: rem(26px);
     height: rem(16px);
 
-    &:hover {
+    &:hover, &:focus {
         transform: scale(2);
     }
 }

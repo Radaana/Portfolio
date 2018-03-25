@@ -63,11 +63,11 @@ block content
                                                 use(xlink:href="img/sprite.svg#arrow_down")
             section.works__about.speaking
                 .speaking__bg
-                    picture.img.speaking__img
-                        source(srcset="img/works-bg-sm.png" media="(max-width: 768px)")
-                        source(srcset="img/works-bg-xs.png" media="(max-width: 580px)")
-                        source(srcset="img/works-bg.png")
-                        img(srcset="img/works-bg.png" alt="Фон страницы")
+                    picture.speaking__img
+                        source.img(srcset="img/works-bg-sm.png" media="(max-width: 768px)")
+                        source.img(srcset="img/works-bg-xs.png" media="(max-width: 580px)")
+                        source.img(srcset="img/works-bg.png")
+                        img.img(srcset="img/works-bg.png" alt="Фон страницы")
                 .section__title-box
                     .section__backing.section__backing--subtitle
                         svg.svg.svg--green
@@ -109,7 +109,7 @@ block content
                         use(xlink:href="img/sprite.svg#portf_arrow_up")
             .works__footer
                 include pug/footer.pug
-            .fullscreen.visually-hidden
+            .fullscreen
                 +nav(1)
 block script
     script(src='js/works.bundle.js')    

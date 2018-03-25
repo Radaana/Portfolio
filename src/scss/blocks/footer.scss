@@ -27,8 +27,6 @@
     border-right: rem(2px) solid rgba(#fff, 0.2);
 
     @include screen-lg {
-        // flex-shrink: 1;
-
         &:nth-child(2) {
             min-width: 295px;
         }
@@ -91,11 +89,10 @@
 
     .nav__item {
         flex-grow: 0;
-        background-color: transparent;
         border-left: none;
 
         &:hover {
-            background-color: transparent;
+            
             text-decoration: underline;
         }
     }
@@ -103,10 +100,16 @@
     .nav__link {
         display: block;
         padding: rem(13px) rem(10px);
+        background-color: transparent;
         
         @include screen-lg {
             font-weight: lighter;
         }
+    }
+
+    .nav__link:hover, .nav__link:focus {
+        background-color: transparent;
+        text-decoration: underline;
     }
 }
 
@@ -123,7 +126,7 @@
         padding: 0;
     }
 
-    .socials__link:hover {
+    .socials__link:hover, .socials__link:focus {
         opacity: 1;
     
         svg {

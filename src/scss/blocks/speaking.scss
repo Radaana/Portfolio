@@ -1,7 +1,4 @@
 .speaking {
-    // background-image: url('../img/works-bg.png');
-    // background-size: cover;
-    // background-position: center bottom;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,16 +9,10 @@
 
 .speaking__bg {
     position: absolute;
-    // top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    // min-width: 900px;
 }
-
-// .speaking__img {
-//     object-fit: contain;
-// }
 
 .speaking__testimonials {
     margin: rem(20px) auto rem(50px);
@@ -34,25 +25,7 @@
 
 .speaking__contact-me {
     margin-bottom: rem(70px);
-    // position: relative;
-    overflow: hidden;
-    // z-index: 5;
-
-    // &::after {
-    //     content: '';
-    //     position: absolute;
-    //     z-index: -2;
-    //     top: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     left: 0;
-    //     // filter: blur(10px);
-    //     background-image: url('../img/works-bg.png');
-    //     background-size: 900px;
-    //     // background-position: center center;
-    // }
-
-    
+    overflow: hidden;  
 }
 
 .speaking__arrow {

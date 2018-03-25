@@ -62,9 +62,11 @@
 }
 
 .about-me__title {
-    display: inline-block;
     text-align: center;
     width: 50%;
+    display: flex;
+    justify-content: center;
+
 
     @include screen-lg {
         width: 100%;
