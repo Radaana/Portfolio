@@ -52,6 +52,8 @@ const images =
 const fonts = 
   paths.src + '/fonts/*.{otf,ttf,woff,woff2}';
 
+
+
 // задачи
 
 function styles() { // CSS
@@ -229,6 +231,7 @@ exports.clean = clean;
 exports.watch = watch;
 exports.copyImg = copyImg;
 exports.copyFonts = copyFonts;
+
 exports.svgSpriteBuild = svgSpriteBuild;
 exports.pngSpriteBuild = pngSpriteBuild;
 
@@ -241,7 +244,7 @@ gulp.task('build', gulp.series(
   pugs,
   svgSpriteBuild,
   pngSpriteBuild,
-  copyImg
+  copyImg,
   // gulp.parallel(styles, scripts, htmls)
 ));
 
