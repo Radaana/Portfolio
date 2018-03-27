@@ -41,13 +41,15 @@ block content
                     a(v-if="post.id == cid" class="names__link names__link--active") {{post.title}}
                     a(v-else class="names__link") {{post.title}}
         script(type="text/x-template",id="article-item")
-            article.article(v-on:scroll.native="activate")
+            //- article.article(v-on:scroll.native="activate")
+            article.article(v-scroll:throttle="{fn: onScroll, throttle: 500 }")
                 h2.article__title {{post.title}}
+                //- h2.article__title {{position.scrollTop}}
                 time.article__date(:datetime="post.datetime")  {{post.date}}
                 p {{post.text}}
         script(type="text/x-template",id="article-list")
             .contents__articles
-                article-item.contents__article(v-for= "post in posts"  :post="post" v-on:message="handleMessage")
+                article-item(v-for= "post in posts"  :key="post.id"  :post="post" v-on:message="handleMessage")
                     
 block script
     script(src='js/blog.bundle.js')

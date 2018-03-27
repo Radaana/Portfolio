@@ -1,15 +1,21 @@
+// let Vue = require ('../../node_modules/vue/dist/vue');
+let Vue = require ('vue/dist/vue');
+let vuescroll = require ('vue-scroll/dist/vue-scroll');
+ 
+Vue.use(vuescroll)
+
 let ham = require ('./modules/hamburger');
 
 ham.init();
 
 // window.addEventListener
 
-var scroll;
+// var scroll;
 
-window.onscroll = function () {
-    scroll = window.pageYOffset;
-    // console.log(scroll); 
-}
+// window.onscroll = function () {
+//     scroll = window.pageYOffset;
+//     // console.log(scroll); 
+// }
 
 Vue.component('article-list', {
     template: "#article-list",
@@ -30,20 +36,26 @@ Vue.component('article-list', {
     props: ['post'],
     data() {
         return {
-            id: this.post.id,
+            // id: this.post.id,
+            position: {scrollTop: 0, scrollLeft: 0} ,
         }
       },
-    methods: {
-        activate: function () {
+    // methods: {
+        // activate: function () {
         //    let pagey =  window.pageYOffset;
-        if (scroll >200)
-            console.log("Yay");
+        // if (scroll >200)
+        //     console.log("Yay");
           // `this` внутри методов указывает на экземпляр Vue
         //   this.$emit('message', { message: this.id });
           // `event` — нативное событие DOM
 
+        // }
+        methods:{
+            onScroll:function(e, position){
+                this.position = position;
+            }
         }
-      }
+      
   });
   
   Vue.component("names-list", {
@@ -71,7 +83,7 @@ Vue.component('article-list', {
                 title: "Почему именно БЭМ",
                 date: "20 февраля 2018",
                 datetime: "2018-01-20",
-                text: "БЭМ очень удобен для организации кода в CSS стилях. Использование методологии позволяет не думать над тем, как назвать классы, так как в ней имеется уже готовая инструкция к действию"
+                text: "БЭМ очень удобен для организации кода в CSS стилях. Использование методологии позволяет не думать над тем, как назвать классы, так как в ней имеется уже готовая инструкция к действию. Особенно важно это на самом начальном этапе разработки."
             },
             {
                 id: 103,
@@ -93,3 +105,4 @@ Vue.component('article-list', {
   }); // Vue end
   
   contents.$mount("#contents");
+  console.log(contents);

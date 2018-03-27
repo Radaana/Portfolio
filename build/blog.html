@@ -5,7 +5,6 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Блог</title>
   </head>
   <body>
@@ -119,7 +118,7 @@
         </ul>
       </script>
       <script type="text/x-template" id="article-item">
-        <article class="article" v-on:scroll.native="activate">
+        <article class="article" v-scroll:throttle="{fn: onScroll, throttle: 500 }">
           <h2 class="article__title">{{post.title}}</h2>
           <time class="article__date" :datetime="post.datetime"> {{post.date}}</time>
           <p>{{post.text}}</p>
@@ -127,7 +126,7 @@
       </script>
       <script type="text/x-template" id="article-list">
         <div class="contents__articles">
-          <article-item class="contents__article" v-for="post in posts" :post="post" v-on:message="handleMessage"></article-item>
+          <article-item v-for="post in posts" :key="post.id" :post="post" v-on:message="handleMessage"></article-item>
         </div>
       </script>
     </div>

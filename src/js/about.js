@@ -1,3 +1,4 @@
+let Vue = require ('vue/dist/vue');
 let ham = require ('./modules/hamburger');
 
 ham.init();
