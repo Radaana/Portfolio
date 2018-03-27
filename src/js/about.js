@@ -16,7 +16,7 @@ Vue.component('skills-item', {
     },
   });
   
-  const app = new Vue({
+  const skills = new Vue({
     data: {
       frontend: { title: 'Frontend', 
                   skills: [ {name : 'HTML', level: 90}, 
@@ -34,7 +34,7 @@ Vue.component('skills-item', {
     }
   }); // Vue end
   
-  app.$mount("#app");
+  skills.$mount("#skills");
 
 window.initMap = function() {
     var uluru = {lat: 55.671998, lng: 37.492849}; 

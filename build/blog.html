@@ -55,47 +55,12 @@
               <polygon class="triangle__right" points="1000,0   1000,86   500,86   500,75.5"> </polygon>
             </svg>
           </div>
-          <div class="contents blog__contents">
+          <div class="contents blog__contents" id="contents">
             <aside class="names contents__left">
-              <ul class="names__list">
-                <li class="names__item">Заголовок статьи</li>
-                <li class="names__item">Очень длинный заголовок невероятно интересной статьи</li>
-                <li class="names__item">Ещё статья</li>
-                <li class="names__item">Основные преимущества flexbox</li>
-                <li class="names__item">Последняя статья</li>
-              </ul>
+              <names-list :posts="posts" :cid="currentId"></names-list>
             </aside>
             <section class="contents__right">
-              <article class="article">
-                <h2 class="article__title">Заголовок статьи</h2>
-                <time class="article__date" datetime="2018-01-20">20 февраля 2018</time>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempore assumenda voluptatem eveniet omnis nisi facilis ipsum tempora corrupti esse asperiores, fuga rem est quisquam amet qui magni, obcaecati eum recusandae aspernatur eligendi nam accusamus non! Repellat rerum hic, ipsa delectus illo corporis, aliquam totam, sequi quisquam velit quos eligendi.</p>
-              </article>
-              <article class="article">
-                <h2 class="article__title"> Очень длинный заголовок невероятно интересной статьи</h2>
-                <time class="article__date" datetime="2018-01-20">20 февраля 2018</time>
-                <p>Далеко-далеко за словесными горами в стране.</p>
-              </article>
-              <article class="article">
-                <h2 class="article__title"> Ещё статья</h2>
-                <time class="article__date" datetime="2018-01-20">20 февраля 2018</time>
-                <p>Далеко-далеко за словесными горами в стране.</p>
-              </article>
-              <article class="article">
-                <h2 class="article__title"> Основные преимущества flexbox</h2>
-                <time class="article__date" datetime="2018-01-20">20 февраля 2018</time>
-                <p>Все блоки очень легко делаются “резиновым”, что уже следует из названия “flex”. Элементы могут сжиматься и растягиваться по заданным правилам, занимая нужное пространство.</p>
-                <p>Выравнивание по вертикали и горизонтали, базовой линии текста работает шикарно.</p>
-                <p>Расположение элементов в html не имеет решающего значения. Его можно поменять в CSS. Это особенно важно для некоторых аспектов responsive верстки.</p>
-                <p>Элементы могут автоматически выстраиваться в несколько строк/столбцов, занимая все предоставленное место.</p>
-                <p>Множество языков в мире используют написание справа налево rtl (right-to-left), в отличии от привычного нам ltr (left-to-right). Flexbox адаптирован для этого. В нем есть понятие начала и конца, а не права и лева. Т.е. в браузерах с локалью rtl все элементы будут автоматически расположены в реверсном порядке.</p>
-                <p>Синтаксис CSS правил очень прост и осваивается довольно быстро.</p>
-              </article>
-              <article class="article">
-                <h2 class="article__title"> Последняя статья</h2>
-                <time class="article__date" datetime="2018-01-20">20 февраля 2018</time>
-                <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.</p>
-              </article>
+              <article-list :posts="posts" v-on:change-id="currentIdChange"></article-list>
             </section>
           </div>
         </main>
@@ -148,6 +113,23 @@
           </ul>
         </div>
       </div>
+      <script type="text/x-template" id="names-list">
+        <ul class="names__list">
+          <li class="names__item" v-for="post in posts"><a class="names__link names__link--active" v-if="post.id == cid">{{post.title}}</a><a class="names__link" v-else>{{post.title}}</a></li>
+        </ul>
+      </script>
+      <script type="text/x-template" id="article-item">
+        <article class="article" v-on:scroll.native="activate">
+          <h2 class="article__title">{{post.title}}</h2>
+          <time class="article__date" :datetime="post.datetime"> {{post.date}}</time>
+          <p>{{post.text}}</p>
+        </article>
+      </script>
+      <script type="text/x-template" id="article-list">
+        <div class="contents__articles">
+          <article-item class="contents__article" v-for="post in posts" :post="post" v-on:message="handleMessage"></article-item>
+        </div>
+      </script>
     </div>
     <script src="js/blog.bundle.js"></script>
   </body>
