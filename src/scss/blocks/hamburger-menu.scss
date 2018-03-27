@@ -4,8 +4,8 @@
 
     display: flex;
 
-    width: 40px;
-    height: 35px;
+    width: rem(40px);
+    height: rem(35px);
 
     cursor: pointer;
     vertical-align: middle;
@@ -45,7 +45,7 @@
     &:before,
     &:after
     {
-        width: 40px;
+        width: rem(40px);
         height: 5px;
 
         transition: transform .3s;

@@ -1,17 +1,17 @@
 html {
     font-size: $font-size;
 
-    // @include screen-sm
-    // {
-    //     $sm: $font-size - 1;
-    //     font-size: rem($sm);
-    // }
+    @include screen-sm
+    {
+        $sm: $font-size - 1;
+        font-size: rem($sm);
+    }
 
-    // @include screen-xs
-    // {
-    //     $xs: $font-size - 3;
-    //     font-size: rem($xs);
-    // }
+    @include screen-xs
+    {
+        $xs: $font-size - 2;
+        font-size: rem($xs);
+    }
 }
 
 body {
