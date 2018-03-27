@@ -4,7 +4,11 @@ const path = require("path");
 module.exports = {
   mode: 'development',
   entry: {
-    main: path.resolve(__dirname, "src/js/script.js")
+    'index' : path.resolve(__dirname, "src/js/index.js"),
+    'blog' : path.resolve(__dirname, "src/js/blog.js"),
+    'works' : path.resolve(__dirname, "src/js/works.js"),
+    'about' : path.resolve(__dirname, "src/js/about.js"),
+
   },
   output: {
     path: path.resolve(__dirname, "build/js"),

@@ -1,27 +1,35 @@
 .contacts {
-    width: 380px;
-    height: 312px;
+    width: rem(380px);
+    height: rem(312px);
     background-color: rgba(#fff, 0.8);
-    border-radius: 10px; 
-    padding: 35px 40px;
+    border-radius: rem(10px); 
+    padding: rem(35px) rem(40px);
+
+    @include screen-sm {
+        width: rem(350px);
+    }
+
+    @include screen-xs {
+        width: 100%;
+    }
 }
 
 .contacts__list {
-    margin-top: 15px;
+    margin-top: rem(15px);
 }
 
 .contacts__row {
     display: flex;
-    height: 45px;
+    height: rem(45px);
 }
 
 
 .contacts__svg {
     fill: $lightGreen;
-    width: 24px;
-    height: 24px;
+    width: rem(24px);
+    height: rem(24px);
 }
 
 .contacts__text {
-    margin-left: 10px;
+    margin-left: rem(10px);
 }

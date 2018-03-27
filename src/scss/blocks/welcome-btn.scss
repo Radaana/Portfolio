@@ -1,12 +1,13 @@
 .welcome-btn {
     display: inline-block;
-    padding: 15px 25px;
+    padding: rem(15px) rem(25px);
     border: 1px solid #fff;
     border-radius: 30px;
     color: #fff;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: $green;
         border: 1px solid transparent;
     }
+
 }

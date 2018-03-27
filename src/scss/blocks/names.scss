@@ -1,12 +1,14 @@
 .names {
     width: 30%;
-    padding: 20px 70px;
+    padding: rem(20px) rem(20px);
+
+    
 }
 
 .names__item {
     display: block;
     text-align: right;
-    padding: 17px 15px;
+    padding: rem(17px) rem(15px);
     border-right: 3px solid transparent;
 
     &:hover {

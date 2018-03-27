@@ -9,22 +9,25 @@ block content
             header.header
                 .header__socials
                     include pug/socials.pug
-                .header__menu 
-                    svg.svg(width="40" height="35")
-                        use(xlink:href="img/sprite.svg#hamburger")
+                button.btn.header__menu(type="button")
+                    .hamburger-menu#hamburger-menu
+                        .hamburger-menu__bars
                 .section__backing
                     svg.svg
                         use(xlink:href="img/sprite.svg#blog_header") 
                 .photo
                     img.img(src="img/me.jpg" alt="Леонидова Екатерина")
                 h2.section__title Блог
-                p.header__text Статьи, которые я написала         
+                p.header__text Статьи, которые я написала  
+                button.btn.arrow.header__arrow(type="button")
+                    svg.svg(width="26" height="16")
+                        use(xlink:href="img/sprite.svg#arrow_down")       
             main.blog__main
                 .triangles.triangles--sameColor
                     svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="traingle")
                         polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5") 
-                .contents.container.blog__contents
+                .contents.blog__contents
                     aside.names.contents__left
                         ul.names__list
                             li.names__item Заголовок статьи
@@ -60,3 +63,7 @@ block content
                             time.article__date(datetime="2018-01-20") 20 февраля 2018
                             p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Курсивных то осталось за.
             include pug/footer.pug
+        .fullscreen
+            +nav(1)
+block script
+    script(src='js/blog.bundle.js')

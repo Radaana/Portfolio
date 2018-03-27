@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Мои работы</title>
   </head>
   <body>
@@ -13,24 +15,24 @@
         <header class="header">
           <div class="header__socials">
             <ul class="socials">
-              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница Вконтакте">
+              <li class="socials__item"><a class="socials__link socials__link--vk" href="#" title="Моя страница Вконтакте">
                   <svg class="svg socials__svg" width="31" height="17">
                     <use xlink:href="img/sprite.svg#vk"></use>
                   </svg></a></li>
-              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница GitHub">
+              <li class="socials__item"><a class="socials__link socials__link--github" href="#" title="Моя страница GitHub">
                   <svg class="svg socials__svg" width="26" height="22">
                     <use xlink:href="img/sprite.svg#github"></use>
                   </svg></a></li>
-              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница LinkedIn">
+              <li class="socials__item"><a class="socials__link socials__link--in" href="#" title="Моя страница LinkedIn">
                   <svg class="svg socials__svg" width="24" height="22">
                     <use xlink:href="img/sprite.svg#in"></use>
                   </svg></a></li>
             </ul>
           </div>
-          <button class="btn header__menu">
-            <svg class="svg" width="40" height="35">
-              <use xlink:href="img/sprite.svg#hamburger"></use>
-            </svg>
+          <button class="btn header__menu" type="button">
+            <div class="hamburger-menu" id="hamburger-menu">
+              <div class="hamburger-menu__bars"></div>
+            </div>
           </button>
           <div class="section__backing section__backing--header">
             <svg class="svg">
@@ -42,7 +44,7 @@
             <h2 class="profile__title">Леонидова Екатерина</h2>
             <p class="profile__text">Веб-разработчик   </p>
           </div>
-          <button class="btn arrow header__arrow">
+          <button class="btn arrow header__arrow" type="button">
             <svg class="svg" width="26" height="16">
               <use xlink:href="img/sprite.svg#arrow_down"></use>
             </svg>
@@ -56,18 +58,18 @@
             </svg>
           </div>
           <section class="works__content">
-            <div class="section__title-box">
+            <div class="section__title-box works__title">
               <div class="section__backing section__backing--subtitle">
                 <svg class="svg svg--green">
                   <use xlink:href="img/sprite.svg#works_header"> </use>
                 </svg>
               </div>
-              <h2 class="section__title section__title--dark works__title"> Мои Работы</h2>
+              <h2 class="section__title section__title--dark"> Мои Работы</h2>
             </div>
             <div class="works__slider slider">
               <div class="slider__info"> 
                 <h3 class="section__subtitle slider__title">Сайт школы онлайн-образования</h3>
-                <div class="slider__desc">HTML , CSS, JAVASCRIPT</div><a class="slider__link link-btn" href="#"><span class="link-btn__icon">
+                <div class="slider__desc">HTML, CSS, JAVASCRIPT</div><a class="slider__link link-btn" href="#"><span class="link-btn__icon">
                     <svg class="link-btn__svg">
                       <use xlink:href="img/sprite.svg#link"></use>
                     </svg></span><span class="link-btn__link-text">Посмотреть сайт</span></a>
@@ -78,7 +80,7 @@
               <div class="slider__btns">
                 <div class="slider__left">
                   <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
-                  <button class="btn slider__btn">
+                  <button class="btn slider__btn" type="button">
                     <div class="arrow slider__arrow">
                       <svg class="svg">
                         <use xlink:href="img/sprite.svg#arrow_down"></use>
@@ -88,7 +90,7 @@
                 </div>
                 <div class="slider__right">
                   <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
-                  <button class="btn slider__btn">
+                  <button class="btn slider__btn" type="button">
                     <div class="arrow arrow--up slider__arrow">
                       <svg class="svg">
                         <use xlink:href="img/sprite.svg#arrow_down"></use>
@@ -101,6 +103,13 @@
           </section>
         </main>
         <section class="works__about speaking">
+          <div class="speaking__bg">
+            <picture class="speaking__img">
+              <source class="img" srcset="img/works-bg-sm.png" media="(max-width: 768px)">
+              <source class="img" srcset="img/works-bg-xs.png" media="(max-width: 580px)">
+              <source class="img" srcset="img/works-bg.png"><img class="img" srcset="img/works-bg.png" alt="Фон страницы">
+            </picture>
+          </div>
           <div class="section__title-box">
             <div class="section__backing section__backing--subtitle">
               <svg class="svg svg--green">
@@ -127,75 +136,89 @@
               </cite>
             </div>
           </div>
+          <div class="speaking__form"></div>
           <div class="contact-me speaking__contact-me">
-            <h3 class="section__subtitle section__subtitle--dark contact-me__title">Связаться со мной</h3>
-            <form class="contact-me__form form form--contact" action="">
-              <div class="form__input">
-                <label class="visually-hidden" for="name">Имя</label>
-                <input class="input" type="text" name="name" placeholder="Имя" id="name">
-              </div>
-              <div class="form__input">
-                <label class="visually-hidden" for="email">Email</label>
-                <input class="input" type="email" name="email" placeholder="Email" id="email">
-              </div>
-              <div class="form__input">
-                <label class="visually-hidden" for="email">Ваше сообщение</label>
-                <textarea class="textarea form__textarea" name="comment" placeholder="Ваше сообщение" id="comment" rows="7"></textarea>
-              </div>
-              <div class="form__buttons">
-                <button class="btn form__btn" type="submit">Отправить</button>
-                <button class="btn form__btn" type="reset">Очистить</button>
-              </div>
-            </form>
+            <div class="contact-me__bg"> </div>
+            <div class="contact-me__content">
+              <h3 class="section__subtitle section__subtitle--dark contact-me__title">Связаться со мной</h3>
+              <form class="contact-me__form form form--contact" action="">
+                <div class="form__input">
+                  <label class="visually-hidden" for="name">Имя</label>
+                  <input class="input" type="text" name="name" placeholder="Имя" id="name">
+                </div>
+                <div class="form__input">
+                  <label class="visually-hidden" for="email">Email</label>
+                  <input class="input" type="email" name="email" placeholder="Email" id="email">
+                </div>
+                <div class="form__input">
+                  <label class="visually-hidden" for="email">Ваше сообщение</label>
+                  <textarea class="textarea form__textarea" name="comment" placeholder="Ваше сообщение" id="comment" rows="7"></textarea>
+                </div>
+                <div class="form__buttons">
+                  <button class="btn form__btn" type="submit">Отправить</button>
+                  <button class="btn form__btn" type="reset">Очистить</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <button class="btn arrow arrow--up contact-me__arrow">
+          <button class="btn arrow speaking__arrow" type="button">
             <svg class="svg" width="26" height="16">
-              <use xlink:href="img/sprite.svg#arrow_down"></use>
+              <use xlink:href="img/sprite.svg#portf_arrow_up"></use>
             </svg>
           </button>
         </section>
         <div class="works__footer">
           <footer class="footer">
-            <div class="footer__column"> 
+            <div class="footer__column footer__column--top">
               <p class="footer__text">Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. </p>
             </div>
-            <div class="footer__column"> 
+            <div class="footer__column footer__column--top">
               <div class="footer__nav">
                 <div class="nav">
                   <ul class="nav__list">
                     <li class="nav__item"><a class="nav__link" href="works.html" title="Мои работы">Мои работы</a></li>
                     <li class="nav__item"><a class="nav__link" href="about.html" title="Обо мне">Обо мне</a></li>
                     <li class="nav__item"><a class="nav__link" href="blog.html" title="Блог">Блог</a></li>
-                    <li class="nav__item"><a class="nav__link" href="auth.html" title="Авторизация">Авторизация</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html?auth=true" title="Авторизация">Авторизация</a></li>
                   </ul>
                 </div>
               </div>
               <div class="footer__socials">
                 <ul class="socials">
-                  <li class="socials__item"><a class="socials__link" href="#" title="Моя страница Вконтакте">
+                  <li class="socials__item"><a class="socials__link socials__link--vk" href="#" title="Моя страница Вконтакте">
                       <svg class="svg socials__svg" width="31" height="17">
                         <use xlink:href="img/sprite.svg#vk"></use>
                       </svg></a></li>
-                  <li class="socials__item"><a class="socials__link" href="#" title="Моя страница GitHub">
+                  <li class="socials__item"><a class="socials__link socials__link--github" href="#" title="Моя страница GitHub">
                       <svg class="svg socials__svg" width="26" height="22">
                         <use xlink:href="img/sprite.svg#github"></use>
                       </svg></a></li>
-                  <li class="socials__item"><a class="socials__link" href="#" title="Моя страница LinkedIn">
+                  <li class="socials__item"><a class="socials__link socials__link--in" href="#" title="Моя страница LinkedIn">
                       <svg class="svg socials__svg" width="24" height="22">
                         <use xlink:href="img/sprite.svg#in"></use>
                       </svg></a></li>
                 </ul>
               </div>
             </div>
-            <div class="footer__column quote">
+            <div class="footer__column quote footer__column--bottom">
               <blockquote class="quote__text">Talk is cheap. Show me the code.</blockquote>
               <cite class="quote__author">― Linus Torvalds</cite>
             </div>
           </footer>
-          <div class="copyright copyright--footer">© Екатерина Леонидова | создано с любовью в LoftSchool | 2016</div>
+          <div class="copyright copyright--footer"> <span class="copyright__name">© Екатерина Леонидова  </span><span class="copyright__place">создано с любовью в LoftSchool | 2018</span></div>
+        </div>
+        <div class="fullscreen">
+          <div class="nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a class="nav__link" href="works.html" title="Мои работы">Мои работы</a></li>
+              <li class="nav__item"><a class="nav__link" href="about.html" title="Обо мне">Обо мне</a></li>
+              <li class="nav__item"><a class="nav__link" href="blog.html" title="Блог">Блог</a></li>
+              <li class="nav__item"><a class="nav__link" href="index.html?auth=true" title="Авторизация">Авторизация</a></li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
-    <script src="js/script.min.js"></script>
+    <script src="js/works.bundle.js">   </script>
   </body>
 </html>

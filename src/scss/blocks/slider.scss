@@ -17,6 +17,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include screen-sm {
+        height: 50%;
+    }
 }
 
 .slider__display {
@@ -27,7 +31,8 @@
     justify-content: center;
 
     @include screen-sm {
-    order: -10;
+        height: 50%;
+        order: -10;
     }
 }
 
@@ -44,11 +49,11 @@
 }
 
 .slider__title {
-    margin-bottom: 25px;
+    margin-bottom: rem(25px);
 }
 
 .slider__desc {
-    margin-bottom: 25px;
+    margin-bottom: rem(25px);
     font-family: 'robotomedium', sans-serif;
     color: $green;
 }
@@ -88,7 +93,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 48px;
-    height: 31px;
-    margin-left: -24px;
+    width: rem(48px);
+    height: rem(31px);
+    margin-left: rem(-24px);
 }

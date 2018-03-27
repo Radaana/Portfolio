@@ -3,8 +3,20 @@
     flex-direction: column;
     width: 100%;
     color: $text;
+    position: relative;
 }
+
+.blog__main {
+    position: relative;
+}   
 
 .blog__contents {
     flex-grow: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    @include screen-lg {
+        max-width: 1070px;
+    }
 }

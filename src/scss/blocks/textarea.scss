@@ -1,8 +1,8 @@
 .textarea {
     background-color: #fff;
-    padding: 15px;
+    padding: rem(15px);
     width: 100%;
-    min-height: 140px;
+    height: rem(140px);
     border: none;
     border-radius: 30px;
     color: $text;

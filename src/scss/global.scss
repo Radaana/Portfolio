@@ -1,5 +1,17 @@
 html {
     font-size: $font-size;
+
+    @include screen-sm
+    {
+        $sm: $font-size - 1;
+        font-size: rem($sm);
+    }
+
+    @include screen-xs
+    {
+        $xs: $font-size - 2;
+        font-size: rem($xs);
+    }
 }
 
 body {
@@ -8,12 +20,6 @@ body {
   font-family: 'robotoregular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-
-
-  // @media (min-width: 768px) {
-  //   display: block;
-  // }
 }
 
 *, *::before, *::after { 
@@ -21,9 +27,7 @@ body {
 }
 
 body, html {
-    height: 100%;
     width: 100%;
-    // overflow: hidden;
 }
 
 ul {
@@ -35,19 +39,3 @@ ul {
 a {
     text-decoration: none;
 }
-
-// .container {
-//   @include grid();
-// }
-
-// .form {
-//   @include form();
-// }
-
-// .block {
-//   display: none;
-
-//   @media (min-width: 768px) {
-//     display: flex;
-//   }
-// }

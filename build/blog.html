@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Блог</title>
   </head>
   <body>
@@ -13,25 +15,25 @@
         <header class="header">
           <div class="header__socials">
             <ul class="socials">
-              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница Вконтакте">
+              <li class="socials__item"><a class="socials__link socials__link--vk" href="#" title="Моя страница Вконтакте">
                   <svg class="svg socials__svg" width="31" height="17">
                     <use xlink:href="img/sprite.svg#vk"></use>
                   </svg></a></li>
-              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница GitHub">
+              <li class="socials__item"><a class="socials__link socials__link--github" href="#" title="Моя страница GitHub">
                   <svg class="svg socials__svg" width="26" height="22">
                     <use xlink:href="img/sprite.svg#github"></use>
                   </svg></a></li>
-              <li class="socials__item"><a class="socials__link" href="#" title="Моя страница LinkedIn">
+              <li class="socials__item"><a class="socials__link socials__link--in" href="#" title="Моя страница LinkedIn">
                   <svg class="svg socials__svg" width="24" height="22">
                     <use xlink:href="img/sprite.svg#in"></use>
                   </svg></a></li>
             </ul>
           </div>
-          <div class="header__menu"> 
-            <svg class="svg" width="40" height="35">
-              <use xlink:href="img/sprite.svg#hamburger"></use>
-            </svg>
-          </div>
+          <button class="btn header__menu" type="button">
+            <div class="hamburger-menu" id="hamburger-menu">
+              <div class="hamburger-menu__bars"></div>
+            </div>
+          </button>
           <div class="section__backing">
             <svg class="svg">
               <use xlink:href="img/sprite.svg#blog_header"> </use>
@@ -39,7 +41,12 @@
           </div>
           <div class="photo"><img class="img" src="img/me.jpg" alt="Леонидова Екатерина"></div>
           <h2 class="section__title">Блог</h2>
-          <p class="header__text">Статьи, которые я написала         </p>
+          <p class="header__text">Статьи, которые я написала  </p>
+          <button class="btn arrow header__arrow" type="button">
+            <svg class="svg" width="26" height="16">
+              <use xlink:href="img/sprite.svg#arrow_down">      </use>
+            </svg>
+          </button>
         </header>
         <main class="blog__main">
           <div class="triangles triangles--sameColor">
@@ -48,7 +55,7 @@
               <polygon class="triangle__right" points="1000,0   1000,86   500,86   500,75.5"> </polygon>
             </svg>
           </div>
-          <div class="contents container blog__contents">
+          <div class="contents blog__contents">
             <aside class="names contents__left">
               <ul class="names__list">
                 <li class="names__item">Заголовок статьи</li>
@@ -93,45 +100,55 @@
           </div>
         </main>
         <footer class="footer">
-          <div class="footer__column"> 
+          <div class="footer__column footer__column--top">
             <p class="footer__text">Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. </p>
           </div>
-          <div class="footer__column"> 
+          <div class="footer__column footer__column--top">
             <div class="footer__nav">
               <div class="nav">
                 <ul class="nav__list">
                   <li class="nav__item"><a class="nav__link" href="works.html" title="Мои работы">Мои работы</a></li>
                   <li class="nav__item"><a class="nav__link" href="about.html" title="Обо мне">Обо мне</a></li>
                   <li class="nav__item"><a class="nav__link" href="blog.html" title="Блог">Блог</a></li>
-                  <li class="nav__item"><a class="nav__link" href="auth.html" title="Авторизация">Авторизация</a></li>
+                  <li class="nav__item"><a class="nav__link" href="index.html?auth=true" title="Авторизация">Авторизация</a></li>
                 </ul>
               </div>
             </div>
             <div class="footer__socials">
               <ul class="socials">
-                <li class="socials__item"><a class="socials__link" href="#" title="Моя страница Вконтакте">
+                <li class="socials__item"><a class="socials__link socials__link--vk" href="#" title="Моя страница Вконтакте">
                     <svg class="svg socials__svg" width="31" height="17">
                       <use xlink:href="img/sprite.svg#vk"></use>
                     </svg></a></li>
-                <li class="socials__item"><a class="socials__link" href="#" title="Моя страница GitHub">
+                <li class="socials__item"><a class="socials__link socials__link--github" href="#" title="Моя страница GitHub">
                     <svg class="svg socials__svg" width="26" height="22">
                       <use xlink:href="img/sprite.svg#github"></use>
                     </svg></a></li>
-                <li class="socials__item"><a class="socials__link" href="#" title="Моя страница LinkedIn">
+                <li class="socials__item"><a class="socials__link socials__link--in" href="#" title="Моя страница LinkedIn">
                     <svg class="svg socials__svg" width="24" height="22">
                       <use xlink:href="img/sprite.svg#in"></use>
                     </svg></a></li>
               </ul>
             </div>
           </div>
-          <div class="footer__column quote">
+          <div class="footer__column quote footer__column--bottom">
             <blockquote class="quote__text">Talk is cheap. Show me the code.</blockquote>
             <cite class="quote__author">― Linus Torvalds</cite>
           </div>
         </footer>
-        <div class="copyright copyright--footer">© Екатерина Леонидова | создано с любовью в LoftSchool | 2016</div>
+        <div class="copyright copyright--footer"> <span class="copyright__name">© Екатерина Леонидова  </span><span class="copyright__place">создано с любовью в LoftSchool | 2018</span></div>
+      </div>
+      <div class="fullscreen">
+        <div class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="works.html" title="Мои работы">Мои работы</a></li>
+            <li class="nav__item"><a class="nav__link" href="about.html" title="Обо мне">Обо мне</a></li>
+            <li class="nav__item"><a class="nav__link" href="blog.html" title="Блог">Блог</a></li>
+            <li class="nav__item"><a class="nav__link" href="index.html?auth=true" title="Авторизация">Авторизация</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <script src="js/script.min.js"></script>
+    <script src="js/blog.bundle.js"></script>
   </body>
 </html>

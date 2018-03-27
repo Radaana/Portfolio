@@ -9,9 +9,9 @@ block content
             header.header
                 .header__socials
                     include pug/socials.pug
-                button.btn.header__menu
-                    svg.svg(width="40" height="35")
-                        use(xlink:href="img/sprite.svg#hamburger")
+                button.btn.header__menu(type="button")
+                    .hamburger-menu#hamburger-menu
+                        .hamburger-menu__bars
                 .section__backing.section__backing--header
                     svg.svg
                         use(xlink:href="img/sprite.svg#portfolio_header") 
@@ -20,7 +20,7 @@ block content
                         img.img(src="img/me.jpg" alt="Леонидова Екатерина")
                     h2.profile__title Леонидова Екатерина
                     p.profile__text Веб-разработчик   
-                button.btn.arrow.header__arrow
+                button.btn.arrow.header__arrow(type="button")
                     svg.svg(width="26" height="16")
                         use(xlink:href="img/sprite.svg#arrow_down")
             main.works__main    
@@ -29,15 +29,15 @@ block content
                         polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5")  
                 section.works__content
-                    .section__title-box
+                    .section__title-box.works__title
                         .section__backing.section__backing--subtitle
                             svg.svg.svg--green
                                 use(xlink:href="img/sprite.svg#works_header") 
-                        h2.section__title.section__title--dark.works__title  Мои Работы
+                        h2.section__title.section__title--dark  Мои Работы
                     .works__slider.slider
                             .slider__info 
                                 h3.section__subtitle.slider__title Сайт школы онлайн-образования
-                                .slider__desc HTML , CSS, JAVASCRIPT
+                                .slider__desc HTML, CSS, JAVASCRIPT
                                 a.slider__link.link-btn(href="#")
                                     span.link-btn__icon
                                         svg.link-btn__svg
@@ -50,18 +50,24 @@ block content
                                 .slider__left
                                     .slider__work 
                                         img.img(src="img/works.png" alt="Сайт школы онлайн образования")
-                                    button.btn.slider__btn
+                                    button.btn.slider__btn(type="button")
                                         .arrow.slider__arrow
                                             svg.svg
                                                 use(xlink:href="img/sprite.svg#arrow_down")
                                 .slider__right
                                     .slider__work 
                                         img.img(src="img/works.png" alt="Сайт школы онлайн образования")
-                                    button.btn.slider__btn
+                                    button.btn.slider__btn(type="button")
                                         .arrow.arrow--up.slider__arrow
                                             svg.svg
                                                 use(xlink:href="img/sprite.svg#arrow_down")
             section.works__about.speaking
+                .speaking__bg
+                    picture.speaking__img
+                        source.img(srcset="img/works-bg-sm.png" media="(max-width: 768px)")
+                        source.img(srcset="img/works-bg-xs.png" media="(max-width: 580px)")
+                        source.img(srcset="img/works-bg.png")
+                        img.img(srcset="img/works-bg.png" alt="Фон страницы")
                 .section__title-box
                     .section__backing.section__backing--subtitle
                         svg.svg.svg--green
@@ -82,25 +88,30 @@ block content
                         cite.review__cite
                             .review__author Linus Torvalds
                             .review__place - The Linux Foundation
+                .speaking__form
                 .contact-me.speaking__contact-me
-                    h3.section__subtitle.section__subtitle--dark.contact-me__title Связаться со мной
-                    form.contact-me__form.form.form--contact(action="")
-                        .form__input
-                            label.visually-hidden(for="name") Имя
-                            input.input(type="text" name="name" placeholder="Имя" id="name") 
-                        .form__input
-                            label.visually-hidden(for="email") Email
-                            input.input(type="email" name="email" placeholder="Email" id="email") 
-                        .form__input
-                            label.visually-hidden(for="email") Ваше сообщение
-                            textarea.textarea.form__textarea(name="comment" placeholder="Ваше сообщение" id="comment" rows="7")
-                        .form__buttons
-                            button.btn.form__btn(type="submit") Отправить
-                            button.btn.form__btn(type="reset") Очистить
-                button.btn.arrow.arrow--up.contact-me__arrow
+                    .contact-me__bg 
+                    .contact-me__content
+                        h3.section__subtitle.section__subtitle--dark.contact-me__title Связаться со мной
+                        form.contact-me__form.form.form--contact(action="")
+                            .form__input
+                                label.visually-hidden(for="name") Имя
+                                input.input(type="text" name="name" placeholder="Имя" id="name") 
+                            .form__input
+                                label.visually-hidden(for="email") Email
+                                input.input(type="email" name="email" placeholder="Email" id="email") 
+                            .form__input
+                                label.visually-hidden(for="email") Ваше сообщение
+                                textarea.textarea.form__textarea(name="comment" placeholder="Ваше сообщение" id="comment" rows="7")
+                            .form__buttons
+                                button.btn.form__btn(type="submit") Отправить
+                                button.btn.form__btn(type="reset") Очистить
+                button.btn.arrow.speaking__arrow(type="button")
                     svg.svg(width="26" height="16")
-                        use(xlink:href="img/sprite.svg#arrow_down")
+                        use(xlink:href="img/sprite.svg#portf_arrow_up")
             .works__footer
                 include pug/footer.pug
- 
-    
+            .fullscreen
+                +nav(1)
+block script
+    script(src='js/works.bundle.js')    
