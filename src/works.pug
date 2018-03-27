@@ -96,13 +96,13 @@ block content
                         form.contact-me__form.form.form--contact(action="")
                             .form__input
                                 label.visually-hidden(for="name") Имя
-                                input.input(type="text" name="name" placeholder="Имя" id="name") 
+                                input.input(type="text" name="name" placeholder="Имя" id="name" required) 
                             .form__input
                                 label.visually-hidden(for="email") Email
-                                input.input(type="email" name="email" placeholder="Email" id="email") 
+                                input.input(type="email" name="email" placeholder="Email" id="email" required) 
                             .form__input
                                 label.visually-hidden(for="email") Ваше сообщение
-                                textarea.textarea.form__textarea(name="comment" placeholder="Ваше сообщение" id="comment" rows="7")
+                                textarea.textarea.form__textarea(name="comment" placeholder="Ваше сообщение" id="comment" rows="7" required)
                             .form__buttons
                                 button.btn.form__btn(type="submit") Отправить
                                 button.btn.form__btn(type="reset") Очистить

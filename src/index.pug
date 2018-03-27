@@ -24,13 +24,13 @@ block content
                                 svg.form__svg(width="17" height="17")
                                     use(xlink:href="img/sprite.svg#login")
                             label.visually-hidden(for="login") Логин
-                            input.input.input--half-round(type="text" name="login" placeholder="Логин" id="login") 
+                            input.input.input--half-round(type="text" name="login" placeholder="Логин" id="login" required) 
                         .form__input
                             span.form__pic
                                 svg.form__svg(width="17" height="17")
                                     use(xlink:href="img/sprite.svg#password")
                             label.visually-hidden(for="password") Пароль
-                            input.input.input--half-round(type="password" name="password" placeholder="Пароль" id="password")  
+                            input.input.input--half-round(type="password" name="password" placeholder="Пароль" id="password" required)  
                         .form__group
                             label.form__checkbox
                                 input.form__hidden(type="checkbox" id="human" name="human" value="1" checked)
