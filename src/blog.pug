@@ -45,7 +45,7 @@ block content
             article.article( :id="this.id")
                 h2.article__title {{post.title}}
                 time.article__date(:datetime="post.datetime")  {{post.date}}
-                .article__text {{post.text}}
+                .article__text(v-html="post.text")
         script(type="text/x-template",id="article-list")
             .contents__articles
                 article-item(v-for= "post in posts"  :key="post.id"  :post="post" v-on:message="handleMessage" )
