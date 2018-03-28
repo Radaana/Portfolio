@@ -56,7 +56,7 @@
           </div>
           <div class="contents blog__contents" id="contents">
             <aside class="names contents__left">
-              <names-list :posts="posts" :cid="currentId"></names-list>
+              <names-list :posts="posts" :cid="currentId" v-on:clicked="changeByClick"></names-list>
             </aside>
             <section class="contents__right">
               <article-list :posts="posts" v-on:change-id="currentIdChange"></article-list>
@@ -114,11 +114,11 @@
       </div>
       <script type="text/x-template" id="names-list">
         <ul class="names__list">
-          <li class="names__item" v-for="post in posts"><a class="names__link names__link--active" v-if="post.id == cid">{{post.title}}</a><a class="names__link" v-else>{{post.title}}</a></li>
+          <li class="names__item" v-for="post in posts"><a class="names__link names__link--active" v-if="post.id == cid" :href="'#'+post.id" v-on:click="handleClick">{{post.title}}</a><a class="names__link" v-else :href="'#'+post.id" v-on:click="handleClick">{{post.title}}</a></li>
         </ul>
       </script>
       <script type="text/x-template" id="article-item">
-        <article class="article" v-scroll:throttle="{fn: onScroll, throttle: 500 }">
+        <article class="article" :id="this.id">
           <h2 class="article__title">{{post.title}}</h2>
           <time class="article__date" :datetime="post.datetime"> {{post.date}}</time>
           <p>{{post.text}}</p>

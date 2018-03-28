@@ -29,7 +29,7 @@ block content
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5") 
                 .contents.blog__contents#contents
                     aside.names.contents__left
-                        names-list(:posts="posts"  :cid="currentId")
+                        names-list(:posts="posts"  :cid="currentId" v-on:clicked="changeByClick")
                     section.contents__right
                         article-list(:posts="posts" v-on:change-id="currentIdChange")
             include pug/footer.pug
@@ -38,18 +38,18 @@ block content
         script(type="text/x-template",id="names-list")
             ul.names__list
                 li.names__item(v-for= "post in posts")
-                    a(v-if="post.id == cid" class="names__link names__link--active") {{post.title}}
-                    a(v-else class="names__link") {{post.title}}
+                    a(v-if="post.id == cid" class="names__link names__link--active"  :href="'#'+post.id" v-on:click="handleClick") {{post.title}}
+                    a(v-else class="names__link"  :href="'#'+post.id" v-on:click="handleClick") {{post.title}}
         script(type="text/x-template",id="article-item")
             //- article.article(v-on:scroll.native="activate")
-            article.article(v-scroll:throttle="{fn: onScroll, throttle: 500 }")
+            article.article( :id="this.id")
                 h2.article__title {{post.title}}
                 //- h2.article__title {{position.scrollTop}}
                 time.article__date(:datetime="post.datetime")  {{post.date}}
                 p {{post.text}}
         script(type="text/x-template",id="article-list")
             .contents__articles
-                article-item(v-for= "post in posts"  :key="post.id"  :post="post" v-on:message="handleMessage")
+                article-item(v-for= "post in posts"  :key="post.id"  :post="post" v-on:message="handleMessage" )
                     
 block script
     script(src='js/blog.bundle.js')
