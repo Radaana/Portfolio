@@ -28,6 +28,7 @@ block content
                         polygon(class="triangle__left" points="0,0   0,86   500.8,86   500.8,75.5")
                         polygon(class="triangle__right" points="1000,0   1000,86   500,86   500,75.5") 
                 .contents.blog__contents#contents
+                    button.btn.blog-btn#blog-btn(type="button")
                     aside.names.contents__left
                         names-list(:posts="posts"  :cid="currentId" v-on:clicked="changeByClick")
                     section.contents__right
@@ -41,12 +42,10 @@ block content
                     a(v-if="post.id == cid" class="names__link names__link--active"  :href="'#'+post.id" v-on:click="handleClick") {{post.title}}
                     a(v-else class="names__link"  :href="'#'+post.id" v-on:click="handleClick") {{post.title}}
         script(type="text/x-template",id="article-item")
-            //- article.article(v-on:scroll.native="activate")
             article.article( :id="this.id")
                 h2.article__title {{post.title}}
-                //- h2.article__title {{position.scrollTop}}
                 time.article__date(:datetime="post.datetime")  {{post.date}}
-                p {{post.text}}
+                .article__text {{post.text}}
         script(type="text/x-template",id="article-list")
             .contents__articles
                 article-item(v-for= "post in posts"  :key="post.id"  :post="post" v-on:message="handleMessage" )

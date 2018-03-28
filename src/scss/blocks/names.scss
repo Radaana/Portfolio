@@ -28,6 +28,22 @@
         color: $green;
         font-family: 'robotobold', sans-serif;
     }
+
+    @include screen-sm {
+        color: #fff;
+
+        &:hover {
+            border-right: 3px solid #fff;
+            color: #fff;
+            font-family: 'robotobold', sans-serif;
+        }
+
+        &--active {
+            border-right: 3px solid #fff;
+            color: #fff;
+            font-family: 'robotobold', sans-serif;
+        }
+    }
 }
 
 

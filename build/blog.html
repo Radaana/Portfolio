@@ -55,6 +55,7 @@
             </svg>
           </div>
           <div class="contents blog__contents" id="contents">
+            <button class="btn blog-btn" id="blog-btn" type="button"></button>
             <aside class="names contents__left">
               <names-list :posts="posts" :cid="currentId" v-on:clicked="changeByClick"></names-list>
             </aside>
@@ -121,7 +122,7 @@
         <article class="article" :id="this.id">
           <h2 class="article__title">{{post.title}}</h2>
           <time class="article__date" :datetime="post.datetime"> {{post.date}}</time>
-          <p>{{post.text}}</p>
+          <div class="article__text">{{post.text}}</div>
         </article>
       </script>
       <script type="text/x-template" id="article-list">

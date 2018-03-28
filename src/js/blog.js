@@ -1,21 +1,11 @@
 // let Vue = require ('../../node_modules/vue/dist/vue');
 let Vue = require ('vue/dist/vue');
-let vuescroll = require ('vue-scroll/dist/vue-scroll');
- 
-Vue.use(vuescroll)
 
 let ham = require ('./modules/hamburger');
+let blogBtn = require ('./modules/blog-btn');
 
 ham.init();
 
-// window.addEventListener
-
-// var scroll;
-
-// window.onscroll = function () {
-//     scroll = window.pageYOffset;
-//     // console.log(scroll); 
-// }
 
 Vue.component('article-list', {
     template: "#article-list",
@@ -37,42 +27,28 @@ Vue.component('article-list', {
     data() {
         return {
             id: this.post.id,
-            // position: {scrollTop: 0, scrollLeft: 0} ,
         }
       },
-    // methods: {
-        // activate: function () {
-        //    let pagey =  window.pageYOffset;
-        // if (scroll >200)
-        //     console.log("Yay");
-          // `this` внутри методов указывает на экземпляр Vue
-        //   this.$emit('message', { message: this.id });
-          // `event` — нативное событие DOM
-
-        // }
-        methods: {
-            handleScroll: function (event) {
-                let pageY =  window.pageYOffset;
-                let post = document.getElementById(`${this.id}`);
-                let topMargin = window.innerHeight / 6;
-                let postRect = post.getBoundingClientRect();
-                let postY = postRect.top;
-                // let change = pageY - postY + topMargin;
-                let change = postY;
-                // let change = postY - topMargin;
-                //  console.log(topMargin);
-                if (change > -10 && change < 50) {
-                    this.$emit('message', { message: this.id });
-                } 
-            }
-        },
-    
-        created: function () {
-            window.addEventListener('scroll', this.handleScroll);
-        },
-        destroyed: function () {
-            window.removeEventListener('scroll', this.handleScroll);
+    methods: {
+        handleScroll: function (event) {
+            let pageY =  window.pageYOffset;
+            let post = document.getElementById(`${this.id}`);
+            let topMargin = window.innerHeight / 6;
+            let postRect = post.getBoundingClientRect();
+            let postY = postRect.top;
+            let change = postY;
+            if (change > -10 && change < 50) {
+                this.$emit('message', { message: this.id });
+            } 
         }
+    },
+    
+    created: function () {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed: function () {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
       
   });
   
@@ -87,7 +63,6 @@ Vue.component('article-list', {
     methods: {
         handleClick: function (event) {
             let clicked = event.currentTarget.href.slice(-3);
-            // console.log();
             this.$emit('clicked', { clicked: clicked  });
         }
     },
@@ -136,10 +111,7 @@ Vue.component('article-list', {
     }, // data END
     methods: {
         currentIdChange: function (payload) {
-          // `this` внутри методов указывает на экземпляр Vue
           this.currentId = payload.changeId.message;
-          // `event` — нативное событие DOM
-
         },
         changeByClick: function (payload) {
             this.currentId = payload;
@@ -148,4 +120,5 @@ Vue.component('article-list', {
   }); // Vue end
   
   contents.$mount("#contents");
-  console.log(contents);
+
+  blogBtn.init();
