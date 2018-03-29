@@ -4,6 +4,11 @@ block head
     title Сайт-портфолио
 block content
     .maincontent
+        .loader#loader
+            .loader__pic
+                each val in [1, 2, 3, 4, 5]
+                    .loader__circle
+                        .loader__inner
         section.section.welcome
             h1.visually-hidden Личный сайт разработчика Леонидовой Екатерины  
             button.btn.welcome-btn.welcome__button(title="Авторизация" id="auth" type="button") Авторизоваться

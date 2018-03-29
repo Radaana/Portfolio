@@ -1,3 +1,6 @@
+let loader = require ('./modules/preloader');
+loader.init();
+
 (function(){
     let auth = document.getElementById('auth');
     // let close = document.getElementByClassName('hamburger-menu--close');
