@@ -36,7 +36,7 @@
         z-index: 20;
         // clip: rect(0 0 0 0);
         // height: 100%;
-        width: 40%;
+        width: 45%;
         margin: 0px;
         // background-color:rgba($green, 0.8);
         padding: 20px;
@@ -44,6 +44,10 @@
         border-top-right-radius: 50px;
         border-bottom-right-radius: 50px;
         color: #000;
+    }
+
+    @include screen-xs {
+        width: 65%;
     }
 }
 

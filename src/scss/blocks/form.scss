@@ -47,6 +47,10 @@
 .form__text {
     display: block;
     padding-bottom: rem(15px);
+
+    @include screen-xs {
+        padding-bottom: rem(5px);
+    }
 }
 
 .form__checkbox {
@@ -54,6 +58,10 @@
     align-items: center;
     justify-content: center;
     padding: 0 rem(20px);
+
+    @include screen-xs {
+        padding: 0 rem(5px);
+    }
 }
 
 .form__radios {
@@ -70,6 +78,10 @@
     
     &--last {
         margin-bottom: rem(30px);
+
+        @include screen-xs {
+            margin-bottom: rem(5px);
+        }
     }
 }
 

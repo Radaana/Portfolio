@@ -1,4 +1,3 @@
-// let Vue = require ('../../node_modules/vue/dist/vue');
 let Vue = require ('vue/dist/vue');
 
 let ham = require ('./modules/hamburger');
