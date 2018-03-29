@@ -34,33 +34,12 @@ block content
                             svg.svg.svg--green
                                 use(xlink:href="img/sprite.svg#works_header") 
                         h2.section__title.section__title--dark  Мои Работы
-                    .works__slider.slider
-                            .slider__info 
-                                h3.section__subtitle.slider__title Сайт школы онлайн-образования
-                                .slider__desc HTML, CSS, JAVASCRIPT
-                                a.slider__link.link-btn(href="#")
-                                    span.link-btn__icon
-                                        svg.link-btn__svg
-                                            use(xlink:href="img/sprite.svg#link")
-                                    span.link-btn__link-text Посмотреть сайт
-                            .slider__display 
-                                .slider__work 
-                                    img.img(src="img/works.png" alt="Сайт школы онлайн образования")
+                    .works__slider.slider#slider
+                            slider-info(:site="sites[i]")
+                            slider-display(:site="sites[i]")
                             .slider__btns
-                                .slider__left
-                                    .slider__work 
-                                        img.img(src="img/works.png" alt="Сайт школы онлайн образования")
-                                    button.btn.slider__btn(type="button")
-                                        .arrow.slider__arrow
-                                            svg.svg
-                                                use(xlink:href="img/sprite.svg#arrow_down")
-                                .slider__right
-                                    .slider__work 
-                                        img.img(src="img/works.png" alt="Сайт школы онлайн образования")
-                                    button.btn.slider__btn(type="button")
-                                        .arrow.arrow--up.slider__arrow
-                                            svg.svg
-                                                use(xlink:href="img/sprite.svg#arrow_down")
+                                slider-part(:direction="direction[0]"  :sites="sites"  :i="i" v-on:arrow="handleArrow")
+                                slider-part(:direction="direction[1]"  :sites="sites"  :i="i" v-on:arrow="handleArrow")
             section.works__about.speaking
                 .speaking__bg
                     picture.speaking__img
@@ -113,5 +92,28 @@ block content
                 include pug/footer.pug
             .fullscreen
                 +nav(1)
+            script(type="text/x-template",id="slider-info")
+                .slider__info 
+                    h3.section__subtitle.slider__title {{site.title}}
+                    .slider__desc {{site.desc}}
+                    a.slider__link.link-btn(:href="site.link" target="_blank"  :title="site.title")
+                        span.link-btn__icon
+                            svg.link-btn__svg
+                                use(xlink:href="img/sprite.svg#link")
+                        span.link-btn__link-text Посмотреть сайт
+            script(type="text/x-template",id="slider-display")
+                .slider__display 
+                    .slider__work 
+                        img.img(:src="site.src"  :alt="site.title")
+            script(type="text/x-template",id="slider-part")
+                .slider__bottom
+                    .slider__work 
+                        img.img(v-if="direction == 'down'"  :src="sites[previousI].src"  :alt="sites[previousI].title")
+                        img.img(v-else  :src="sites[nextI].src"  :alt="sites[nextI].title")
+                    button.btn.slider__btn(type="button" @click="handleClick")
+                        .arrow.slider__arrow
+                            svg.svg
+                                use(v-if="direction == 'down'" xlink:href="img/sprite.svg#arrow_down")
+                                use(v-else xlink:href="img/sprite.svg#portf_arrow_up")
 block script
     script(src='js/works.bundle.js')    
