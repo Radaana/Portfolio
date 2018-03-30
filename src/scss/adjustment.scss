@@ -23,6 +23,11 @@
 .img {
     max-width: 100%;
     height: auto;
+
+    &--fade {
+        // opacity: 0;
+        transition: opacity 0.4s;
+    }
 }
 
 .svg {

@@ -108,8 +108,8 @@ block content
             script(type="text/x-template",id="slider-part")
                 .slider__bottom
                     .slider__work 
-                        img.img(v-if="direction == 'down'"  :src="sites[previousI].src"  :alt="sites[previousI].title")
-                        img.img(v-else  :src="sites[nextI].src"  :alt="sites[nextI].title")
+                        img.img.img--fade(v-if="direction == 'down'"  :src="sites[previousI].src"  :alt="sites[previousI].title")
+                        img.img.img--fade(v-else  :src="sites[nextI].src"  :alt="sites[nextI].title")
                     button.btn.slider__btn(type="button" @click="handleClick")
                         .arrow.slider__arrow
                             svg.svg

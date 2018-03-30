@@ -20,7 +20,7 @@ window.onresize = function () {
     },
     methods: {
     },
-  });
+  }); //slider-info
 
   Vue.component("slider-display", {
     template: "#slider-display",
@@ -32,7 +32,8 @@ window.onresize = function () {
     },
     methods: {
     },
-  });
+  }); //slider-display 
+
   Vue.component("slider-part", {
     template: "#slider-part",
     props: [ 'direction', 'sites', 'i'],
@@ -59,20 +60,60 @@ window.onresize = function () {
                 return prevI;
             };
         },
+        // image: function() {
+        //     return document.getElementsByClassName('.img--fade');
+        // }
     },
     methods: {
         handleClick: function (event){
-            if (this.direction == 'up') {
-                this.$emit('arrow', {direction:"up"});
-            } else {
-                this.$emit('arrow', {direction:"down"});
-            }
+            // let img = document.getElementsByClassName('img--fade');
+            // for (let i = 0; i < img.length; i++) {
+            //     img[i].style.opacity = "0";
+            // }
+
+            // function test() {
+                if (this.direction == 'up') {
+                    this.$emit('arrow', {direction:"up"});
+                } else {
+                    this.$emit('arrow', {direction:"down"});
+                }
+            // };
+
+            // setTimeout(test.call(this), 800);
+
+            // setTimeout(function () {
+            //     for (let i = 0; i < img.length; i++) {
+            //         img[i].style.opacity = "1";
+            //     }
+            // }, 400);
         }
     },
-  });
+    // beforeUpdate: function () {
+    //     let img = document.getElementsByClassName('img--fade');
+    //     for (let i = 0; i < img.length; i++) {
+    //         img[i].style.opacity = "0";
+    //     }
 
+        // let img = document.getElementsByClassName('img--fade');
+        // setTimeout(function () {
+        //     for (let i = 0; i < img.length; i++) {
+        //         img[i].style.opacity = "1";
+        //     }
+        //     document.querySelector('.img--fade').style.opacity = "1";
+        // }, 400);
 
-  
+    //   },
+    // updated: function () {
+        // let img = document.getElementsByClassName('img--fade');
+        // setTimeout(function () {
+            // for (let i = 0; i < img.length; i++) {
+            //     img[i].style.opacity = "1";
+            // }
+            // document.querySelector('.img--fade').style.opacity = "1";
+        // }, 400);
+    // }
+  }); //slider-part 
+
   const slider = new Vue({
     data: {
         i: 0,
@@ -120,7 +161,6 @@ window.onresize = function () {
             let length = this.sites.length;
             if (dir.direction == 'up') {
                 i++;
-                console.log(dir.direction);
                 this.i = i >= length ? 0 : i;
 
             } else {
