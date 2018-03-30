@@ -1,0 +1,57 @@
+extends pug/base
+
+block head
+    title Админ-панель
+block content
+    .maincontent.admin-page
+        .admin
+            .admin-header
+                h1.admin-header__title Панель администрирования
+                a.admin-header__link(href="index.html") Вернуться на сайт
+            .admin-tabs
+                button.btn.admin-tabs__tab(type = "button") TAB 1
+                button.btn.admin-tabs__tab(type = "button") TAB 2
+                button.btn.admin-tabs__tab(type = "button") TAB 3
+                button.btn.admin-tabs__tab(type = "button") TAB 4
+            form.admin-main.visually-hidden
+                h2.admin-main__title Страница "Обо мне"
+                .admin-main__inner
+                    .admin-group.admin-main__group
+                        h3.admin-main__subtitle Frontend
+                        each val in ["HTML", "CSS", "JavaScript"]
+                            .admin-group__row
+                                span.admin-group__name= val
+                                input.admin__input.admin-group__input(type="text"  placeholder="50" required)
+                                span.admin-group__persent %
+                    .admin-group.admin-main__group
+                        h3.admin-main__subtitle Backend
+                        each val in ["PHP", "mySQL", "Node.js & npm", "MongoDB"]
+                            .admin-group__row
+                                span.admin-group__name= val
+                                input.admin__input.admin-group__input(type="text"  placeholder="30" required)
+                                span.admin-group__persent %
+                    .admin-group.admin-main__group
+                        h3.admin-main__subtitle Workflow
+                        each val in ["Git", "Gulp", "Bower"]
+                            .admin-group__row
+                                span.admin-group__name= val
+                                input.admin__input.admin-group__input(type="text"  placeholder="60" required)
+                                span.admin-group__persent %
+                button.btn.admin-btn(type="submit") Сохранить
+            form.admin-blog.visually-hidden
+                h2.admin-main__title Страница "Блог"
+                h3.admin-main__subtitle Добавить запись
+                input.admin__input.admin-blog__input(type="text"  placeholder="Название" required)
+                input.admin__input.admin-blog__input(type="text"  placeholder="Дата" required)
+                textarea.admin__input.admin-blog__textarea(name="comment" placeholder="Содержание" id="comment" rows="7" required)              
+                button.btn.admin-btn(type="submit") Добавить
+            form.admin-works
+                h2.admin-main__title Страница "Мои работы"
+                h3.admin-main__subtitle Добавить работу
+                input.admin__input.admin-blog__input(type="text"  placeholder="Название проекта" required)
+                input.admin__input.admin-blog__input(type="text"  placeholder="Технологии" required)
+                button.btn.works-btn(type="button") Загрузить картинку       
+                button.btn.admin-btn(type="submit") Добавить
+                    
+
+

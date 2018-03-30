@@ -4,6 +4,11 @@ block head
     title Обо мне
 block content
     .maincontent
+        .loader#loader
+            .loader__pic
+                each val in [1, 2, 3, 4, 5]
+                    .loader__circle
+                        .loader__inner
         section.section.about-me
             h1.visually-hidden Обо мне, мои навыки и контакты      
             header.header
