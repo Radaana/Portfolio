@@ -1,5 +1,7 @@
 let loader = require ('./modules/preloader');
+let webgl = require ('./modules/webgl');
 loader.init();
+webgl.init();
 
 (function(){
     let auth = document.getElementById('auth');

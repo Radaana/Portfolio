@@ -19,6 +19,15 @@
     }
 }
 
+.welcome__webgl {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // z-index: -5;
+}
+
 .welcome__flipper {
     min-width: rem(380px);
     min-height: rem(395px);
