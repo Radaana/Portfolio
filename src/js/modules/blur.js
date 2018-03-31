@@ -15,7 +15,7 @@ let blur =  {
         let blurCSS = form.style;
         blurCSS.backgroundSize = imgWidth + 'px' + ' ' + 'auto';
         // blurCSS.backgroundPosition = posLeft + 'px' + ' ' + -imgHeight + 'px';
-        blurCSS.backgroundPosition = posLeft + 'px' + ' ' + (posTop+187) + 'px';
+        blurCSS.backgroundPosition = (posLeft+187) + 'px' + ' ' + (posTop+230) + 'px';
         // blurCSS.backgroundPosition = posLeft + 'px' + ' ' + '-100px';
         // blurCSS.backgroundPosition = (posLeft ) + 'px' + ' ' + 'bottom';
  

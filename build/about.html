@@ -197,25 +197,25 @@
             </ul>
           </div>
         </div>
-        <script type="text/x-template" id="skills-item">
-          <li class="skills__skill skill"> 
-            <svg class="skill__circle circle" viewBox="0 0 110 110">
-              <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-              <circle class="circle__second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" :class="'circle__second--' + skill.level "></circle>
-            </svg>
-            <div class="skill__title">{{skill.name}}</div>
-          </li>
-        </script>
-        <script type="text/x-template" id="skills-list">
-          <li class="skills__item">
-            <h4 class="skills__title">{{items.title}}</h4>
-            <ul class="skills__row">
-              <skills-item v-for="item in items.skills" :skill="item" :key="item.id"></skills-item>
-            </ul>
-          </li>
-        </script>
       </section>
     </div>
+    <script type="text/x-template" id="skills-item">
+      <li class="skills__skill skill"> 
+        <svg class="skill__circle circle" viewBox="0 0 110 110">
+          <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
+          <circle class="circle__second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" :class="'circle__second--' + skill.level "></circle>
+        </svg>
+        <div class="skill__title">{{skill.name}}</div>
+      </li>
+    </script>
+    <script type="text/x-template" id="skills-list">
+      <li class="skills__item">
+        <h4 class="skills__title">{{items.title}}</h4>
+        <ul class="skills__row">
+          <skills-item v-for="item in items.skills" :skill="item" :key="item.id"></skills-item>
+        </ul>
+      </li>
+    </script>
     <script src="js/about.bundle.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdiqpmw5rW0CewRcKKUTZCtx4ePiFkEBA&amp;callback=initMap">            </script>
   </body>

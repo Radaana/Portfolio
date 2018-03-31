@@ -71,18 +71,19 @@ block content
                     include pug/footer.pug
             .fullscreen
                 +nav(1)
-            script(type="text/x-template",id="skills-item")
-                li.skills__skill.skill 
-                    svg.skill__circle.circle(viewBox="0 0 110 110")
-                        circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
-                        circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__second"  :class="'circle__second--' + skill.level ")
-                    .skill__title {{skill.name}}
-            script(type="text/x-template" id="skills-list")
-                    li.skills__item
-                        h4.skills__title {{items.title}}
-                        ul.skills__row
-                            skills-item(v-for="item in items.skills"  :skill="item"  :key="item.id")
+            
 block script
+    script(type="text/x-template",id="skills-item")
+        li.skills__skill.skill 
+            svg.skill__circle.circle(viewBox="0 0 110 110")
+                circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__second"  :class="'circle__second--' + skill.level ")
+            .skill__title {{skill.name}}
+    script(type="text/x-template" id="skills-list")
+            li.skills__item
+                h4.skills__title {{items.title}}
+                ul.skills__row
+                    skills-item(v-for="item in items.skills"  :skill="item"  :key="item.id")
     script(src='js/about.bundle.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCdiqpmw5rW0CewRcKKUTZCtx4ePiFkEBA&callback=initMap')             
     

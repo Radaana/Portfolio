@@ -206,7 +206,7 @@
         </script>
         <script type="text/x-template" id="slider-part">
           <div class="slider__bottom">
-            <div class="slider__work"> <img class="img img--fade" v-if="direction == 'down'" :src="sites[previousI].src" :alt="sites[previousI].title"><img class="img img--fade" v-else :src="sites[nextI].src" :alt="sites[nextI].title"></div>
+            <div class="slider__work"><img class="img img-fade" v-if="direction == 'down'" :src="sites[previousI].src" :alt="sites[previousI].title"><img class="img img-fade" v-else :src="sites[nextI].src" :alt="sites[nextI].title"></div>
             <button class="btn slider__btn" type="button" @click="handleClick">
               <div class="arrow slider__arrow">
                 <svg class="svg">

@@ -66,10 +66,15 @@ window.onresize = function () {
     },
     methods: {
         handleClick: function (event){
-            // let img = document.getElementsByClassName('img--fade');
-            // for (let i = 0; i < img.length; i++) {
-            //     img[i].style.opacity = "0";
+            // let imgOut = document.getElementsByClassName('img--fade-out');
+            // for (let i = 0; i < imgOut.length; i++) {
+            //     imgOut[i].style.opacity = "0";
+            // };
+            // let imgIn = document.getElementsByClassName('img--fade-in');
+            // for (let i = 0; i < imgIn.length; i++) {
+            //     imgIn[i].style.opacity = "1";
             // }
+
 
             // function test() {
                 if (this.direction == 'up') {
@@ -88,6 +93,12 @@ window.onresize = function () {
             // }, 400);
         }
     },
+    // mounted: function() {
+    //     let img = document.getElementsByClassName('img--fade');
+    //         for (let i = 0; i < img.length; i++) {
+    //             img[i].style.opacity = "1";
+    //         }
+    // },
     // beforeUpdate: function () {
     //     let img = document.getElementsByClassName('img--fade');
     //     for (let i = 0; i < img.length; i++) {
@@ -104,13 +115,14 @@ window.onresize = function () {
 
     //   },
     // updated: function () {
-        // let img = document.getElementsByClassName('img--fade');
-        // setTimeout(function () {
-            // for (let i = 0; i < img.length; i++) {
-            //     img[i].style.opacity = "1";
-            // }
-            // document.querySelector('.img--fade').style.opacity = "1";
-        // }, 400);
+    //     let imgOut = document.getElementsByClassName('img--fade-out');
+    //         for (let i = 0; i < imgOut.length; i++) {
+    //             imgOut[i].style.opacity = "0";
+    //         };
+    //         let imgIn = document.getElementsByClassName('img--fade-in');
+    //         for (let i = 0; i < imgIn.length; i++) {
+    //             imgIn[i].style.opacity = "1";
+    //         }
     // }
   }); //slider-part 
 

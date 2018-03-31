@@ -113,24 +113,24 @@
           </ul>
         </div>
       </div>
-      <script type="text/x-template" id="names-list">
-        <ul class="names__list">
-          <li class="names__item" v-for="post in posts"><a class="names__link names__link--active" v-if="post.id == cid" :href="'#'+post.id" v-on:click="handleClick">{{post.title}}</a><a class="names__link" v-else :href="'#'+post.id" v-on:click="handleClick">{{post.title}}</a></li>
-        </ul>
-      </script>
-      <script type="text/x-template" id="article-item">
-        <article class="article" :id="this.id">
-          <h2 class="article__title">{{post.title}}</h2>
-          <time class="article__date" :datetime="post.datetime"> {{post.date}}</time>
-          <div class="article__text" v-html="post.text"></div>
-        </article>
-      </script>
-      <script type="text/x-template" id="article-list">
-        <div class="contents__articles">
-          <article-item v-for="post in posts" :key="post.id" :post="post" v-on:message="handleMessage"></article-item>
-        </div>
-      </script>
     </div>
+    <script type="text/x-template" id="names-list">
+      <ul class="names__list">
+        <li class="names__item" v-for="post in posts"><a class="names__link names__link--active" v-if="post.id == cid" :href="'#'+post.id" v-on:click="handleClick">{{post.title}}</a><a class="names__link" v-else :href="'#'+post.id" v-on:click="handleClick">{{post.title}}</a></li>
+      </ul>
+    </script>
+    <script type="text/x-template" id="article-item">
+      <article class="article" :id="this.id">
+        <h2 class="article__title">{{post.title}}</h2>
+        <time class="article__date" :datetime="post.datetime"> {{post.date}}</time>
+        <div class="article__text" v-html="post.text"></div>
+      </article>
+    </script>
+    <script type="text/x-template" id="article-list">
+      <div class="contents__articles">
+        <article-item v-for="post in posts" :key="post.id" :post="post" v-on:message="handleMessage"></article-item>
+      </div>
+    </script>
     <script src="js/blog.bundle.js"></script>
   </body>
 </html>
