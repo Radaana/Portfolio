@@ -37,6 +37,7 @@
     "webpack": "^4.1.0"
   },
   "dependencies": {
+    "simple-vue-validator": "^0.15.0",
     "vue": "^2.5.16",
     "vue-scroll": "^2.1.7"
   }

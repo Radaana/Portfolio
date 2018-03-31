@@ -112,26 +112,9 @@
           <div class="speaking__form"></div>
           <div class="contact-me speaking__contact-me">
             <div class="contact-me__bg"> </div>
-            <div class="contact-me__content">
+            <div class="contact-me__content" id="contact-me">
               <h3 class="section__subtitle section__subtitle--dark contact-me__title">Связаться со мной</h3>
-              <form class="contact-me__form form form--contact" action="">
-                <div class="form__input">
-                  <label class="visually-hidden" for="name">Имя</label>
-                  <input class="input" type="text" name="name" placeholder="Имя" id="name" required>
-                </div>
-                <div class="form__input">
-                  <label class="visually-hidden" for="email">Email</label>
-                  <input class="input" type="email" name="email" placeholder="Email" id="email" required>
-                </div>
-                <div class="form__input">
-                  <label class="visually-hidden" for="email">Ваше сообщение</label>
-                  <textarea class="textarea form__textarea" name="comment" placeholder="Ваше сообщение" id="comment" rows="7" required></textarea>
-                </div>
-                <div class="form__buttons">
-                  <button class="btn form__btn" type="submit">Отправить</button>
-                  <button class="btn form__btn" type="reset">Очистить</button>
-                </div>
-              </form>
+              <contact-form></contact-form>
             </div>
           </div>
           <button class="btn arrow speaking__arrow" type="button">
@@ -190,35 +173,58 @@
             </ul>
           </div>
         </div>
-        <script type="text/x-template" id="slider-info">
-          <div class="slider__info"> 
-            <h3 class="section__subtitle slider__title">{{site.title}}</h3>
-            <div class="slider__desc">{{site.desc}}</div><a class="slider__link link-btn" :href="site.link" target="_blank" :title="site.title"><span class="link-btn__icon">
-                <svg class="link-btn__svg">
-                  <use xlink:href="img/sprite.svg#link"></use>
-                </svg></span><span class="link-btn__link-text">Посмотреть сайт</span></a>
-          </div>
-        </script>
-        <script type="text/x-template" id="slider-display">
-          <div class="slider__display"> 
-            <div class="slider__work"> <img class="img" :src="site.src" :alt="site.title"></div>
-          </div>
-        </script>
-        <script type="text/x-template" id="slider-part">
-          <div class="slider__bottom">
-            <div class="slider__work"><img class="img img-fade" v-if="direction == 'down'" :src="sites[previousI].src" :alt="sites[previousI].title"><img class="img img-fade" v-else :src="sites[nextI].src" :alt="sites[nextI].title"></div>
-            <button class="btn slider__btn" type="button" @click="handleClick">
-              <div class="arrow slider__arrow">
-                <svg class="svg">
-                  <use v-if="direction == 'down'" xlink:href="img/sprite.svg#arrow_down"></use>
-                  <use v-else xlink:href="img/sprite.svg#portf_arrow_up"></use>
-                </svg>
-              </div>
-            </button>
-          </div>
-        </script>
       </section>
     </div>
+    <script type="text/x-template" id="slider-info">
+      <div class="slider__info"> 
+        <h3 class="section__subtitle slider__title">{{site.title}}</h3>
+        <div class="slider__desc">{{site.desc}}</div><a class="slider__link link-btn" :href="site.link" target="_blank" :title="site.title"><span class="link-btn__icon">
+            <svg class="link-btn__svg">
+              <use xlink:href="img/sprite.svg#link"></use>
+            </svg></span><span class="link-btn__link-text">Посмотреть сайт</span></a>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-display">
+      <div class="slider__display"> 
+        <div class="slider__work"> <img class="img" :src="site.src" :alt="site.title"></div>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-part">
+      <div class="slider__bottom">
+        <div class="slider__work"><img class="img img-fade" v-if="direction == 'down'" :src="sites[previousI].src" :alt="sites[previousI].title"><img class="img img-fade" v-else :src="sites[nextI].src" :alt="sites[nextI].title"></div>
+        <button class="btn slider__btn" type="button" @click="handleClick">
+          <div class="arrow slider__arrow">
+            <svg class="svg">
+              <use v-if="direction == 'down'" xlink:href="img/sprite.svg#arrow_down"></use>
+              <use v-else xlink:href="img/sprite.svg#portf_arrow_up"></use>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </script>
+    <script type="text/x-template" id="contact-form">
+      <form class="contact-me__form form form--contact" action="">
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('name') }}</div>
+          <label class="visually-hidden" for="name">Имя</label>
+          <input class="input" v-model="name" :class="{error: validation.hasError('name')}" type="text" name="name" placeholder="Имя (*)" id="name">
+        </div>
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('email') }}</div>
+          <label class="visually-hidden" for="email">Email</label>
+          <input class="input" v-model="email" :class="{error: validation.hasError('email')}" type="text" name="email" placeholder="Email (*)" id="email">
+        </div>
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('comment') }}</div>
+          <label class="visually-hidden" for="comment">Ваше сообщение</label>
+          <textarea class="textarea form__textarea" v-model="comment" :class="{error: validation.hasError('comment')}" name="comment" placeholder="Ваше сообщение (*)" id="comment" rows="7"></textarea>
+        </div>
+        <div class="form__buttons">
+          <button class="btn form__btn" @click.prevent="submit" type="button">Отправить</button>
+          <button class="btn form__btn" type="reset">Очистить</button>
+        </div>
+      </form>
+    </script>
     <script src="js/works.bundle.js">   </script>
   </body>
 </html>

@@ -1,6 +1,21 @@
 .form__input {
     padding: rem(10px) rem(20px);
     display: flex;
+    position: relative;
+}
+
+.form__message {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    color: red;
+    font-weight: bold;
+
+    &:before {
+        // content: "<-";
+
+    }
 }
 
 .form__buttons {

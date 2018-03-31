@@ -1,14 +1,21 @@
 let ham = require ('./modules/hamburger');
 let Vue = require ('vue/dist/vue');
 let blur = require ('./modules/blur');
+var SimpleVueValidation = require('simple-vue-validator');
 
+var Validator = SimpleVueValidation.Validator;
+Vue.use(SimpleVueValidation);
 
 ham.init();
-blur.init();
+
+window.onload= function () {
+    blur.init();
+};
+// blur.init();
 
 window.onresize = function () {
     blur.init();
-}
+};
 
   Vue.component("slider-info", {
     template: "#slider-info",
@@ -60,70 +67,16 @@ window.onresize = function () {
                 return prevI;
             };
         },
-        // image: function() {
-        //     return document.getElementsByClassName('.img--fade');
-        // }
     },
     methods: {
         handleClick: function (event){
-            // let imgOut = document.getElementsByClassName('img--fade-out');
-            // for (let i = 0; i < imgOut.length; i++) {
-            //     imgOut[i].style.opacity = "0";
-            // };
-            // let imgIn = document.getElementsByClassName('img--fade-in');
-            // for (let i = 0; i < imgIn.length; i++) {
-            //     imgIn[i].style.opacity = "1";
-            // }
-
-
-            // function test() {
                 if (this.direction == 'up') {
                     this.$emit('arrow', {direction:"up"});
                 } else {
                     this.$emit('arrow', {direction:"down"});
                 }
-            // };
-
-            // setTimeout(test.call(this), 800);
-
-            // setTimeout(function () {
-            //     for (let i = 0; i < img.length; i++) {
-            //         img[i].style.opacity = "1";
-            //     }
-            // }, 400);
         }
     },
-    // mounted: function() {
-    //     let img = document.getElementsByClassName('img--fade');
-    //         for (let i = 0; i < img.length; i++) {
-    //             img[i].style.opacity = "1";
-    //         }
-    // },
-    // beforeUpdate: function () {
-    //     let img = document.getElementsByClassName('img--fade');
-    //     for (let i = 0; i < img.length; i++) {
-    //         img[i].style.opacity = "0";
-    //     }
-
-        // let img = document.getElementsByClassName('img--fade');
-        // setTimeout(function () {
-        //     for (let i = 0; i < img.length; i++) {
-        //         img[i].style.opacity = "1";
-        //     }
-        //     document.querySelector('.img--fade').style.opacity = "1";
-        // }, 400);
-
-    //   },
-    // updated: function () {
-    //     let imgOut = document.getElementsByClassName('img--fade-out');
-    //         for (let i = 0; i < imgOut.length; i++) {
-    //             imgOut[i].style.opacity = "0";
-    //         };
-    //         let imgIn = document.getElementsByClassName('img--fade-in');
-    //         for (let i = 0; i < imgIn.length; i++) {
-    //             imgIn[i].style.opacity = "1";
-    //         }
-    // }
   }); //slider-part 
 
   const slider = new Vue({
@@ -161,11 +114,6 @@ window.onresize = function () {
             },
         ]
     }, // data END
-    // computed {
-    //     i: function() {
-
-    //     }
-    // }
     methods: {
         handleArrow: function(dir) {
             // console.log('got it');
@@ -184,3 +132,53 @@ window.onresize = function () {
   }); // Vue end
   
   slider.$mount("#slider");
+
+  const errorMessages = {
+    required : "Не заполнено",
+    email : "Некорректный email",
+  };
+
+  Vue.component("contact-form", {
+    
+    template: "#contact-form",
+    props: [''],
+    data() {
+      return {
+        name : '',
+        email: '',
+        comment: '',
+      }
+    },
+    methods: {
+        submit: function () {
+            // console.log( this.$validate() );
+            this.$validate()
+              .then(function (success) {
+                if (success) {
+                  console.log('Validation succeeded!');
+                }
+              });
+        }
+    },
+    mixins: [require('simple-vue-validator').mixin],
+    validators: {
+            name: function(value) {
+                return Validator.value(value).required(errorMessages.required);
+                },
+            email: function(value) {
+                return Validator.value(value).required(errorMessages.required).email(errorMessages.email);
+                },
+            comment: function(value) {
+                return Validator.value(value).required(errorMessages.required);
+                },
+        }
+    }); //slider-display 
+  
+const contactMe = new Vue({
+    data: {
+    }
+}); // Vue end
+
+contactMe.$mount("#contact-me")
+ 
+
