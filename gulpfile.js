@@ -74,7 +74,7 @@ function styles() { // CSS
 }
 
 function scripts() { //JS
-  return gulp.src(paths.src + 'js/**/*.js')
+  return gulp.src(paths.src + 'js/**/*.{js, vue}')
     .pipe(plumber())
     .pipe(gulpWebpack(require('./webpack.config.js', webpack)))
     .pipe(babel({

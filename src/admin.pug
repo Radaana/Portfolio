@@ -4,7 +4,7 @@ block head
     title Админ-панель
 block content
     .maincontent.admin-page
-        .admin
+        .admin#app
             .admin-header
                 h1.admin-header__title Панель администрирования
                 a.admin-header__link(href="index.html") Вернуться на сайт
@@ -52,6 +52,8 @@ block content
                 input.admin__input.admin-blog__input(type="text"  placeholder="Технологии" required)
                 button.btn.works-btn(type="button") Загрузить картинку       
                 button.btn.admin-btn(type="submit") Добавить
-                    
+block script
+    script(src='js/admin.bundle.js')    
+
 
 
