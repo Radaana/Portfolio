@@ -1,6 +1,6 @@
-let loader = require ('./modules/preloader');
-let webgl = require ('./modules/webgl');
-let authBtn = require ('./modules/auth-btn');
+const  loader = require ('./modules/preloader');
+const webgl = require ('./modules/webgl');
+const authBtn = require ('./modules/auth-btn');
 
 let Vue = require ('vue/dist/vue');
 var SimpleVueValidation = require('simple-vue-validator');
@@ -9,11 +9,37 @@ var Validator = SimpleVueValidation.Validator;
 Vue.use(SimpleVueValidation);
 
 loader.init();
-webgl.init();
 
-// window.onload= function () {
-  // authBtn.init();
-// };
+let container = document.getElementById('container');
+let width = container.offsetWidth;
+let mobile = false;
+
+if(  width < 769 ) {
+  mobile = true;
+  console.log('mobile' + mobile + '   ' + navigator.userAgent);
+};
+if (!mobile) {
+  webgl.init();
+  console.log('webgl init');
+} ;
+
+
+window.onresize = function () {
+  width = container.offsetWidth;
+  console.log(width);
+  if(  width < 769 ) {
+    mobile = true;
+    console.log('mobile' + mobile + '   ' + navigator.userAgent);
+  };
+  
+};
+
+// if (!mobile) {
+//     webgl.init();
+//     console.log('webgl init');
+//   } ;
+
+
 
 const errorMessages = {
   required : "Не заполнено",
