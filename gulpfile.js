@@ -74,7 +74,8 @@ function styles() { // CSS
 }
 
 function scripts() { //JS
-  return gulp.src(paths.src + 'js/**/*.{js, vue}')
+  // return gulp.src(paths.src + 'js/**/*.{js, vue}')
+  return gulp.src(paths.src + 'js/*.{js, vue}')
     .pipe(plumber())
     .pipe(gulpWebpack(require('./webpack.config.js', webpack)))
     .pipe(babel({
@@ -84,6 +85,19 @@ function scripts() { //JS
     // .pipe(concat('script.min.js'))
     .pipe(gulp.dest(paths.build + 'js/'))
 }
+
+function scriptsCopy() { //JS
+  // return gulp.src(paths.src + 'js/**/*.{js, vue}')
+  return gulp.src(paths.src + 'js/libs/*.js')
+    .pipe(plumber())
+    .pipe(babel({
+      presets: ['env']
+    }))
+    .pipe(uglify())
+    // .pipe(concat('script.min.js'))
+    .pipe(gulp.dest(paths.build + 'js/'))
+}
+
 
 function htmls() { //HTML
   return gulp.src(paths.src + '*.html')
@@ -203,6 +217,7 @@ function clean() {
 function watch() {
   gulp.watch(paths.src + 'scss/**/*.scss', styles);
   gulp.watch(paths.src + 'js/**/*.js', scripts);
+  gulp.watch(paths.src + 'js/libs/*.js', scriptsCopy);
   gulp.watch(paths.src + '*.html', htmls);
   gulp.watch(paths.src + '*.pug', pugs);
   gulp.watch(paths.src + 'pug/*.pug', pugs);
@@ -225,6 +240,7 @@ function serve() {
 
 exports.styles = styles;
 exports.scripts = scripts;
+exports.scriptsCopy = scriptsCopy;
 exports.htmls = htmls;
 exports.pugs = pugs;
 exports.clean = clean;
@@ -240,6 +256,7 @@ gulp.task('build', gulp.series(
   clean,
   styles,
   scripts,
+  scriptsCopy,
   htmls,
   pugs,
   svgSpriteBuild,
@@ -251,7 +268,7 @@ gulp.task('build', gulp.series(
 gulp.task('default', gulp.series(
   clean,
   gulp.parallel(svgSpriteBuild, pngSpriteBuild),
-  gulp.parallel(styles, scripts, htmls, pugs),
+  gulp.parallel(styles, scripts, scriptsCopy, htmls, pugs),
   gulp.parallel(copyImg, copyFonts),
   gulp.parallel(watch, serve)
 ));

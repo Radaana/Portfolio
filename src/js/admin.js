@@ -1,6 +1,6 @@
 // import Vue from 'vue'
 let Vue = require ('vue/dist/vue');
-import App from './App.vue'
+// import App from './App.vue'
 
 
 // let App = require ('./vues/App.vue');
