@@ -1,41 +1,82 @@
 let loader = require ('./modules/preloader');
 let webgl = require ('./modules/webgl');
+let authBtn = require ('./modules/auth-btn');
+
+let Vue = require ('vue/dist/vue');
+var SimpleVueValidation = require('simple-vue-validator');
+
+var Validator = SimpleVueValidation.Validator;
+Vue.use(SimpleVueValidation);
+
 loader.init();
 webgl.init();
 
-(function(){
-    let auth = document.getElementById('auth');
-    // let close = document.getElementByClassName('hamburger-menu--close');
-    let flipper = document.getElementsByClassName('flipper')[0];
-    let toMain = document.getElementById('to-main');
-    function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[\[\]]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-          results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
-    } 
-  let nav = getParameterByName('auth');
+// window.onload= function () {
+  // authBtn.init();
+// };
+
+const errorMessages = {
+  required : "Не заполнено",
+  notHuman: "Вход только для людей",
+};
+
+Vue.component("auth-form", {
   
-  if (nav) {
-    flipper.classList.add('flipper--flip');
-    auth.classList.add('visually-hidden');
-  }  
+  template: "#auth-form",
+  props: [''],
+  data() {
+    return {
+      login : '',
+      password: '',
+      human: false,
+      isSure: 0,
+    }
+  },
+  methods: {
+      submit: function () {
+          // console.log( this.$validate() );
+          this.$validate()
+            .then(function (success) {
+              if (success) {
+                console.log('Validation succeeded!');
+              }
+            });
+      }, 
+      reset: function() {
+        this.validation.reset();
+        this.login  = '';
+        this.password = '';
+        this.human = false;
+        this.isSure = 0;
+      },
+  },
+  mixins: [require('simple-vue-validator').mixin],
+  validators: {
+    login: function(value) {
+        return Validator.value(value).required(errorMessages.required);
+        },
+    password: function(value) {
+      return Validator.value(value).required(errorMessages.required);
+      },
+    human: function (value) {
+      return Validator.custom(function () {
+          if (!value) return errorMessages.notHuman;
+        });
+    },
+    isSure: function (value) {
+      return Validator.custom(function () {
+          if (value == "0") return errorMessages.notHuman;
+        });
+    },      
+  } // methods
+}); //auth-form
 
-  auth.addEventListener('click', e => {
-      e.preventDefault();
-      flipper.classList.add('flipper--flip');
-      auth.classList.add('visually-hidden');
-    }); // auth END
-  
-    toMain.addEventListener('click', e => {
-      e.preventDefault();
-      flipper.classList.remove('flipper--flip');
-      auth.classList.remove('visually-hidden');
-    }); // toMain END
+const auth = new Vue({
+  data: {
+  }
+}); // Vue end
 
-     
-    })(); // end
+auth.$mount("#auth-container");
 
+
+authBtn.init();

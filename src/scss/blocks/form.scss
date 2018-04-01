@@ -11,10 +11,19 @@
     transform: translateY(-50%);
     color: red;
     font-weight: bold;
+}
 
-    &:before {
-        // content: "<-";
+.form__checkFailed {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    color: red;
+    font-weight: bold;
+    width: 300px;
 
+    &--last  {
+        top: 85%;
     }
 }
 
@@ -51,6 +60,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    &.error {
+        border: 2px solid red;
+
+        .form__svg {
+            fill: red;
+        }
+    }
 }
 
 .form__svg {
@@ -90,12 +107,13 @@
     color: #fff;
     text-align: center;
     padding: rem(15px) 0;
+    position: relative;
     
     &--last {
         margin-bottom: rem(30px);
 
         @include screen-xs {
-            margin-bottom: rem(5px);
+            margin-bottom: rem(15px);
         }
     }
 }

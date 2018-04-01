@@ -4,6 +4,11 @@ block head
     title Блог
 block content
     .maincontent
+        .loader#loader
+            .loader__pic
+                each val in [1, 2, 3, 4, 5]
+                    .loader__circle
+                        .loader__inner
         .section.blog
             h1.visually-hidden Блог. Статьи, которые я написала      
             header.header

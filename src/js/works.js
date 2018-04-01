@@ -1,17 +1,21 @@
 let ham = require ('./modules/hamburger');
-let Vue = require ('vue/dist/vue');
 let blur = require ('./modules/blur');
+let loader = require ('./modules/preloader');
+
+loader.init();
+
+let Vue = require ('vue/dist/vue');
 var SimpleVueValidation = require('simple-vue-validator');
 
 var Validator = SimpleVueValidation.Validator;
 Vue.use(SimpleVueValidation);
+
 
 ham.init();
 
 window.onload= function () {
     blur.init();
 };
-// blur.init();
 
 window.onresize = function () {
     blur.init();

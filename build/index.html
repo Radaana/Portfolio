@@ -61,48 +61,55 @@
               </ul>
             </div>
           </div>
-          <div class="auth flipper__back">
+          <div class="auth flipper__back" id="auth-container">
             <h2 class="section__subtitle section__subtitle--white auth__title">Авторизация</h2>
-            <form class="auth__form form form--contact" action="">
-              <div class="form__input"><span class="form__pic">
-                  <svg class="form__svg" width="17" height="17">
-                    <use xlink:href="img/sprite.svg#login"></use>
-                  </svg></span>
-                <label class="visually-hidden" for="login">Логин</label>
-                <input class="input input--half-round" type="text" name="login" placeholder="Логин" id="login" required>
-              </div>
-              <div class="form__input"><span class="form__pic">
-                  <svg class="form__svg" width="17" height="17">
-                    <use xlink:href="img/sprite.svg#password"></use>
-                  </svg></span>
-                <label class="visually-hidden" for="password">Пароль</label>
-                <input class="input input--half-round" type="password" name="password" placeholder="Пароль" id="password" required>
-              </div>
-              <div class="form__group">
-                <label class="form__checkbox">
-                  <input class="form__hidden" type="checkbox" id="human" name="human" value="1" checked><span class="form__switch form__switch--checkbox"> </span><span class="form__label">Я человек </span>
-                </label>
-              </div>
-              <div class="form__group form__group--last"><span class="form__text">А вы точно не робот?</span>
-                <div class="form__radios">
-                  <label class="form__radio">
-                    <input class="form__hidden" type="radio" name="robot" value="Да" checked><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Да</span>
-                  </label>
-                  <label class="form__radio"> 
-                    <input class="form__hidden" type="radio" name="robot" value="Не уверен"><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Не уверен</span>
-                  </label>
-                </div>
-              </div>
-              <div class="form__buttons">
-                <button class="btn form__btn" id="to-main" title="Главная" type="button">На главную</button>
-                <button class="btn form__btn" type="submit">Войти            </button>
-              </div>
-            </form>
+            <auth-form>    </auth-form>
           </div>
         </div>
         <div class="copyright welcome__copyright"><span class="copyright__name">© Екатерина Леонидова  </span><span class="copyright__place">создано с любовью в LoftSchool | 2018 </span></div>
       </section>
     </div>
+    <script type="text/x-template" id="auth-form">
+      <form class="auth__form form form--contact" action="">
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('login') }}</div><span class="form__pic" :class="{error: validation.hasError('login')}">
+            <svg class="form__svg" width="17" height="17">
+              <use xlink:href="img/sprite.svg#login"></use>
+            </svg></span>
+          <label class="visually-hidden" for="login">Логин</label>
+          <input class="input input--half-round" v-model="login" :class="{error: validation.hasError('login')}" type="text" name="login" placeholder="Логин" id="login" required>
+        </div>
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('password') }}</div><span class="form__pic" :class="{error: validation.hasError('password')}">
+            <svg class="form__svg" width="17" height="17">
+              <use xlink:href="img/sprite.svg#password"></use>
+            </svg></span>
+          <label class="visually-hidden" for="password">Пароль</label>
+          <input class="input input--half-round" v-model="password" :class="{error: validation.hasError('password')}" type="password" name="password" placeholder="Пароль" id="password" required>
+        </div>
+        <div class="form__group">
+          <div class="form__checkFailed">{{ validation.firstError('human') }}</div>
+          <label class="form__checkbox">
+            <input class="form__hidden" v-model="human" type="checkbox" id="human" name="human" value="1"><span class="form__switch form__switch--checkbox"> </span><span class="form__label">Я человек </span>
+          </label>
+        </div>
+        <div class="form__group form__group--last">
+          <div class="form__checkFailed form__checkFailed--last">{{ validation.firstError('isSure') }}</div><span class="form__text">А вы точно не робот?</span>
+          <div class="form__radios">
+            <label class="form__radio">
+              <input class="form__hidden" v-model="isSure" type="radio" name="isSure" value="1"><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Да</span>
+            </label>
+            <label class="form__radio"> 
+              <input class="form__hidden" v-model="isSure" type="radio" name="isSure" value="0" checked><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Не уверен</span>
+            </label>
+          </div>
+        </div>
+        <div class="form__buttons">
+          <button class="btn form__btn" @click.prevent="reset" id="to-main" title="Главная" type="button">На главную</button>
+          <button class="btn form__btn" @click.prevent="submit" type="button">Войти       </button>
+        </div>
+      </form>
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js"></script>
     <script src="http://threejs.org/build/three.min.js"></script>
     <script id="vertexShader" type="x-shader/x-vertex">

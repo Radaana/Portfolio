@@ -2,7 +2,9 @@ let Vue = require ('vue/dist/vue');
 
 let ham = require ('./modules/hamburger');
 let blogBtn = require ('./modules/blog-btn');
+let loader = require ('./modules/preloader');
 
+loader.init();
 ham.init();
 
 
