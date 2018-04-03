@@ -35,7 +35,7 @@ window.onresize = function () {
 
   Vue.component("slider-display", {
     template: "#slider-display",
-    props: ['site'],
+    props: ['sites' ,"i"],
     data() {
       return {
  
@@ -50,6 +50,7 @@ window.onresize = function () {
     props: [ 'direction', 'sites', 'i'],
     data() {
       return {
+        show: true,
       }
     },
     computed: {
@@ -74,12 +75,13 @@ window.onresize = function () {
     },
     methods: {
         handleClick: function (event){
-                if (this.direction == 'up') {
-                    this.$emit('arrow', {direction:"up"});
-                } else {
-                    this.$emit('arrow', {direction:"down"});
-                }
-        }
+            if (this.direction == 'up') {
+                this.$emit('arrow', {direction:"up"});
+            } else {
+                this.$emit('arrow', {direction:"down"});
+            }
+        },
+
     },
   }); //slider-part 
 

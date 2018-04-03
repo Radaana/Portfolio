@@ -69,10 +69,10 @@ block script
             .form__buttons
                 button.btn.form__btn(@click.prevent="reset" id="to-main" title="Главная" type="button") На главную
                 button.btn.form__btn(@click.prevent="submit" type="button") Войти       
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js")
-    script(src="http://threejs.org/build/three.min.js")
-    script.
-        window.THREE || document.write('<script src="js/three.min.js"></script>')
+    script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js")
+    script(src="//threejs.org/build/three.min.js")
+    //- script.
+    //-     window.THREE || document.write('<script src="js/three.min.js"></script>')
     script(id="vertexShader" type="x-shader/x-vertex")
         .
             varying vec2 v_position;

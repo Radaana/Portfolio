@@ -5,6 +5,7 @@ module.exports = {
   // mode: 'development',
   entry: {
     'index' : path.resolve(__dirname, "src/js/index.js"),
+    // 'index' : path.resolve(__dirname, "src/js/index"),
     'blog' : path.resolve(__dirname, "src/js/blog.js"),
     'works' : path.resolve(__dirname, "src/js/works.js"),
     'about' : path.resolve(__dirname, "src/js/about.js"),
@@ -86,6 +87,8 @@ module.exports = {
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
+      simpleVueValidator$: 'simple-vue-validator/dist/plugin.js',
+      // vue$: 'vue/dist/vue.common.js',
       styles: path.resolve(__dirname, "src/scss/blocks/"),
       images: path.resolve(__dirname, "src/img/")
     },
@@ -131,23 +134,23 @@ module.exports = {
 //   ]);
 // }
 
-if (process.env.NODE_ENV === "production") {
-  module.exports.devtool = "#source-map";
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ]);
-}
+// if (process.env.NODE_ENV === "production") {
+//   module.exports.devtool = "#source-map";
+//   // http://vue-loader.vuejs.org/en/workflow/production.html
+//   module.exports.plugins = (module.exports.plugins || []).concat([
+//     new webpack.DefinePlugin({
+//       "process.env": {
+//         NODE_ENV: '"production"'
+//       }
+//     }),
+//     new webpack.optimize.UglifyJsPlugin({
+//       sourceMap: true,
+//       compress: {
+//         warnings: false
+//       }
+//     }),
+//     new webpack.LoaderOptionsPlugin({
+//       minimize: true
+//     })
+//   ]);
+// }

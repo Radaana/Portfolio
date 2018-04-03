@@ -41,7 +41,7 @@ block content
                         h2.section__title.section__title--dark  Мои Работы
                     .works__slider.slider#slider
                             slider-info(:site="sites[i]")
-                            slider-display(:site="sites[i]")
+                            slider-display(:sites="sites"  :i="i")
                             .slider__btns
                                 slider-part(:direction="direction[0]"  :sites="sites"  :i="i" v-on:arrow="handleArrow")
                                 slider-part(:direction="direction[1]"  :sites="sites"  :i="i" v-on:arrow="handleArrow")
@@ -97,18 +97,28 @@ block script
                 span.link-btn__link-text Посмотреть сайт
     script(type="text/x-template",id="slider-display")
         .slider__display 
-            .slider__work 
-                img.img(:src="site.src"  :alt="site.title")
+            transition-group(name="fade" mode="out-in" tag="div")
+                .slider__work(v-for="(site, index) in sites"  v-if="index==i"  :key="site")
+                    img.img(:src="site.src"  :alt="site.title")
     script(type="text/x-template",id="slider-part")
-        .slider__bottom
-            .slider__work
-                img.img.img-fade(v-if="direction == 'down'"  :src="sites[previousI].src"  :alt="sites[previousI].title")
-                img.img.img-fade(v-else  :src="sites[nextI].src"  :alt="sites[nextI].title")
+        .slider__bottom(v-if="direction == 'down'" class="slider--first" )
+            .slider__thumbnails
+                transition-group(name="component-fade" mode="out-in" tag="div")
+                    .slider__thumbnail(v-for="(site, index) in sites"  v-if="index==nextI"  :key="site")
+                        img.img( :src="site.src"  :alt="site.title"  :id="index" )
             button.btn.slider__btn(type="button" @click="handleClick")
                 .arrow.slider__arrow
                     svg.svg
-                        use(v-if="direction == 'down'" xlink:href="img/sprite.svg#arrow_down")
-                        use(v-else xlink:href="img/sprite.svg#portf_arrow_up")
+                        use(xlink:href="img/sprite.svg#arrow_down")
+        .slider__bottom(v-else class="slider--opposite" )   
+            .slider__thumbnails
+                transition-group(name="component-opposite" mode="out-in" tag="div")
+                    .slider__thumbnail(v-for="(site, index) in sites"  v-if="index==previousI"  :key="site")
+                        img.img( :src="site.src"  :alt="site.title"  :id="index" )
+            button.btn.slider__btn(type="button" @click="handleClick")
+                .arrow.slider__arrow
+                    svg.svg
+                        use(xlink:href="img/sprite.svg#portf_arrow_up")
     script(type="text/x-template",id="contact-form")
         form.contact-me__form.form.form--contact(action="")
             .form__input
