@@ -98,13 +98,13 @@ block script
     script(type="text/x-template",id="slider-display")
         .slider__display 
             transition-group(name="fade" mode="out-in" tag="div")
-                .slider__work(v-for="(site, index) in sites"  v-if="index==i"  :key="site")
+                .slider__work(v-for="(site, index) in sites"  v-if="index==i"  :key="site.id")
                     img.img(:src="site.src"  :alt="site.title")
     script(type="text/x-template",id="slider-part")
         .slider__bottom(v-if="direction == 'down'" class="slider--first" )
             .slider__thumbnails
                 transition-group(name="component-fade" mode="out-in" tag="div")
-                    .slider__thumbnail(v-for="(site, index) in sites"  v-if="index==nextI"  :key="site")
+                    .slider__thumbnail(v-for="(site, index) in sites"  v-if="index==nextI"  :key="site.id")
                         img.img( :src="site.src"  :alt="site.title"  :id="index" )
             button.btn.slider__btn(type="button" @click="handleClick")
                 .arrow.slider__arrow
@@ -113,7 +113,7 @@ block script
         .slider__bottom(v-else class="slider--opposite" )   
             .slider__thumbnails
                 transition-group(name="component-opposite" mode="out-in" tag="div")
-                    .slider__thumbnail(v-for="(site, index) in sites"  v-if="index==previousI"  :key="site")
+                    .slider__thumbnail(v-for="(site, index) in sites"  v-if="index==previousI"  :key="site.id")
                         img.img( :src="site.src"  :alt="site.title"  :id="index" )
             button.btn.slider__btn(type="button" @click="handleClick")
                 .arrow.slider__arrow

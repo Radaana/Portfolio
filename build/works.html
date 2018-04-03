@@ -206,7 +206,7 @@
     <script type="text/x-template" id="slider-display">
       <div class="slider__display"> 
         <transition-group name="fade" mode="out-in" tag="div">
-          <div class="slider__work" v-for="(site, index) in sites" v-if="index==i" :key="site"><img class="img" :src="site.src" :alt="site.title"></div>
+          <div class="slider__work" v-for="(site, index) in sites" v-if="index==i" :key="site.id"><img class="img" :src="site.src" :alt="site.title"></div>
         </transition-group>
       </div>
     </script>
@@ -214,7 +214,7 @@
       <div class="slider__bottom slider--first" v-if="direction == 'down'">
         <div class="slider__thumbnails">
           <transition-group name="component-fade" mode="out-in" tag="div">
-            <div class="slider__thumbnail" v-for="(site, index) in sites" v-if="index==nextI" :key="site"><img class="img" :src="site.src" :alt="site.title" :id="index"></div>
+            <div class="slider__thumbnail" v-for="(site, index) in sites" v-if="index==nextI" :key="site.id"><img class="img" :src="site.src" :alt="site.title" :id="index"></div>
           </transition-group>
         </div>
         <button class="btn slider__btn" type="button" @click="handleClick">
@@ -228,7 +228,7 @@
       <div class="slider__bottom slider--opposite" v-else>  
         <div class="slider__thumbnails">
           <transition-group name="component-opposite" mode="out-in" tag="div">
-            <div class="slider__thumbnail" v-for="(site, index) in sites" v-if="index==previousI" :key="site"><img class="img" :src="site.src" :alt="site.title" :id="index"></div>
+            <div class="slider__thumbnail" v-for="(site, index) in sites" v-if="index==previousI" :key="site.id"><img class="img" :src="site.src" :alt="site.title" :id="index"></div>
           </transition-group>
         </div>
         <button class="btn slider__btn" type="button" @click="handleClick">

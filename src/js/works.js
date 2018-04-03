@@ -99,14 +99,14 @@ window.onresize = function () {
             },
             {
                 id: 102,
-                title: "Сайтик",
+                title: "Сайт",
                 desc: "HTML, CSS",
                 src: "img/work-2.png",
                 link: "https://loftschool.com",
             },
             {
                 id: 103,
-                title: "Мой самый любимый сайтик",
+                title: "Мой самый любимый сайт",
                 desc: "HTML, CSS, JAVASCRIPT, VUE",
                 src: "img/work-3.png",
                 link: "https://loftschool.com",

@@ -71,8 +71,8 @@ block script
                 button.btn.form__btn(@click.prevent="submit" type="button") Войти       
     script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js")
     script(src="//threejs.org/build/three.min.js")
-    //- script.
-    //-     window.THREE || document.write('<script src="js/three.min.js"></script>')
+    script.
+        window.THREE || document.write('<script src="js/three.min.js"></script>')
     script(id="vertexShader" type="x-shader/x-vertex")
         .
             varying vec2 v_position;
