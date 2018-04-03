@@ -5,11 +5,29 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Мои работы</title>
   </head>
   <body>
     <div class="maincontent">
+      <div class="loader" id="loader">
+        <div class="loader__pic">
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+        </div>
+      </div>
       <section class="section works">
         <h1 class="visually-hidden">Мои работы и отзывы обо мне  </h1>
         <header class="header">
@@ -66,38 +84,12 @@
               </div>
               <h2 class="section__title section__title--dark"> Мои Работы</h2>
             </div>
-            <div class="works__slider slider">
-              <div class="slider__info"> 
-                <h3 class="section__subtitle slider__title">Сайт школы онлайн-образования</h3>
-                <div class="slider__desc">HTML, CSS, JAVASCRIPT</div><a class="slider__link link-btn" href="#"><span class="link-btn__icon">
-                    <svg class="link-btn__svg">
-                      <use xlink:href="img/sprite.svg#link"></use>
-                    </svg></span><span class="link-btn__link-text">Посмотреть сайт</span></a>
-              </div>
-              <div class="slider__display"> 
-                <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
-              </div>
+            <div class="works__slider slider" id="slider">
+              <slider-info :site="sites[i]"></slider-info>
+              <slider-display :sites="sites" :i="i"></slider-display>
               <div class="slider__btns">
-                <div class="slider__left">
-                  <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
-                  <button class="btn slider__btn" type="button">
-                    <div class="arrow slider__arrow">
-                      <svg class="svg">
-                        <use xlink:href="img/sprite.svg#arrow_down"></use>
-                      </svg>
-                    </div>
-                  </button>
-                </div>
-                <div class="slider__right">
-                  <div class="slider__work"> <img class="img" src="img/works.png" alt="Сайт школы онлайн образования"></div>
-                  <button class="btn slider__btn" type="button">
-                    <div class="arrow arrow--up slider__arrow">
-                      <svg class="svg">
-                        <use xlink:href="img/sprite.svg#arrow_down"></use>
-                      </svg>
-                    </div>
-                  </button>
-                </div>
+                <slider-part :direction="direction[0]" :sites="sites" :i="i" v-on:arrow="handleArrow"></slider-part>
+                <slider-part :direction="direction[1]" :sites="sites" :i="i" v-on:arrow="handleArrow"></slider-part>
               </div>
             </div>
           </section>
@@ -139,26 +131,9 @@
           <div class="speaking__form"></div>
           <div class="contact-me speaking__contact-me">
             <div class="contact-me__bg"> </div>
-            <div class="contact-me__content">
+            <div class="contact-me__content" id="contact-me">
               <h3 class="section__subtitle section__subtitle--dark contact-me__title">Связаться со мной</h3>
-              <form class="contact-me__form form form--contact" action="">
-                <div class="form__input">
-                  <label class="visually-hidden" for="name">Имя</label>
-                  <input class="input" type="text" name="name" placeholder="Имя" id="name">
-                </div>
-                <div class="form__input">
-                  <label class="visually-hidden" for="email">Email</label>
-                  <input class="input" type="email" name="email" placeholder="Email" id="email">
-                </div>
-                <div class="form__input">
-                  <label class="visually-hidden" for="email">Ваше сообщение</label>
-                  <textarea class="textarea form__textarea" name="comment" placeholder="Ваше сообщение" id="comment" rows="7"></textarea>
-                </div>
-                <div class="form__buttons">
-                  <button class="btn form__btn" type="submit">Отправить</button>
-                  <button class="btn form__btn" type="reset">Очистить</button>
-                </div>
-              </form>
+              <contact-form></contact-form>
             </div>
           </div>
           <button class="btn arrow speaking__arrow" type="button">
@@ -219,6 +194,75 @@
         </div>
       </section>
     </div>
+    <script type="text/x-template" id="slider-info">
+      <div class="slider__info"> 
+        <h3 class="section__subtitle slider__title">{{site.title}}</h3>
+        <div class="slider__desc">{{site.desc}}</div><a class="slider__link link-btn" :href="site.link" target="_blank" :title="site.title"><span class="link-btn__icon">
+            <svg class="link-btn__svg">
+              <use xlink:href="img/sprite.svg#link"></use>
+            </svg></span><span class="link-btn__link-text">Посмотреть сайт</span></a>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-display">
+      <div class="slider__display"> 
+        <transition-group name="fade" mode="out-in" tag="div">
+          <div class="slider__work" v-for="(site, index) in sites" v-if="index==i" :key="site.id"><img class="img" :src="site.src" :alt="site.title"></div>
+        </transition-group>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-part">
+      <div class="slider__bottom slider--first" v-if="direction == 'down'">
+        <div class="slider__thumbnails">
+          <transition-group name="component-fade" mode="out-in" tag="div">
+            <div class="slider__thumbnail" v-for="(site, index) in sites" v-if="index==nextI" :key="site.id"><img class="img" :src="site.src" :alt="site.title" :id="index"></div>
+          </transition-group>
+        </div>
+        <button class="btn slider__btn" type="button" @click="handleClick">
+          <div class="arrow slider__arrow">
+            <svg class="svg">
+              <use xlink:href="img/sprite.svg#arrow_down"></use>
+            </svg>
+          </div>
+        </button>
+      </div>
+      <div class="slider__bottom slider--opposite" v-else>  
+        <div class="slider__thumbnails">
+          <transition-group name="component-opposite" mode="out-in" tag="div">
+            <div class="slider__thumbnail" v-for="(site, index) in sites" v-if="index==previousI" :key="site.id"><img class="img" :src="site.src" :alt="site.title" :id="index"></div>
+          </transition-group>
+        </div>
+        <button class="btn slider__btn" type="button" @click="handleClick">
+          <div class="arrow slider__arrow">
+            <svg class="svg">
+              <use xlink:href="img/sprite.svg#portf_arrow_up"></use>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </script>
+    <script type="text/x-template" id="contact-form">
+      <form class="contact-me__form form form--contact" action="">
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('name') }}</div>
+          <label class="visually-hidden" for="name">Имя</label>
+          <input class="input" v-model="name" :class="{error: validation.hasError('name')}" type="text" name="name" placeholder="Имя (*)" id="name">
+        </div>
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('email') }}</div>
+          <label class="visually-hidden" for="email">Email</label>
+          <input class="input" v-model="email" :class="{error: validation.hasError('email')}" type="text" name="email" placeholder="Email (*)" id="email">
+        </div>
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('comment') }}</div>
+          <label class="visually-hidden" for="comment">Ваше сообщение</label>
+          <textarea class="textarea form__textarea" v-model="comment" :class="{error: validation.hasError('comment')}" name="comment" placeholder="Ваше сообщение (*)" id="comment" rows="7"></textarea>
+        </div>
+        <div class="form__buttons">
+          <button class="btn form__btn" @click.prevent="submit" type="button">Отправить</button>
+          <button class="btn form__btn" type="reset">Очистить</button>
+        </div>
+      </form>
+    </script>
     <script src="js/works.bundle.js">   </script>
   </body>
 </html>

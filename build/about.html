@@ -5,11 +5,29 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Обо мне</title>
   </head>
   <body>
     <div class="maincontent">
+      <div class="loader" id="loader">
+        <div class="loader__pic">
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+        </div>
+      </div>
       <section class="section about-me">
         <h1 class="visually-hidden">Обо мне, мои навыки и контакты      </h1>
         <header class="header">
@@ -79,7 +97,7 @@
             <div class="about-me__right">
               <h3 class="section__subtitle about-me__subtitle">Чем я могу быть вам полезна</h3>
               <div class="text about-me__text">Больше всего меня привлекает Frontend разработка, но я могу решать несложные задачи на Backend. Ниже список моих навыков: </div>
-              <ul class="skills__list about-me__skills skills" id="app">
+              <ul class="skills__list about-me__skills skills" id="skills">
                 <skills-list :items="frontend"></skills-list>
                 <skills-list :items="backend"></skills-list>
                 <skills-list :items="workflow"></skills-list>
@@ -179,25 +197,25 @@
             </ul>
           </div>
         </div>
-        <script type="text/x-template" id="skills-item">
-          <li class="skills__skill skill"> 
-            <svg class="skill__circle circle" viewBox="0 0 110 110">
-              <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
-              <circle class="circle__second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" :class="'circle__second--' + skill.level "></circle>
-            </svg>
-            <div class="skill__title">{{skill.name}}</div>
-          </li>
-        </script>
-        <script type="text/x-template" id="skills-list">
-          <li class="skills__item">
-            <h4 class="skills__title">{{items.title}}</h4>
-            <ul class="skills__row">
-              <skills-item v-for="item in items.skills" :skill="item" :key="item.id"></skills-item>
-            </ul>
-          </li>
-        </script>
       </section>
     </div>
+    <script type="text/x-template" id="skills-item">
+      <li class="skills__skill skill"> 
+        <svg class="skill__circle circle" viewBox="0 0 110 110">
+          <circle class="circle__first" r="45" cx="50%" cy="50%" fill="none"></circle>
+          <circle class="circle__second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" :class="'circle__second--' + skill.level "></circle>
+        </svg>
+        <div class="skill__title">{{skill.name}}</div>
+      </li>
+    </script>
+    <script type="text/x-template" id="skills-list">
+      <li class="skills__item">
+        <h4 class="skills__title">{{items.title}}</h4>
+        <ul class="skills__row">
+          <skills-item v-for="item in items.skills" :skill="item" :key="item.id"></skills-item>
+        </ul>
+      </li>
+    </script>
     <script src="js/about.bundle.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdiqpmw5rW0CewRcKKUTZCtx4ePiFkEBA&amp;callback=initMap">            </script>
   </body>

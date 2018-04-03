@@ -4,6 +4,11 @@ block head
     title Обо мне
 block content
     .maincontent
+        .loader#loader
+            .loader__pic
+                each val in [1, 2, 3, 4, 5]
+                    .loader__circle
+                        .loader__inner
         section.section.about-me
             h1.visually-hidden Обо мне, мои навыки и контакты      
             header.header
@@ -45,7 +50,7 @@ block content
                     .about-me__right
                         h3.section__subtitle.about-me__subtitle Чем я могу быть вам полезна
                         .text.about-me__text Больше всего меня привлекает Frontend разработка, но я могу решать несложные задачи на Backend. Ниже список моих навыков: 
-                        ul.skills__list.about-me__skills.skills#app
+                        ul.skills__list.about-me__skills.skills#skills
                             skills-list(:items="frontend")
                             skills-list(:items="backend")
                             skills-list(:items="workflow")
@@ -66,18 +71,19 @@ block content
                     include pug/footer.pug
             .fullscreen
                 +nav(1)
-            script(type="text/x-template",id="skills-item")
-                li.skills__skill.skill 
-                    svg.skill__circle.circle(viewBox="0 0 110 110")
-                        circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
-                        circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__second"  :class="'circle__second--' + skill.level ")
-                    .skill__title {{skill.name}}
-            script(type="text/x-template" id="skills-list")
-                    li.skills__item
-                        h4.skills__title {{items.title}}
-                        ul.skills__row
-                            skills-item(v-for="item in items.skills"  :skill="item"  :key="item.id")
+            
 block script
+    script(type="text/x-template",id="skills-item")
+        li.skills__skill.skill 
+            svg.skill__circle.circle(viewBox="0 0 110 110")
+                circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__second"  :class="'circle__second--' + skill.level ")
+            .skill__title {{skill.name}}
+    script(type="text/x-template" id="skills-list")
+            li.skills__item
+                h4.skills__title {{items.title}}
+                ul.skills__row
+                    skills-item(v-for="item in items.skills"  :skill="item"  :key="item.id")
     script(src='js/about.bundle.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCdiqpmw5rW0CewRcKKUTZCtx4ePiFkEBA&callback=initMap')             
     

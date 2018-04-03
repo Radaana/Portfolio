@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    <title>Админ-панель</title>
+  </head>
+  <body>
+    <div class="maincontent admin-page">
+      <div class="admin" id="app">
+        <div class="admin-header">
+          <h1 class="admin-header__title">Панель администрирования</h1><a class="admin-header__link" href="index.html">Вернуться на сайт</a>
+        </div>
+        <div class="admin-tabs">
+          <button class="btn admin-tabs__tab" type="button">TAB 1</button>
+          <button class="btn admin-tabs__tab" type="button">TAB 2</button>
+          <button class="btn admin-tabs__tab" type="button">TAB 3</button>
+          <button class="btn admin-tabs__tab" type="button">TAB 4</button>
+        </div>
+        <form class="admin-main visually-hidden">
+          <h2 class="admin-main__title">Страница "Обо мне"</h2>
+          <div class="admin-main__inner">
+            <div class="admin-group admin-main__group">
+              <h3 class="admin-main__subtitle">Frontend</h3>
+              <div class="admin-group__row"><span class="admin-group__name">HTML</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="50" required><span class="admin-group__persent">%</span>
+              </div>
+              <div class="admin-group__row"><span class="admin-group__name">CSS</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="50" required><span class="admin-group__persent">%</span>
+              </div>
+              <div class="admin-group__row"><span class="admin-group__name">JavaScript</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="50" required><span class="admin-group__persent">%</span>
+              </div>
+            </div>
+            <div class="admin-group admin-main__group">
+              <h3 class="admin-main__subtitle">Backend</h3>
+              <div class="admin-group__row"><span class="admin-group__name">PHP</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="30" required><span class="admin-group__persent">%</span>
+              </div>
+              <div class="admin-group__row"><span class="admin-group__name">mySQL</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="30" required><span class="admin-group__persent">%</span>
+              </div>
+              <div class="admin-group__row"><span class="admin-group__name">Node.js &amp; npm</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="30" required><span class="admin-group__persent">%</span>
+              </div>
+              <div class="admin-group__row"><span class="admin-group__name">MongoDB</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="30" required><span class="admin-group__persent">%</span>
+              </div>
+            </div>
+            <div class="admin-group admin-main__group">
+              <h3 class="admin-main__subtitle">Workflow</h3>
+              <div class="admin-group__row"><span class="admin-group__name">Git</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="60" required><span class="admin-group__persent">%</span>
+              </div>
+              <div class="admin-group__row"><span class="admin-group__name">Gulp</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="60" required><span class="admin-group__persent">%</span>
+              </div>
+              <div class="admin-group__row"><span class="admin-group__name">Bower</span>
+                <input class="admin__input admin-group__input" type="text" placeholder="60" required><span class="admin-group__persent">%</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn admin-btn" type="submit">Сохранить</button>
+        </form>
+        <form class="admin-blog visually-hidden">
+          <h2 class="admin-main__title">Страница "Блог"</h2>
+          <h3 class="admin-main__subtitle">Добавить запись</h3>
+          <input class="admin__input admin-blog__input" type="text" placeholder="Название" required>
+          <input class="admin__input admin-blog__input" type="text" placeholder="Дата" required>
+          <textarea class="admin__input admin-blog__textarea" name="comment" placeholder="Содержание" id="comment" rows="7" required>             </textarea>
+          <button class="btn admin-btn" type="submit">Добавить</button>
+        </form>
+        <form class="admin-works">
+          <h2 class="admin-main__title">Страница "Мои работы"</h2>
+          <h3 class="admin-main__subtitle">Добавить работу</h3>
+          <input class="admin__input admin-blog__input" type="text" placeholder="Название проекта" required>
+          <input class="admin__input admin-blog__input" type="text" placeholder="Технологии" required>
+          <button class="btn works-btn" type="button">Загрузить картинку       </button>
+          <button class="btn admin-btn" type="submit">Добавить</button>
+        </form>
+      </div>
+    </div>
+    <script src="js/admin.bundle.js">   </script>
+  </body>
+</html>

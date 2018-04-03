@@ -5,12 +5,31 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Сайт-портфолио</title>
   </head>
   <body>
     <div class="maincontent">
+      <div class="loader" id="loader">
+        <div class="loader__pic">
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+          <div class="loader__circle">
+            <div class="loader__inner"></div>
+          </div>
+        </div>
+      </div>
       <section class="section welcome">
+        <div class="welcome__webgl" id="container"></div>
         <h1 class="visually-hidden">Личный сайт разработчика Леонидовой Екатерины  </h1>
         <button class="btn welcome-btn welcome__button" title="Авторизация" id="auth" type="button">Авторизоваться</button>
         <div class="welcome__flipper flipper">
@@ -42,48 +61,132 @@
               </ul>
             </div>
           </div>
-          <div class="auth flipper__back">
+          <div class="auth flipper__back" id="auth-container">
             <h2 class="section__subtitle section__subtitle--white auth__title">Авторизация</h2>
-            <form class="auth__form form form--contact" action="">
-              <div class="form__input"><span class="form__pic">
-                  <svg class="form__svg" width="17" height="17">
-                    <use xlink:href="img/sprite.svg#login"></use>
-                  </svg></span>
-                <label class="visually-hidden" for="login">Логин</label>
-                <input class="input input--half-round" type="text" name="login" placeholder="Логин" id="login">
-              </div>
-              <div class="form__input"><span class="form__pic">
-                  <svg class="form__svg" width="17" height="17">
-                    <use xlink:href="img/sprite.svg#password"></use>
-                  </svg></span>
-                <label class="visually-hidden" for="password">Пароль</label>
-                <input class="input input--half-round" type="password" name="password" placeholder="Пароль" id="password">
-              </div>
-              <div class="form__group">
-                <label class="form__checkbox">
-                  <input class="form__hidden" type="checkbox" id="human" name="human" value="1" checked><span class="form__switch form__switch--checkbox"> </span><span class="form__label">Я человек </span>
-                </label>
-              </div>
-              <div class="form__group form__group--last"><span class="form__text">А вы точно не робот?</span>
-                <div class="form__radios">
-                  <label class="form__radio">
-                    <input class="form__hidden" type="radio" name="robot" value="Да" checked><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Да</span>
-                  </label>
-                  <label class="form__radio"> 
-                    <input class="form__hidden" type="radio" name="robot" value="Не уверен"><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Не уверен</span>
-                  </label>
-                </div>
-              </div>
-              <div class="form__buttons">
-                <button class="btn form__btn" id="to-main" title="Главная" type="button">На главную</button>
-                <button class="btn form__btn" type="submit">Войти            </button>
-              </div>
-            </form>
+            <auth-form>    </auth-form>
           </div>
         </div>
         <div class="copyright welcome__copyright"><span class="copyright__name">© Екатерина Леонидова  </span><span class="copyright__place">создано с любовью в LoftSchool | 2018 </span></div>
       </section>
     </div>
+    <script type="text/x-template" id="auth-form">
+      <form class="auth__form form form--contact" action="">
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('login') }}</div><span class="form__pic" :class="{error: validation.hasError('login')}">
+            <svg class="form__svg" width="17" height="17">
+              <use xlink:href="img/sprite.svg#login"></use>
+            </svg></span>
+          <label class="visually-hidden" for="login">Логин</label>
+          <input class="input input--half-round" v-model="login" :class="{error: validation.hasError('login')}" type="text" name="login" placeholder="Логин" id="login" required>
+        </div>
+        <div class="form__input">
+          <div class="form__message">{{ validation.firstError('password') }}</div><span class="form__pic" :class="{error: validation.hasError('password')}">
+            <svg class="form__svg" width="17" height="17">
+              <use xlink:href="img/sprite.svg#password"></use>
+            </svg></span>
+          <label class="visually-hidden" for="password">Пароль</label>
+          <input class="input input--half-round" v-model="password" :class="{error: validation.hasError('password')}" type="password" name="password" placeholder="Пароль" id="password" required>
+        </div>
+        <div class="form__group">
+          <div class="form__checkFailed">{{ validation.firstError('human') }}</div>
+          <label class="form__checkbox">
+            <input class="form__hidden" v-model="human" type="checkbox" id="human" name="human" value="1"><span class="form__switch form__switch--checkbox"> </span><span class="form__label">Я человек </span>
+          </label>
+        </div>
+        <div class="form__group form__group--last">
+          <div class="form__checkFailed form__checkFailed--last">{{ validation.firstError('isSure') }}</div><span class="form__text">А вы точно не робот?</span>
+          <div class="form__radios">
+            <label class="form__radio">
+              <input class="form__hidden" v-model="isSure" type="radio" name="isSure" value="1"><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Да</span>
+            </label>
+            <label class="form__radio"> 
+              <input class="form__hidden" v-model="isSure" type="radio" name="isSure" value="0" checked><span class="form__switch form__switch--radio"></span><span class="form__label form__label--green"> Не уверен</span>
+            </label>
+          </div>
+        </div>
+        <div class="form__buttons">
+          <button class="btn form__btn" @click.prevent="reset" id="to-main" title="Главная" type="button">На главную</button>
+          <button class="btn form__btn" @click.prevent="submit" type="button">Войти       </button>
+        </div>
+      </form>
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js"></script>
+    <script src="//threejs.org/build/three.min.js"></script>
+    <script>window.THREE || document.write('<script src="js/three.min.js"></script>')</script>
+    <script id="vertexShader" type="x-shader/x-vertex">
+      varying vec2 v_position;
+      uniform vec2 u_size;
+      uniform vec2 u_resolution;
+      attribute vec2 a_pos;
+      void main() {
+              v_position = (position.xy+1.0)*0.5;
+              gl_Position =  vec4(position, 1.0);            
+      }
+    </script>
+    <script id="fragmentShader" type="x-shader/x-fragment">
+      uniform float u_time;
+      varying vec2 v_position;
+      uniform sampler2D u_image;
+      uniform sampler2D u_maps;
+      uniform vec2 u_mouse;
+      uniform float u_dpi;
+      uniform vec2 u_resolution;
+      vec2 pos(){
+      return vec2(0.0,0.0);
+      } 
+      vec4 blend(vec4 bg,vec4 fg){
+      vec3 bgm=bg.rgb*bg.a;
+      vec3 fgm=fg.rgb*fg.a;
+      float ia=1.0-fg.a;
+      float a=(fg.a + bg.a * ia);
+      vec3 rgb;
+      if(a!=0.0){
+          rgb=(fgm + bgm * ia) / a;
+      }else{
+          rgb=vec3(0.0,0.0,0.0);
+      }
+      return vec4(rgb,a);
+      }
+      vec2 pixel(){
+      return vec2(1.0*1.0)/u_resolution;
+      }
+      float wave(float x,float freq, float speed){
+      return sin(x*freq+((u_time*(3.1415/2.0))*speed));
+      }
+      vec2 waves(vec2 pos){
+      vec4 maps=texture2D(u_maps,pos);
+      float mask=maps.r;
+      float y=maps.g;
+      float y2=pow(y,2.0);
+      
+      vec2 intensity=vec2(
+          0.5-(y2*0.5),
+          0.2+(y2*1.8)
+      )*pixel();
+      
+      vec2 waves=vec2(
+          wave(y,400.0-(y2*200.0),-0.03), 
+          wave(y,400.0-(y2*400.0*0.05),-0.045)
+          +wave(y,900.0-(y2*900.0*0.05),-0.05)
+          +wave(pos.x,20.0+(y2*20.0*1.5),-0.01)
+      );
+      return pos+(waves*intensity*mask);
+      }
+      vec2 depth(vec2 pos){
+      vec2 intensity=vec2(0.01,0.01);
+      float d=0.05-pow(texture2D(u_maps,pos).b,1.0);
+      return pos+(intensity*u_mouse*d);
+      }
+      
+      void main(){
+          vec2 pos=v_position.xy;    
+          vec2 turbulence=depth(waves(pos));
+          vec2 noTurbulence=depth(pos);
+          vec4 c=texture2D(u_image,turbulence);
+      
+          gl_FragColor=vec4(c.rgb,1.0);
+      }
+    </script>
     <script src="js/index.bundle.js"></script>
   </body>
 </html>

@@ -1,6 +1,30 @@
 .form__input {
     padding: rem(10px) rem(20px);
     display: flex;
+    position: relative;
+}
+
+.form__message {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    color: red;
+    font-weight: bold;
+}
+
+.form__checkFailed {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    color: red;
+    font-weight: bold;
+    width: 300px;
+
+    &--last  {
+        top: 85%;
+    }
 }
 
 .form__buttons {
@@ -11,6 +35,7 @@
 
 .form__btn {
     width: 50%;
+    height: 100%;
     padding: rem(15px) rem(15px);
     background-color: $lightGreen;
     font-family: 'robotomedium', sans-serif;
@@ -35,6 +60,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    &.error {
+        border: 2px solid red;
+
+        .form__svg {
+            fill: red;
+        }
+    }
 }
 
 .form__svg {
@@ -46,6 +79,10 @@
 .form__text {
     display: block;
     padding-bottom: rem(15px);
+
+    @include screen-xs {
+        padding-bottom: rem(5px);
+    }
 }
 
 .form__checkbox {
@@ -53,6 +90,10 @@
     align-items: center;
     justify-content: center;
     padding: 0 rem(20px);
+
+    @include screen-xs {
+        padding: 0 rem(5px);
+    }
 }
 
 .form__radios {
@@ -66,9 +107,14 @@
     color: #fff;
     text-align: center;
     padding: rem(15px) 0;
+    position: relative;
     
     &--last {
         margin-bottom: rem(30px);
+
+        @include screen-xs {
+            margin-bottom: rem(15px);
+        }
     }
 }
 
